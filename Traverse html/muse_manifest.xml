@@ -1,0 +1,33 @@
+<manifest alg="2" build="2018.0.0.379" opt="false" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="traverse.co.uk" resolutions="1x" timestamp="1539529656640">
+  <folder name="css">
+    <file name="site_global.css" crc="444006867"/>
+    <file name="index.css" crc="339585716" ref="index"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index"/>
+    <file name="museutils.js" crc="3803043152" ref="index"/>
+    <file name="whatinput.js" crc="86476730" ref="index"/>
+    <file name="museconfig.js" crc="380897831" ref="index"/>
+    <file name="jquery.watch.js" crc="99325471" ref="index"/>
+    <file name="require.js" crc="4157109226" ref="index"/>
+  </folder>
+  <folder name="images">
+    <file name="capture.jpg" crc="3938920304" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="wheelchari.png" crc="474834" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="blind.png" crc="205135201" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="download.png" crc="405461316" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="calendar-512.png" crc="4234389168" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+  </folder>
+  <file name="index.html" crc="452353006" seo="true" mt="1539529499783" redirect="true"/>
+</manifest>

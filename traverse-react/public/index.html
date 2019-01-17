@@ -12,6 +12,7 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
+    <link rel="stylesheet" href="styling.css">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -25,8 +26,87 @@
     <title>React App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="navbar">
+      <div id="logo">
+        <img src="images/traverselogo2.png" alt="Logo" height="90" width="270">
+      </div>
 
+      <div id="nav-links">
+        <ul>
+          <li><a href="">Link 4</a></li>
+          <li><a href="">Link 3</a></li>
+          <li><a href="">Link 2</a></li>
+          <li><a href="">Link 1</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="root">
+    </div>
+    <div id="main-body">
+
+      <div id="ticket">
+        <div id="ticket-restriction-code-search">
+          <h2>Search Ticket Restriction Code</h2>
+          <div id="ticket-background">
+              <p>
+                Traverse your journey with ease
+                <br>
+                Search ticket code restrictions here:
+              </p>
+
+              <form>
+                <input type="text" name="ticket-restriction-code">
+                <input type="submit" value="Search">
+              </form>
+          </div>
+          <h2>
+          </h2>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="footer">
+    <div>
+      <ul class="social-media-icons">
+        <li>
+          <a href="https://facebook.com">
+            <img src="images/facebooklogo.png" alt="facebook">
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com">
+            <img src="images/twitterlogo.png" alt="twitter">
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com">
+            <img src="images/instagramlogo.png" alt="instagram">
+          </a>
+        </li>
+        <li>
+        <a href="https://youtube.com">
+          <img src="images/youtubelogo.png" alt="youtube">
+        </a>
+        </li>
+      </ul>
+    </div>
+
+      <div>
+        <ul>
+          <li><a href="">About this site</a></li>
+          <li> | </li>
+          <li><a href="">Sitemap</a></li>
+          <li> | </li>
+          <li><a href="">Terms of Use</a></li>
+          <li> | </li>
+          <li><a href="">Contact Us</a></li>
+          <li> | </li>
+          <li><a href="">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <p class="copyright">Copyright © Traverse 2018. All rights reserved.</p>
+    </div>
   </body>
 </html>

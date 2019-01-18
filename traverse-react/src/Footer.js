@@ -31,15 +31,15 @@ export default class Footer extends Component{
 
         <div>
           <ul>
-            <li><a href="">About this site</a></li>
+            <li><a href="/">About this site</a></li>
             <li> | </li>
-            <li><a href="">Sitemap</a></li>
+            <li><a href="/">Sitemap</a></li>
             <li> | </li>
-            <li><a href="">Terms of Use</a></li>
+            <li><a href="/">Terms of Use</a></li>
             <li> | </li>
-            <li><a href="">Contact Us</a></li>
+            <li><a href="/">Contact Us</a></li>
             <li> | </li>
-            <li><a href="">Privacy Policy</a></li>
+            <li><a href="/">Privacy Policy</a></li>
           </ul>
         </div>
         <p className="copyright">Copyright © Traverse 2018. All rights reserved.</p>

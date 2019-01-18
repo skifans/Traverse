@@ -4,6 +4,7 @@
   "description": "Step-by-step train travelling application",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vladislavs Murzjonoks, Valters Ivars Zemitis, Gareth Bennett, Alex Dhawan, Daniel Mizrachi",

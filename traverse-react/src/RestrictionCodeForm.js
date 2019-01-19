@@ -9,18 +9,20 @@ export default class RestrictionCodeForm extends Component{
             <h2>Search Ticket Restriction Code</h2>
             <div id="ticket-background">
                 <p>
-                  Traverse your journey with ease
+                  Traverse with ease
                   <br/>
                   Search ticket code restrictions here:
                 </p>
 
                 <form>
+                  <label for="ticket-restriction-code" id="label-route"><img src="images/route.png"/></label><br/>
                   <input type="text" name="ticket-restriction-code" placeholder="Enter Restriction Code"/>
                   <input type="submit" value="Search"/>
                 </form>
             </div>
-            <h2>
-            </h2>
+            <h3>
+              <img src="images/raillogo.png" alt="raillogo" height="30px" width="47px"/>
+            </h3>
           </div>
         </div>
 

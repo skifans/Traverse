@@ -3,9 +3,9 @@ import React, {Component} from 'react';
 export default class Footer extends Component{
   render(){
     return(
-      <div className="footer">
+      <footer>
       <div>
-        <ul className="social-media-icons">
+        <ul id="social-media-icons">
           <li>
             <a href="https://facebook.com">
               <img src="images/facebooklogo.png" alt="facebook"/>
@@ -42,8 +42,8 @@ export default class Footer extends Component{
             <li><a href="/">Privacy Policy</a></li>
           </ul>
         </div>
-        <p className="copyright">Copyright © Traverse 2018. All rights reserved.</p>
-      </div>
+        <p id="copyright">Copyright © Traverse 2019. All rights reserved.</p>
+      </footer>
     )
   }
 }

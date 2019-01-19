@@ -10,37 +10,13 @@ body a {
   transition: .7s;
 }
 
-form{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-form input[type='text']{
-  width: 50%;
-  height: 30px;
-  margin: 10px;
-  padding-left: 10px;
-  font-size: 20px;
-}
-
-form input[type='submit']{
-  width: 80px;
-  height: 30px;
-  margin-bottom: 5px;
-  background: white;
-  border: solid 2px #ed793e;
-  border-radius: 6px;
-  font-size: 15px;
-}
-
-form input[type='submit']:hover{
-  background: #ed793e;
-  cursor: pointer;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  font-size: 20px;
+  font-size: 12px;
   text-indent: 5px;
 }
 ::-moz-placeholder { /* Firefox 19+ */
@@ -54,71 +30,43 @@ form input[type='submit']:hover{
 }
 
 #navbar {
-  margin: 0 auto;
-  width: 75%;
+  width: 100%;
   background-color: #282828;
-  border: solid;
-  border-radius: 0px 0px 20px 20px;
+  border-bottom: 3px solid #FF9338;
 }
 
 #logo {
-  margin: 0px 0 0 30px;
   float: left;
+  padding: 5px 0 0 15%;
 }
 
 #nav-links ul {
+  padding-right: 15%;
   list-style-type: none;
-  margin: 40px 0 0 0;
-  padding: 0;
+  margin: 0;
   overflow: hidden;
 }
 #nav-links li {
   float: right;
-  font-size: 20px;
 }
 #nav-links li a {
   display: block;
-  padding: 15px 50px;
+  padding: 15px;
   text-decoration: none;
   color: white;
-  border-radius: 10px;
 }
 #nav-links li a:hover {
-  background-color: #fbff91;
-  color: black;
+  color: #FF9338;
 }
-
 
 #main-body {
-  margin: 50px auto;
+  margin: 100px auto 0px auto;
   width: 70%;
-}
-#main-body ul {
-  list-style-type: none;
-  text-align: center;
-  overflow: hidden;
-}
-#main-body li {
-  float: left;
-  margin: 10px;
-}
-
-#search-headings li {
-  margin: 5px 10%;
-}
-
-#drop-down-menu-filter-options {
-  text-align: center;
-  border: solid;
-  border-color: black;
-  border-width: 1px;
 }
 
 #ticket {
-  margin: 10px auto;
-  width: 500px;
-  border: 1px solid grey;
-  border-radius: 22px;
+  margin: 50px auto;
+  width: 400px;
 }
 #ticket-restriction-code-search {
   text-align: center;
@@ -129,58 +77,87 @@ form input[type='submit']:hover{
   color: black;
   background-color: #ed793e;
   margin: 0px;
-  padding: 10px;
+  padding: 5px;
+  height: 30px;
+}
+#ticket-restriction-code-search h3 {
+  text-align: left;
+  background-color: #ed793e;
+  margin: 0px;
+  padding: 5px 0px 15px 30px;
   height: 20px;
-  text-align: center;
-  font-size: 18px;
 }
 #ticket-restriction-code-search p {
   padding: 10px;
   margin: 0px;
 }
 #ticket-restriction-code-search form {
+  text-align: end;
   margin: 0px;
-  padding: 10px 5px 5px 10px;
+  padding: 40px 5px 5px 0px;
+}
+#label-route {
+  margin-right: 150px;
+}
+#ticket-restriction-code-search input[type=text] {
+  border:2px solid #ccc; 
+  border-radius: 5px;
+  width: 140px;
+  height: 20px;
+  font-size: 14px;
+  margin-right: 5px;
+}
+#ticket-restriction-code-search input[type=submit] {
+  padding: 3px;
+  background: white; 
+  border-radius: 6px;
+  border: solid 2px #ed793e;
+}
+#ticket-restriction-code-search input[type=submit]:hover {
+  background: #ed793e;
+  cursor: pointer;
 }
 
 #ticket-background {
-  background-image: url(Assets/textBackground.png);
+  background-image: url(images/textBackground.png);
   background-size: 100%;
 }
 
-
-.footer {
-  position: fixed;
+footer {
+  position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #282828;
   color:white;
+  border-top: 3px solid #FF9338;
+  overflow: hidden;
 }
 
-.footer a {
+footer a {
   text-decoration: none;
   color: white;
 }
-.footer a:hover {
-  color: yellow;
+footer a:hover {
+  color: #FF9338;
 }
 
-.footer ul {
+footer ul {
   list-style-type: none;
   text-align: center;
-  overflow: hidden;
+  margin: 0px;
 }
-.footer li {
+footer li {
   display: inline-block;
-  margin: 0 15px;
+  margin: 5px 15px;
 }
 
-.social-media-icons li {
-  margin: 5px 50px;
+#social-media-icons li {
+  margin: 5px 50px 0px 50px;
 }
 
-.copyright {
+#copyright {
+  margin: 1px;
   color: grey;
   font-size: 14px;
   text-align: center;

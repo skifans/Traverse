@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import RestrictionCodeForm from './RestrictionCodeForm';
-import SearchJourneyForm from './SearchJourneyForm.js';
-import Main from './Main';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import RestrictionCodeForm from './Components/RestrictionCodeForm';
+import SearchJourneyForm from './Components/SearchJourneyForm.js';
+import Main from './Components/Main';
 import {Switch, Route} from 'react-router-dom';
 
 class App extends Component {

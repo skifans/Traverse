@@ -9,8 +9,9 @@ app.set("views", __dirname + "/views");
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 // Default home page
+app.use('/', express.static(path.join(__dirname, '/../', 'traverse-react','build')))
 app.get("/", (req, res) => {
-  res.render("index.html");
+  res.sendFile(path.join(__dirname, '/../', 'traverse-react','build', 'index.html'));
 });
 
 // Post route from home page

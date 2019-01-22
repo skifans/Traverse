@@ -67,6 +67,58 @@ html {
   padding-bottom: 96px;
 }
 
+#search-journey-body {
+  width: 60%;
+  margin: 20px auto 40px auto;
+}
+
+#search-journey-options {
+  border: 1px solid black;
+  height: 150px;
+}
+#search-journey-options ul {
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+}
+#search-journey-options li {
+  display: inline;
+}
+
+
+#drop-down-options {
+  width: 50%;
+  float: left;
+}
+
+
+#filter-options-title {
+  width: 50%;
+  float: right;
+}
+#filter-options-title p {
+  margin: 0px;
+  float: left;
+}
+#filter-options-title label {
+  margin-left: 50px;
+}
+
+#filter-options {
+  float: right;
+  width: 50%;
+  background: lightgray;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 0px 5px;
+}
+
+
+
+
+
+
+
 #restriction-code-information {
   width: 60%;
   margin: 20px auto 40px auto;

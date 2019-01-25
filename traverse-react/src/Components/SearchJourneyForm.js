@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
 
+const fLeft = {
+  float: 'left'
+};
+const fRight = {
+  float: 'right'
+};
+
 export default class SearchJourneyForm extends Component{
   render(){
     return (
@@ -55,10 +62,10 @@ export default class SearchJourneyForm extends Component{
                 </div>
                 <div id="filter-options">
                   <ul>
-                    <li><input type="checkbox"/> Step free access</li>
-                    <li><input type="checkbox"/> Departure assistance</li>
-                    <li><input type="checkbox"/> Bike Storage (Station)</li>
-                    <li><input type="checkbox"/> Bike Storage (Train)</li>
+                    <li style={fLeft}><label><input type="checkbox"/>Step free access</label></li>
+                    <li style={fRight}><label><input type="checkbox"/>Departure assistance</label></li>
+                    <li style={fLeft}><label><input type="checkbox"/>Bike Storage (Station)</label></li>
+                    <li style={fRight}><label><input type="checkbox"/>Bike Storage (Train)</label></li>
                   </ul>
                 </div>
             </form>

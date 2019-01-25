@@ -15,6 +15,10 @@ html {
   min-height: 100%;
 }
 
+ul {
+  margin: 0px;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   font-size: 13px;
   text-indent: 5px;
@@ -43,7 +47,6 @@ html {
 #nav-links ul {
   padding-right: 15%;
   list-style-type: none;
-  margin: 0;
   overflow: hidden;
 }
 #nav-links li {
@@ -61,14 +64,70 @@ html {
 
 #main-body {
   margin: 30px auto 0px auto;
-  width: 100%;
+  width: 60%;
+  background-color: white;
 
   min-height: 100%;       /*For the footer, footer is 96px height*/
   padding-bottom: 96px;
 }
 
+#search-journey-body {
+  margin: 20px auto 40px auto;
+}
+
+#search-journey-options {
+  border: 1px solid black;
+  height: 110px;
+}
+#search-journey-options ul {
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+}
+#search-journey-options li {
+  display: inline;
+}
+
+
+#drop-down-options {
+  width: 50%;
+  float: left;
+}
+
+
+#filter-options-title {
+  width: 50%;
+  float: right;
+}
+#filter-options-title p {
+  margin: 0px;
+  float: left;
+}
+#filter-options-title label {
+  margin-left: 50px;
+}
+
+#filter-options {
+  float: right;
+  width: 48%;
+  background: lightgray;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 5px 10px 0px 0px;
+}
+#filter-options li {
+  margin: 3px 20px 3px 10px;
+}
+#filter-options li:last-child {
+  margin-right: 31px;
+}
+
+
+
+
+
+
 #restriction-code-information {
-  width: 60%;
   margin: 20px auto 40px auto;
 }
 #restriction-code-information h2 {

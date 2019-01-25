@@ -24,7 +24,6 @@ export default class RestrictionCodeForm extends Component{
         <div id="restriction-code-information">
           <h2>Ticket Restriction Codes</h2>
           <p>
-<<<<<<< HEAD
           Ticket restriction codes convey an important message about your ticket.
           These could dictate when, where, or on which service you can travel.
           They communicate these messages extremely poorly.
@@ -36,22 +35,6 @@ export default class RestrictionCodeForm extends Component{
           <p>
           They can be found on the front side of your ticket, typically in the bottom right corner.
           If you cannot find a two-character code, you may be eligible for any route.
-=======
-            Ticket restriction codes convey an important message about your ticket. 
-            These could dictate when, where, or on which service you can travel. 
-            They communicate these messages extremely poorly.
-          </p>
-          <p>
-            These codes are not consistently printed in the same placed on ticket, so finding them may be difficult. 
-            Don’t worry, because they do have one thing in common: they are always two characters long e.g. L1, G3, 56, HY.
-          </p>
-          <p>
-            They can be found on the front side of your ticket, typically in the bottom right corner. 
-            If you cannot find a two-character code, you may be eligible for any route.
->>>>>>> 125812194a2c321483c399345ddd4d3e0874cd97
-          </p>
-          <p>
-            To better understand your journey, enter your restriction code and hit Search.
           </p>
         </div>
         <div id="ticket">
@@ -63,8 +46,6 @@ export default class RestrictionCodeForm extends Component{
                 <br/>
                 Search ticket code restrictions here:
               </p>
-
-<<<<<<< HEAD
                 <form onSubmit={this.handleSubmit}>
                   <label for="ticket-restriction-code" id="label-route"><img src="images/route.png"/></label><br/>
                   <input type="text" name="ticket-restriction-code" value={this.state.value}
@@ -72,13 +53,6 @@ export default class RestrictionCodeForm extends Component{
                     placeholder="Enter Restriction Code"/>
                   <input type="submit" value="Search"/>
                 </form>
-=======
-              <form>
-                <label for="ticket-restriction-code" id="label-route"><img src="images/route.png"/></label><br/>
-                <input type="text" name="ticket-restriction-code" placeholder="Enter Restriction Code"/>
-                <input type="submit" value="Search"/>
-              </form>
->>>>>>> 125812194a2c321483c399345ddd4d3e0874cd97
             </div>
             <h3>
               <img src="images/raillogo.png" alt="raillogo" height="30px" width="47px"/>

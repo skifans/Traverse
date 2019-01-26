@@ -15,17 +15,20 @@ function mapCodeData(codeData) {
     // Slice for current segment (representing current restriction)
     const segment = codeData.slice(i, i + 4);
 
-    // Reduce this segment into restriction object
-    const restrictionObj = segment.reduce((restrictionItem, field, i) => {
-      restrictionItem[COLUMN_HEADERS[i]] = field;
-      return restrictionItem;
-    }, {});
+    // Only include restriction if its items aren't blank
+    if (!segment.every(item => item === "")) {
+      // Reduce this segment into a restriction object
+      const restrictionObj = segment.reduce((restrictionItem, field, i) => {
+        restrictionItem[COLUMN_HEADERS[i]] = field;
+        return restrictionItem;
+      }, {});
 
-    // Explicitly 'arrayify' days field for convinience
-    restrictionObj.days = restrictionObj.days.split('');
+      // Explicitly 'arrayify' days field for convinience
+      restrictionObj.days = restrictionObj.days.split('');
 
-    // Push this restriction object to restrictions array
-    restrictions.push(restrictionObj);
+      // Push this restriction object to restrictions array
+      restrictions.push(restrictionObj);
+    }
   }
 
   return restrictions;

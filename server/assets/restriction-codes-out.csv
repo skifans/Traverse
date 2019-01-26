@@ -1,7 +1,7 @@
 ﻿Restriction Code,Days,Times,Route,Other,Days,Times,Route,Other
-NT,,,Valid on Northern services only,,,,,
+NT,0123456,,Valid on Northern services only,,,,,
 2D,01234,Not valid on arrivals into Euston between 0720 and 1110,,,,,,
-FN,,Not valid between 0430 and 0809,,,,,,
+FN,0123456,Not valid between 0430 and 0809,,,,,,
 DJ,01234,Not valid before 0900 or to depart Birmingham between 1635 and 1800 for journeys beginning at Birmingham,,,,,,
 DE,01234,Not valid before 0930,,Only valid along with a Daytripper ticket,56,,,Only valid along with a Daytripper ticket
 8A,0123456,,,Break of journey is not permitted,,,,

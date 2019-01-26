@@ -16,7 +16,7 @@ export default class RestrictionCodeResults extends Component{
   }
 
   componentDidMount(){
-
+    
   }
 
   componentWillUnmount(){
@@ -29,7 +29,27 @@ export default class RestrictionCodeResults extends Component{
       )
     } else {
       return (
-        <div>Loaded</div>
+        <div id="main-body">
+        <div id="results">
+          <h2>Ticket Restriction Code</h2>
+          <h2 id="current-code">??</h2>
+
+          <h3>Outward Restrictions</h3>
+          <img src="images/calendarIcon.png" align="center" height="30px" width="30px"></img><span>Day</span><br/>
+          <img src="images/timeIcon.png" align="center" height="30px" width="30px"></img><span>Time</span><br/>
+          <img src="images/pinIcon.png" align="center" height="30px" width="30px"></img><span>Location</span><br/>
+          <img src="images/errorIcon.png" align="center" height="30px" width="30px"></img><span>Info</span><br/>
+          
+          <h3>Return Restrictions</h3>
+          <img src="images/calendarIcon.png" align="center" height="30px" width="30px"></img><span>Day</span><br/>
+          <img src="images/timeIcon.png" align="center" height="30px" width="30px"></img><span>Time</span><br/>
+          <img src="images/pinIcon.png" align="center" height="30px" width="30px"></img><span>Location</span><br/>
+          <img src="images/errorIcon.png" align="center" height="30px" width="30px"></img><span>Info</span><br/>
+          <div align="right">
+            <input type="submit" value="Search Again" align="middle"/>
+          </div>
+        </div>
+      </div>
       )
     }
   }

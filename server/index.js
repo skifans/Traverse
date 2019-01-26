@@ -26,8 +26,6 @@ app.get('/restriction-codes/:code', (req, res) => {
 
 app.get('/api/restriction-codes/:code', (req, res) => {
   const codeObj = restrictionDecoder(req.params.code);
-
-  res.header('Content-Type', 'text/json');
   res.send(codeObj);
 });
 

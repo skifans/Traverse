@@ -1,26 +1,37 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const path = require("path");
-const port = 3001;
+const path = require('path');
+const ejs = require('ejs');
+const restrictionDecoder = require('./modules/restriction-decoder');
 
-//Server set up
-app.use(express.static(path.join(__dirname, "public")));
-app.set("views", __dirname + "/views");
-app.engine("html", require("ejs").renderFile);
-app.set("view engine", "html");
+const PORT = 3001;
+
+// Server set up
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', __dirname + '/views');
+app.engine('html', ejs.renderFile);
+app.set('view engine', 'html');
 
 // Default home page
-app.use('/', express.static(path.join(__dirname, '/../', 'traverse-react','build')))
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, '/../', 'traverse-react','build', 'index.html'));
+const buildDir = path.join(__dirname, '/../', 'traverse-react', 'public');
+app.use('/', express.static(buildDir));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(buildDir, 'index.html'));
 });
 
-// Post route for restriction code search
-app.post("/restriction-codes/:code", (req, res) => {
-  res.send(req.params);
+// Route for restriction code search
+app.get('/restriction-codes/:code', (req, res) => {
+  
+});
+
+app.get('/api/restriction-codes/:code', (req, res) => {
+  const codeObj = restrictionDecoder(req.params.code);
+
+  res.header('Content-Type', 'text/json');
+  res.send(codeObj);
 });
 
 // Website listener, should be changed when website will be deployed
-app.listen(port, () =>
-  console.log("Traverse app listening on port " + port + "!")
+app.listen(PORT, () =>
+  console.log(`Traverse app listening on port ${PORT}!`)
 );

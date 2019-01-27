@@ -4,22 +4,22 @@ export default class RestrictionCodeForm extends Component{
   constructor(props){
     super(props);
     this.state = {
-      value: ""
+      value: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e){
-    this.setState({value: e.target.value})
+  handleChange(e) {
+    this.setState({ value: e.target.value });
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
-    this.props.history.push(`/restriction-codes/results`, {code: this.state.value})
+    this.props.history.push(`/restriction-codes/results`, { code: this.state.value });
   }
-  render(){
-    return(
+  render() {
+    return (
       <div id="main-body">
         <div id="restriction-code-information">
           <h2>Ticket Restriction Codes</h2>
@@ -47,19 +47,20 @@ export default class RestrictionCodeForm extends Component{
                 Search ticket code restrictions here:
               </p>
                 <form onSubmit={this.handleSubmit}>
-                  <label for="ticket-restriction-code" id="label-route"><img src="images/route.png"/></label><br/>
-                  <input type="text" name="ticket-restriction-code" value={this.state.value}
+                  <label htmlFor="ticket-restriction-code" id="label-route"><img src="images/route.png" alt="Route" /></label><br />
+                  <input type="text" name="ticket-restriction-code"
+                    value={this.state.value}
                     onChange={this.handleChange}
-                    placeholder="Enter Restriction Code"/>
-                  <input type="submit" value="Search"/>
+                    placeholder="Enter Restriction Code" />
+                  <input type="submit" value="Search" />
                 </form>
             </div>
             <h3>
-              <img src="images/raillogo.png" alt="raillogo" height="30px" width="47px"/>
+              <img src="images/raillogo.png" alt="National Rail Logo" height="30px" width="47px" />
             </h3>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

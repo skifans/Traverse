@@ -5,23 +5,17 @@ const ejs = require('ejs');
 const restrictionDecoder = require('./modules/restriction-decoder');
 
 const PORT = 3001;
+const BUILD_DIR = path.join(__dirname, '/../', 'traverse-react', 'build');
 
 // Server set up
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(BUILD_DIR));
 app.set('views', __dirname + '/views');
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 
 // Default home page
-const buildDir = path.join(__dirname, '/../', 'traverse-react', 'public');
-app.use('/', express.static(buildDir));
 app.get('/', (req, res) => {
-  res.sendFile(path.join(buildDir, 'index.html'));
-});
-
-// Route for restriction code search
-app.get('/restriction-codes/:code', (req, res) => {
-  
+  res.sendFile(path.join(BUILD_DIR, 'index.html'));
 });
 
 app.get('/api/restriction-codes/:code', (req, res) => {

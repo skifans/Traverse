@@ -171,7 +171,7 @@ ul {
   padding: 40px 5px 5px 0px;
 }
 #label-route {
-  margin-right: 150px;
+  margin-right: 180px;
 }
 
 #ticket-restriction-code-search input {
@@ -180,10 +180,11 @@ ul {
 #ticket-restriction-code-search input[type=text] {
   border:2px solid #ccc; 
   border-radius: 5px;
-  width: 140px;
+  width: 170px;
   height: 20px;
   font-size: 14px;
   margin-right: 5px;
+  text-transform: uppercase;
 }
 #ticket-restriction-code-search input[type=text]:focus {
   border: 2px solid #ed793e;
@@ -193,6 +194,7 @@ input[type=submit] {
   background: white; 
   border-radius: 6px;
   border: solid 2px #ed793e;
+  font-size: 14px;
 }
 input[type=submit]:hover {
   background: #ed793e;
@@ -202,6 +204,25 @@ input[type=submit]:hover {
 #ticket-background {
   background-image: url(images/textBackground.png);
   background-size: 100%;
+}
+
+
+input[name=day] {
+  display: none;
+}
+#day-list label {
+  margin: 20px 20px 0px 20px;
+  padding: 4px 6px;
+  border: solid 2px #ed793e;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+#day-list label:hover {
+  background: #ed793e;
+}
+#day-list input[type=radio]:checked + label {
+  text-shadow: 1px 1px 1px black;
 }
 
 #results img {

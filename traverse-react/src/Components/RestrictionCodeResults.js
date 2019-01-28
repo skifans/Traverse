@@ -25,16 +25,24 @@ export default class RestrictionCodeResults extends Component {
   }
 
   render() {
-    if(this.state.loading){
+    if(this.state.loading) {
       return (
         <div className="loading-animation">Loading</div>
       );
     } else {
+      let outRestrictions, rtnRestrictions;
+      if (this.state.data.outRestrictions) {
+        outRestrictions = this.state.data.outRestrictions;
+      }
+      if (this.state.data.rtnRestrictions) {
+        rtnRestrictions = this.state.data.rtnRestrictions;
+      }
+
       return (
         <div id="main-body">
           <div id="results">
             <h2>Ticket Restriction Code</h2>
-            <h2 id="current-code">{this.props.location.state.code}</h2><br/><br/>
+            <h2 id="current-code">{this.state.data.code}</h2><br/><br/>
 
             <div id="day-list">
               <input type="radio" id="mon" name="day"/>
@@ -54,16 +62,16 @@ export default class RestrictionCodeResults extends Component {
             </div>
 
             <h3>Outward Restrictions</h3>
-            <img src="../images/calendarIcon.png" align="center" height="30px" width="30px" alt="Day" /><span>{this.state.data.outRestrictions[0].days.map(day => DAYS[day]).join(', ')}</span><br/>
-            <img src="../images/timeIcon.png" align="center" height="30px" width="30px" alt="Time" /><span>{this.state.data.outRestrictions[0].times || 'All times'}</span><br/>
-            <img src="../images/pinIcon.png" align="center" height="30px" width="30px" alt="Location" /><span>{this.state.data.outRestrictions[0].route || 'All routes'}</span><br/>
-            <img src="../images/errorIcon.png" align="center" height="30px" width="30px" alt="Info" /><span>{this.state.data.outRestrictions[0].other || 'N/A'}</span><br/>
+            <img src="../images/calendarIcon.png" align="center" height="30px" width="30px" alt="Day" /><span>{outRestrictions[0].days.map(day => DAYS[day]).join(', ')}</span><br/>
+            <img src="../images/timeIcon.png" align="center" height="30px" width="30px" alt="Time" /><span>{outRestrictions[0].times || 'All times'}</span><br/>
+            <img src="../images/pinIcon.png" align="center" height="30px" width="30px" alt="Location" /><span>{outRestrictions[0].route || 'All routes'}</span><br/>
+            <img src="../images/errorIcon.png" align="center" height="30px" width="30px" alt="Info" /><span>{outRestrictions[0].other || 'N/A'}</span><br/>
             
             <h3>Return Restrictions</h3>
-            <img src="../images/calendarIcon.png" align="center" height="30px" width="30px" alt="Day" /><span>{this.state.data.rtnRestrictions[0].days.map(day => DAYS[day]).join(', ')}</span><br/>
-            <img src="../images/timeIcon.png" align="center" height="30px" width="30px" alt="Time" /><span>{this.state.data.rtnRestrictions[0].times || 'All times'}</span><br/>
-            <img src="../images/pinIcon.png" align="center" height="30px" width="30px" alt="Location" /><span>{this.state.data.rtnRestrictions[0].route || 'All routes'}</span><br/>
-            <img src="../images/errorIcon.png" align="center" height="30px" width="30px" alt="Info" /><span>{this.state.data.rtnRestrictions[0].other || 'N/A'}</span><br/>
+            <img src="../images/calendarIcon.png" align="center" height="30px" width="30px" alt="Day" /><span>{rtnRestrictions[0].days.map(day => DAYS[day]).join(', ')}</span><br/>
+            <img src="../images/timeIcon.png" align="center" height="30px" width="30px" alt="Time" /><span>{rtnRestrictions[0].times || 'All times'}</span><br/>
+            <img src="../images/pinIcon.png" align="center" height="30px" width="30px" alt="Location" /><span>{rtnRestrictions[0].route || 'All routes'}</span><br/>
+            <img src="../images/errorIcon.png" align="center" height="30px" width="30px" alt="Info" /><span>{rtnRestrictions[0].other || 'N/A'}</span><br/>
             <div align="right">
               <input type="submit" value="Search Again" align="middle"/>
             </div>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 export default class RestrictionCodeResults extends Component {
   constructor(props){
     super(props);
-
     // App starts by loading unless given code could be invalid
     this.state = {
       loading: this.props.location.state.code.length === 2,
@@ -15,13 +15,19 @@ export default class RestrictionCodeResults extends Component {
 
   async componentDidMount() {
     const { code } = this.props.location.state;
-    const httpResponse = await fetch(`/api/restriction-codes/${code}`);
+    // const httpResponse = await fetch(`/api/restriction-codes/${code}`);
+    //
+    // const data = await httpResponse.json();
+    // console.log(data);
+    // console.log("should be data");
+    // this.setState({
+    //   data,
+    //   loading: false
+    // });
 
-    const data = await httpResponse.json();
-    this.setState({
-      data,
-      loading: false
-    });
+    fetch(`/api/restriction-codes/${code}`)
+      .then(response => response.json())
+      .then(data => this.setState({ data: data, loading: false}));
   }
 
   render() {
@@ -73,7 +79,7 @@ export default class RestrictionCodeResults extends Component {
             <img src="../images/pinIcon.png" align="center" height="30px" width="30px" alt="Location" /><span>{rtnRestrictions[0].route || 'All routes'}</span><br/>
             <img src="../images/errorIcon.png" align="center" height="30px" width="30px" alt="Info" /><span>{rtnRestrictions[0].other || 'N/A'}</span><br/>
             <div align="right">
-              <input type="submit" value="Search Again" align="middle"/>
+              <Link to='/restriction-codes'><input type="submit" value="Search Again" align="middle"/></Link>
             </div>
           </div>
         </div>

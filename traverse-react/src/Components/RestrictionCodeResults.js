@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 export default class RestrictionCodeResults extends Component {
   constructor(props){
     super(props);
-
     // App starts by loading unless given code could be invalid
     this.state = {
       loading: this.props.location.state.code.length === 2,
@@ -15,13 +15,19 @@ export default class RestrictionCodeResults extends Component {
 
   async componentDidMount() {
     const { code } = this.props.location.state;
-    const httpResponse = await fetch(`/api/restriction-codes/${code}`);
+    // const httpResponse = await fetch(`/api/restriction-codes/${code}`);
+    //
+    // const data = await httpResponse.json();
+    // console.log(data);
+    // console.log("should be data");
+    // this.setState({
+    //   data,
+    //   loading: false
+    // });
 
-    const data = await httpResponse.json();
-    this.setState({
-      data,
-      loading: false
-    });
+    fetch(`/api/restriction-codes/${code}`)
+      .then(response => response.json())
+      .then(data => this.setState({ data: data, loading: false}));
   }
 
   render() {
@@ -30,11 +36,12 @@ export default class RestrictionCodeResults extends Component {
         <div className="loading-animation">Loading</div>
       );
     } else {
+      console.log(this.state.data);
       return (
         <div id="main-body">
           <div id="results">
             <h2>Ticket Restriction Code</h2>
-            <h2 id="current-code">{this.props.location.state.code}</h2><br/><br/>
+            <h2 id="current-code">{this.props.location.state.code.toUpperCase()}</h2><br/><br/>
 
             <div id="day-list">
               <input type="radio" id="mon" name="day"/>
@@ -58,14 +65,14 @@ export default class RestrictionCodeResults extends Component {
             <img src="../images/timeIcon.png" align="center" height="30px" width="30px" alt="Time" /><span>{this.state.data.outRestrictions[0].times || 'All times'}</span><br/>
             <img src="../images/pinIcon.png" align="center" height="30px" width="30px" alt="Location" /><span>{this.state.data.outRestrictions[0].route || 'All routes'}</span><br/>
             <img src="../images/errorIcon.png" align="center" height="30px" width="30px" alt="Info" /><span>{this.state.data.outRestrictions[0].other || 'N/A'}</span><br/>
-            
+
             <h3>Return Restrictions</h3>
             <img src="../images/calendarIcon.png" align="center" height="30px" width="30px" alt="Day" /><span>{this.state.data.rtnRestrictions[0].days.map(day => DAYS[day]).join(', ')}</span><br/>
             <img src="../images/timeIcon.png" align="center" height="30px" width="30px" alt="Time" /><span>{this.state.data.rtnRestrictions[0].times || 'All times'}</span><br/>
             <img src="../images/pinIcon.png" align="center" height="30px" width="30px" alt="Location" /><span>{this.state.data.rtnRestrictions[0].route || 'All routes'}</span><br/>
             <img src="../images/errorIcon.png" align="center" height="30px" width="30px" alt="Info" /><span>{this.state.data.rtnRestrictions[0].other || 'N/A'}</span><br/>
             <div align="right">
-              <input type="submit" value="Search Again" align="middle"/>
+              <Link to='/restriction-codes'><input type="submit" value="Search Again" align="middle"/></Link>
             </div>
           </div>
         </div>

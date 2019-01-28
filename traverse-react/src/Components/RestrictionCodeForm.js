@@ -47,7 +47,7 @@ export default class RestrictionCodeForm extends Component{
                 Search ticket code restrictions here:
               </p>
                 <form onSubmit={this.handleSubmit}>
-                  <label htmlFor="ticket-restriction-code" id="label-route"><img src="images/route.png" alt="Route" /></label><br />
+                  <label htmlFor="ticket-restriction-code" id="label-route"><img src="../images/route.png" alt="Route" /></label><br />
                   <input type="text" name="ticket-restriction-code"
                     value={this.state.value}
                     onChange={this.handleChange}
@@ -56,7 +56,7 @@ export default class RestrictionCodeForm extends Component{
                 </form>
             </div>
             <h3>
-              <img src="images/raillogo.png" alt="National Rail Logo" height="30px" width="47px" />
+              <img src="../images/raillogo.png" alt="National Rail Logo" height="30px" width="47px" />
             </h3>
           </div>
         </div>

@@ -6,7 +6,7 @@ export default class Header extends Component{
     return(
   <div id="navbar">
     <div id="logo">
-      <img src="images/traverselogo3.png" alt="Logo"/>
+      <img src="../images/traverselogo3.png" alt="Logo"/>
     </div>
 
     <div id="nav-links">

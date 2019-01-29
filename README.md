@@ -1,14 +1,17 @@
 # Traverse
 
-## How to run a local server?
+## How to run our app
+1. Start by downloading and installing [node.js](https://nodejs.org/en/download/)
+2. Ensure this happened successfully by running `node -v` and `npm -v`
 
-1.  Download [node.js](https://nodejs.org/en/download/) to your computer and install it.
-2.  Open **server** folder in _Command Line_ or _Terminal_.
-3.  Use `node index.js`/ `npm start` command.
-4.  Open a browser and go to `http://localhost:3001`.
+## How to run a local server
 
-## How to run a UI server?
+1.  `cd` to the `server` folder in _Command Line_ or _Terminal_
+2.  Run `npm start` (try `node index.js` if that fails)
+3.  Open a browser and navigate to `localhost:3001`
 
-1.  Open **traverse-react** folder in _Command Line_ or _Terminal_.
-2.  Use `npm start` command.
-3.  Open a browser and go to `http://localhost:3000`.
+## How to run a UI server
+
+1.  `cd` to the `traverse-react` folder in _Command Line_ or _Terminal_
+2.  Run `npm start`
+3.  Open a browser and navigate to `localhost:3000`

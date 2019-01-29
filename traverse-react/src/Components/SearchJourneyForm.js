@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 const fLeft = {
   float: 'left'
@@ -7,8 +7,8 @@ const fRight = {
   float: 'right'
 };
 
-export default class SearchJourneyForm extends Component{
-  render(){
+export default class SearchJourneyForm extends Component {
+  render() {
     return (
       <div id="main-body">
         <div id="search-journey-body">
@@ -72,6 +72,6 @@ export default class SearchJourneyForm extends Component{
           </div>
         </div>
       </div>   
-    )
+    );
   }
 }

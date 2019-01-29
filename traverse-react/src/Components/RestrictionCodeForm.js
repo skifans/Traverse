@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-export default class RestrictionCodeForm extends Component{
-  constructor(props){
+export default class RestrictionCodeForm extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       value: ''

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
-
-const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+import { Link } from 'react-router-dom';
+import Restrictions from './Restrictions';
 
 export default class RestrictionCodeResults extends Component {
   constructor(props){
@@ -13,21 +12,12 @@ export default class RestrictionCodeResults extends Component {
     }
   }
 
-  async componentDidMount() {
+  componentWillMount() {
     const { code } = this.props.location.state;
-    // const httpResponse = await fetch(`/api/restriction-codes/${code}`);
-    //
-    // const data = await httpResponse.json();
-    // console.log(data);
-    // console.log("should be data");
-    // this.setState({
-    //   data,
-    //   loading: false
-    // });
-
+    
     fetch(`/api/restriction-codes/${code}`)
       .then(response => response.json())
-      .then(data => this.setState({ data: data, loading: false}));
+      .then(data => this.setState({ data, loading: false}));
   }
 
   render() {
@@ -36,14 +26,6 @@ export default class RestrictionCodeResults extends Component {
         <div className="loading-animation">Loading</div>
       );
     } else {
-      let outRestrictions, rtnRestrictions;
-      if (this.state.data.outRestrictions) {
-        outRestrictions = this.state.data.outRestrictions;
-      }
-      if (this.state.data.rtnRestrictions) {
-        rtnRestrictions = this.state.data.rtnRestrictions;
-      }
-
       return (
         <div id="main-body">
           <div id="results">
@@ -67,17 +49,9 @@ export default class RestrictionCodeResults extends Component {
               <label htmlFor="sun">Sunday</label>
             </div>
 
-            <h3>Outward Restrictions</h3>
-            <img src="../images/calendarIcon.png" align="center" height="30px" width="30px" alt="Day" /><span>{outRestrictions[0].days.map(day => DAYS[day]).join(', ')}</span><br/>
-            <img src="../images/timeIcon.png" align="center" height="30px" width="30px" alt="Time" /><span>{outRestrictions[0].times || 'All times'}</span><br/>
-            <img src="../images/pinIcon.png" align="center" height="30px" width="30px" alt="Location" /><span>{outRestrictions[0].route || 'All routes'}</span><br/>
-            <img src="../images/errorIcon.png" align="center" height="30px" width="30px" alt="Info" /><span>{outRestrictions[0].other || 'N/A'}</span><br/>
-            
-            <h3>Return Restrictions</h3>
-            <img src="../images/calendarIcon.png" align="center" height="30px" width="30px" alt="Day" /><span>{rtnRestrictions[0].days.map(day => DAYS[day]).join(', ')}</span><br/>
-            <img src="../images/timeIcon.png" align="center" height="30px" width="30px" alt="Time" /><span>{rtnRestrictions[0].times || 'All times'}</span><br/>
-            <img src="../images/pinIcon.png" align="center" height="30px" width="30px" alt="Location" /><span>{rtnRestrictions[0].route || 'All routes'}</span><br/>
-            <img src="../images/errorIcon.png" align="center" height="30px" width="30px" alt="Info" /><span>{rtnRestrictions[0].other || 'N/A'}</span><br/>
+            <Restrictions restrictions={this.state.data.outRestrictions} title="Outward Restrictions" />
+            <Restrictions restrictions={this.state.data.rtnRestrictions} title="Return Restrictions" />
+
             <div align="right">
               <Link to='/restriction-codes'><input type="submit" value="Search Again" align="middle"/></Link>
             </div>
@@ -86,6 +60,5 @@ export default class RestrictionCodeResults extends Component {
       );
     }
   }
-
 
 }

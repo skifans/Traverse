@@ -1,33 +1,33 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-export default class Footer extends Component{
-  render(){
-    return(
+export default class Footer extends Component {
+  render() {
+    return (
       <footer>
-      <div>
-        <ul id="social-media-icons">
-          <li>
-            <a href="https://facebook.com">
-              <img src="images/facebooklogo.png" alt="facebook"/>
+        <div>
+          <ul id="social-media-icons">
+            <li>
+              <a href="https://facebook.com">
+                <img src="images/facebooklogo.png" alt="facebook" />
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com">
+                <img src="images/twitterlogo.png" alt="twitter" />
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com">
+                <img src="images/instagramlogo.png" alt="instagram" />
+              </a>
+            </li>
+            <li>
+            <a href="https://youtube.com">
+              <img src="images/youtubelogo.png" alt="youtube" />
             </a>
-          </li>
-          <li>
-            <a href="https://twitter.com">
-              <img src="images/twitterlogo.png" alt="twitter"/>
-            </a>
-          </li>
-          <li>
-            <a href="https://instagram.com">
-              <img src="images/instagramlogo.png" alt="instagram"/>
-            </a>
-          </li>
-          <li>
-          <a href="https://youtube.com">
-            <img src="images/youtubelogo.png" alt="youtube"/>
-          </a>
-          </li>
-        </ul>
-      </div>
+            </li>
+          </ul>
+        </div>
 
         <div>
           <ul>
@@ -42,8 +42,8 @@ export default class Footer extends Component{
             <li><a href="/">Privacy Policy</a></li>
           </ul>
         </div>
-        <p id="copyright">Copyright © Traverse 2019. All rights reserved.</p>
+        <p id="copyright">Copyright &copy; Traverse 2019. All rights reserved.</p>
       </footer>
-    )
+    );
   }
 }

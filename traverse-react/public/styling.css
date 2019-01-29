@@ -153,16 +153,21 @@ ul {
   float: left;
   text-align: center;
   border-right: 1px solid black;
-  min-height: 100%
+}
+#search-journey-overview input[type=text] {
+  width: 80%;
+  text-transform: none;
+  font-size: 10px;
+  margin: 8px;
 }
 #first-leg {
   padding: 10px 5px;
   border-bottom: 1px solid black;
-  min-height: 50%;
+  height: 50%;
 }
 #second-leg {
   padding: 10px 5px;
-  min-height: 50%;
+  height: 50%;
 }
 
 #search-journey-stations {
@@ -182,11 +187,13 @@ ul {
 
 #calendar-container {
   float: left;
+  text-align: center;
 }
 #calendar-container table {
+  display: table-cell;
   border: 4px solid #ed793e;
   float: left;
-  margin: 10px auto;
+  margin: 20px 0 0 20px;
   padding: 10px;
   border-radius: 20px 0 0 20px;
   background-color: #282828;
@@ -216,13 +223,12 @@ ul {
 }
 
 #date-display {
-  width: 80px;
-  float: left;
-  margin: 10px 0 0 0;
+  display: inline-block;
+  margin-top: 20px;
   background-color: #ed793e;
   border-radius: 0 20px 20px 0;
   text-align: right;
-  padding: 5px 10px 0 0;
+  padding: 10px 10px 0 10px;
   box-sizing: border-box;
   height: 191px;
 }

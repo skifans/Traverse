@@ -6,7 +6,15 @@ const fLeft = {
 const fRight = {
   float: 'right'
 };
-
+const halfWidth = {
+  width: '50%'
+};
+const fourtyP = {
+  width: '39%'
+};
+const twentyP = {
+  width: '20%'
+};
 export default class SearchJourneyForm extends Component{
   render(){
     return (
@@ -64,10 +72,10 @@ export default class SearchJourneyForm extends Component{
                 </div>
                 <div id="filter-options">
                   <ul>
-                    <li style={fLeft}><label><input type="checkbox"/>Step free access</label></li>
-                    <li style={fRight}><label><input type="checkbox"/>Departure assistance</label></li>
-                    <li style={fLeft}><label><input type="checkbox"/>Bike Storage (Station)</label></li>
-                    <li style={fRight}><label><input type="checkbox"/>Bike Storage (Train)</label></li>
+                    <li style={{float: 'left'}}><label><input type="checkbox"/>Step free access</label></li>
+                    <li style={{float: 'right'}}><label><input type="checkbox"/>Departure assistance</label></li>
+                    <li style={{float: 'left'}}><label><input type="checkbox"/>Bike Storage (Station)</label></li>
+                    <li style={{float: 'right'}}><label><input type="checkbox"/>Bike Storage (Train)</label></li>
                   </ul>
                 </div>
             </form>
@@ -75,7 +83,19 @@ export default class SearchJourneyForm extends Component{
 
 
           <div id="search-journey-inputs">
-            <div id="search-journey-stations">
+            <div id="search-journey-overview" style={{width: '20%'}}>
+              <div id="first-leg">
+                <input type="text" placeholder="Origin Station"></input><br/>
+                <img src="../images/downArrow.png" alt="" height="20px" width="auto"></img><br/>
+                <input type="text" placeholder="Destination Station"></input><br/>
+              </div>
+              <div id="second-leg">
+                <input type="text" placeholder="Origin Station"></input><br/>
+                <img src="../images/downArrow.png" alt="" height="20px" width="auto"></img><br/>
+                <input type="text" placeholder="Destination Station"></input><br/>
+              </div>
+            </div>
+            <div id="search-journey-stations" style={{width: '35%'}}>
               <h2 id="title">Single</h2>
               <form>
                 <img src="../images/trainIcon.png" alt="" height="30px" width="auto" align="middle"></img>
@@ -150,7 +170,7 @@ export default class SearchJourneyForm extends Component{
             </div>
           </div>
         </div>
-      </div>   
+      </div>
     )
   }
 }

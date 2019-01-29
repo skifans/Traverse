@@ -8,14 +8,16 @@ export default class SearchJourneyFormSingle extends Component{
         <div id="search-journey-stations">
           <h2 id="title">Single</h2>
           <form>
-            <input type="text" placeholder="Origin"></input><br/>
-            <img src="../images/downArrow.png" height="30px" width="auto"></img><br/>
-            <input type="text" placeholder="Destination"></input><br/>
+            <img src="../images/trainIcon.png" alt="" height="30px" width="auto" align="middle"></img>
+            <input type="text" placeholder="Origin Station"></input><br/>
+            <img src="../images/downArrow.png" alt="" height="30px" width="auto"></img><br/>
+            <img src="../images/trainIcon.png" alt="" height="30px" width="auto" align="middle"></img>
+            <input type="text" placeholder="Destination Station"></input><br/>
           </form>
         </div>
         <div id="calendar-container">
           <table>
-            <tr>
+            <tr id="table-header">
               <td>M</td>
               <td>T</td>
               <td>W</td>
@@ -70,6 +72,11 @@ export default class SearchJourneyFormSingle extends Component{
               <td></td>
             </tr>
           </table>
+          <div id="date-display">
+            <p>12</p>
+            <p>Tuesday</p>
+            <p>February 2019</p>
+          </div>
         </div>
       </div>
     )

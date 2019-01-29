@@ -11,9 +11,9 @@ export default class Header extends Component{
 
     <div id="nav-links">
       <ul>
-        <li><a href="">Create Account</a></li>
-        <li><a href="">Log In</a></li>
-        <li><a href="">Help</a></li>
+        <li><a href="/">Create Account</a></li>
+        <li><a href="/">Log In</a></li>
+        <li><a href="/">Help</a></li>
         <li><Link to='/restriction-codes'>Ticket Restriction Codes</Link></li>
         <li><Link to='/search-journey'>Search Journey</Link></li>
       </ul>

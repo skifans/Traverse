@@ -156,6 +156,8 @@ ul {
 #search-journey-stations input {
   text-transform: none;
   margin: 10px;
+  color: #ed793e;
+  border: 2px solid #ed793e;
 }
 #search-journey-stations img:first-child, img:last-child {
   margin-bottom: 10px;
@@ -188,10 +190,6 @@ ul {
   -webkit-transition: .5s;
   transition: .7s;
   cursor: pointer;
-}
-#calendar-container td::selection {
-  background-color: #a89c96;
-  border-radius: 50px;
 }
 #table-header {
   font-weight: bold;

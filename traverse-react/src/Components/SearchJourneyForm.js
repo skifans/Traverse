@@ -1,7 +1,23 @@
 import React, {Component} from 'react';
+import Single from './SearchJourneyFormSingle.js';
+import Return from './SearchJourneyFormReturn.js';
+import MultiLeg from './SearchJourneyFormMultiLeg.js';
 
 export default class SearchJourneyForm extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      type: ['Single', 'Return', 'MultiLeg'],
+      value: '0'
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
 
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+    console.log(this.state.type[e.target.value]);
+  }
+  
   render(){
     return (
       <div id="main-body">
@@ -11,10 +27,10 @@ export default class SearchJourneyForm extends Component{
               <div id="drop-down-options">
                 <div id="col">
                   <label htmlFor="journey-type">Journey Type</label>
-                  <select id="journey-type">
-                    <option value="SIN">Single</option>
-                    <option value="RTN">Return</option>
-                    <option value="MLJ">Multi-leg</option>
+                  <select id="journey-type" onChange={this.handleChange}>
+                    <option value="0">Single</option>
+                    <option value="1">Return</option>
+                    <option value="2">Multi-leg</option>
                   </select>
                 </div>
                 <div id="col">
@@ -66,6 +82,8 @@ export default class SearchJourneyForm extends Component{
                 </div>
             </form>
           </div>
+
+
         </div>
       </div>
     )

@@ -1,63 +1,42 @@
 import React, {Component} from 'react';
 
-
-export default class SearchJourneyFormReturn extends Component{
+export default class SearchJourneyFormMultiLeg extends Component{
+  
   constructor(props){
     super(props);
     this.state = {
-      active: false,
-      title: 'Outbound',
-      out: '',
-      ret: ''
+      title: 'First Leg',
+      text: 'inactive'
     };
     this.toggleClass = this.toggleClass.bind(this);
-    this.handleOutChange = this.handleOutChange.bind(this);
-    this.handleRetChange = this.handleRetChange.bind(this);
+    
   }
   toggleClass(e) {
-    console.log(e.target.id);
-    const currentState = this.state.active;
     if(e.target.className === 'inactive') {
       this.setState({ title: e.target.id });
-      this.setState({ active: !currentState });
     }
   }
-  handleOutChange(e) {
-    this.setState({ out: e.target.value });
-  }
-  handleRetChange(e) {
-    this.setState({ ret: e.target.value });
-  }
 
-  render(){
+   render(){
     return (
       <div id="search-journey-inputs">
         <div id="search-journey-overview">
-          <div id="Outbound" className={this.state.active ? 'inactive': ''} onClick={this.toggleClass}>
-            <p>Outbound</p>
-            <input type="text" placeholder="Origin Station" value={this.state.out} disabled></input><br/>
-            <img src="../images/downArrow.png" alt="" height="20px" width="auto"></img><br/>
-            <input type="text" placeholder="Destination Station" value={this.state.ret} disabled></input><br/>
-          </div>
-          <div id="Return" className={this.state.active ? '': 'inactive'} onClick={this.toggleClass}>
-            <p>Return</p>
-            <input type="text" placeholder="Origin Station" value={this.state.ret} disabled></input><br/>
-            <img src="../images/downArrow.png" alt="" height="20px" width="auto"></img><br/>
-            <input type="text" placeholder="Destination Station"  value={this.state.out} disabled></input><br/>
-          </div>
+          <ul id="multi-legs">
+            <li className={""} id="First Leg" value="0" onClick={this.toggleClass}>First Leg</li>
+            <li className={this.state.text} id="Second Leg" value="1"  onClick={this.toggleClass}>Second Leg</li>
+            <li className={this.state.text} id="Third Leg" value="2"  onClick={this.toggleClass}>Third Leg</li>
+            <li className={this.state.text} id="Fourth Leg" value="3"  onClick={this.toggleClass}>Fourth Leg</li>
+            <li className={this.state.text} id="Fifth Leg" value="4"  onClick={this.toggleClass}>Fifth Leg</li>
+          </ul>
         </div>
         <div id="search-journey-stations" style={{width: '35%'}}>
           <h2 id="title">{this.state.title}</h2>
           <form>
             <img src="../images/trainIcon.png" alt="" height="30px" width="auto" align="middle"></img>
-            <input type="text" placeholder="Origin Station"
-              value={this.state.out}
-              onChange={this.handleOutChange}/><br/>
+            <input type="text" placeholder="Origin Station"></input><br/>
             <img src="../images/downArrow.png" alt="" height="30px" width="auto"></img><br/>
             <img src="../images/trainIcon.png" alt="" height="30px" width="auto" align="middle"></img>
-            <input type="text" placeholder="Destination Station"
-              value={this.state.ret}
-              onChange={this.handleRetChange}/><br/>
+            <input type="text" placeholder="Destination Station"></input><br/>
           </form>
         </div>
         <div id="calendar-container">

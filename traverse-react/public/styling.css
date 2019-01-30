@@ -18,6 +18,9 @@ html {
 ul {
   margin: 0px;
 }
+input {
+  text-indent: 5px;
+}
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   font-size: 13px;
@@ -152,7 +155,6 @@ ul {
 #search-journey-overview input[type=text] {
   width: 140px;
   text-transform: none;
-  font-size: 10px;
   margin: 5px;
 }
 #Outbound {
@@ -167,13 +169,21 @@ ul {
 .inactive {
   opacity: 0.5;
   background: #CCC;
-  border-right: none;
   border-right: 1px solid black;
 }
 .inactive:hover {
   cursor: pointer;
 }
 
+#multi-legs {
+  list-style: none;
+  padding: 0;
+}
+#multi-legs li {
+  padding: 12px;
+  border-bottom: 1px solid black;
+  margin-bottom: -1px;
+}
 
 #search-journey-stations {
   float: left;

@@ -127,6 +127,17 @@ ul {
 
 
 
+.restrictions-container {
+  display: inline-block;
+  margin-left: 10px;
+}
+.restrictions-container:not(:last-child) {
+  border-right: solid black 3px;
+  padding-right: 20px;
+}
+.restriction-item {
+  margin-bottom: 10px;
+}
 #restriction-code-information {
   margin: 20px auto 40px auto;
 }
@@ -218,11 +229,8 @@ input[name=day] {
   cursor: pointer;
   font-size: 16px;
 }
-#day-list label:hover {
+#day-list label:hover, #day-list input[type=radio]:checked + label {
   background: #ed793e;
-}
-#day-list input[type=radio]:checked + label {
-  text-shadow: 1px 1px 1px black;
 }
 
 #results img {

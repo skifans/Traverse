@@ -8,22 +8,22 @@ export default class Footer extends Component {
           <ul id="social-media-icons">
             <li>
               <a href="https://facebook.com">
-                <img src="images/facebooklogo.png" alt="facebook" />
+                <img src="/images/facebooklogo.png" alt="Facebook" />
               </a>
             </li>
             <li>
               <a href="https://twitter.com">
-                <img src="images/twitterlogo.png" alt="twitter" />
+                <img src="/images/twitterlogo.png" alt="Twitter" />
               </a>
             </li>
             <li>
               <a href="https://instagram.com">
-                <img src="images/instagramlogo.png" alt="instagram" />
+                <img src="/images/instagramlogo.png" alt="Instagram" />
               </a>
             </li>
             <li>
             <a href="https://youtube.com">
-              <img src="images/youtubelogo.png" alt="youtube" />
+              <img src="/images/youtubelogo.png" alt="Youtube" />
             </a>
             </li>
           </ul>

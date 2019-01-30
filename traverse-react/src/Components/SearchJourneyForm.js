@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
 
-const fLeft = {
-  float: 'left'
-};
-const fRight = {
-  float: 'right'
-};
-const halfWidth = {
-  width: '50%'
-};
-const fourtyP = {
-  width: '39%'
-};
-const twentyP = {
-  width: '20%'
-};
 export default class SearchJourneyForm extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      value: '',
+      active: false,
+      text: 'Outbound'
+    };
+    this.toggleClass = this.toggleClass.bind(this);
+  }
+  toggleClass(e) {
+    console.log(e.target.id);
+    const currentState = this.state.active;
+    if(e.target.className === 'inactive') {
+      this.setState({ text: e.target.id });
+      this.setState({ active: !currentState });
+    }
+  }
+
   render(){
     return (
       <div id="main-body">
@@ -33,7 +36,7 @@ export default class SearchJourneyForm extends Component{
                 </div>
                 <div id="col">
                   <label htmlFor="num-of-adults">Number of Adults</label>
-                  <select id="num-of-adults">
+                  <select id="num-of-adults" style={{width:'80px'}}>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -44,7 +47,7 @@ export default class SearchJourneyForm extends Component{
                 </div>
                 <div id="col">
                   <label htmlFor="num-of-children">Number of Children</label>
-                  <select id="num-of-children">
+                  <select id="num-of-children" style={{width:'80px'}}>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -83,20 +86,22 @@ export default class SearchJourneyForm extends Component{
 
 
           <div id="search-journey-inputs">
-            <div id="search-journey-overview" style={{width: '20%'}}>
-              <div id="first-leg">
-                <input type="text" placeholder="Origin Station"></input><br/>
+            <div id="search-journey-overview">
+              <div id="Outbound" className={this.state.active ? 'inactive': ''} onClick={this.toggleClass}>
+                <p>Outbound</p>
+                <input type="text" placeholder="Origin Station" disabled></input><br/>
                 <img src="../images/downArrow.png" alt="" height="20px" width="auto"></img><br/>
-                <input type="text" placeholder="Destination Station"></input><br/>
+                <input type="text" placeholder="Destination Station" disabled></input><br/>
               </div>
-              <div id="second-leg">
-                <input type="text" placeholder="Origin Station"></input><br/>
+              <div id="Return" className={this.state.active ? '': 'inactive'} onClick={this.toggleClass}>
+                <p>Return</p>
+                <input type="text" placeholder="Origin Station" disabled></input><br/>
                 <img src="../images/downArrow.png" alt="" height="20px" width="auto"></img><br/>
-                <input type="text" placeholder="Destination Station"></input><br/>
+                <input type="text" placeholder="Destination Station" disabled></input><br/>
               </div>
             </div>
             <div id="search-journey-stations" style={{width: '35%'}}>
-              <h2 id="title">Single</h2>
+              <h2 id="title">{this.state.text}</h2>
               <form>
                 <img src="../images/trainIcon.png" alt="" height="30px" width="auto" align="middle"></img>
                 <input type="text" placeholder="Origin Station"></input><br/>

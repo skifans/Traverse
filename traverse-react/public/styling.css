@@ -18,6 +18,9 @@ html {
 ul {
   margin: 0px;
 }
+input {
+  text-indent: 5px;
+}
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   font-size: 13px;
@@ -77,7 +80,7 @@ ul {
 
 #search-journey-options {
   border: 1px solid black;
-  height: 110px;
+  overflow: hidden;
 }
 #search-journey-options ul {
   list-style-type: none;
@@ -90,8 +93,21 @@ ul {
 
 
 #drop-down-options {
-  width: 50%;
+  width: 48%;
   float: left;
+}
+#col {
+  float: left;
+  margin: 0 10px 5px 15px;
+}
+#col label {
+  display: block;
+}
+#col select {
+  padding: 2px;
+  border-radius: 5px;
+  background: #ed793e;
+  color: white;
 }
 
 
@@ -109,11 +125,11 @@ ul {
 
 #filter-options {
   float: right;
-  width: 48%;
+  width: 49%;
   background: lightgray;
   border: 1px solid grey;
   border-radius: 5px;
-  margin: 5px 10px 0px 0px;
+  margin: 5px 10px 20px 0px;
 }
 #filter-options li {
   margin: 3px 20px 3px 10px;
@@ -122,6 +138,126 @@ ul {
   margin-right: 31px;
 }
 
+
+#search-journey-inputs {
+  border: 1px solid black;
+  border-top: 0px;
+  overflow: hidden;
+}
+
+#search-journey-overview {
+  float: left;
+  text-align: center;
+}
+#search-journey-overview p {
+  margin: 0;
+}
+#search-journey-overview input[type=text] {
+  width: 140px;
+  text-transform: none;
+  margin: 5px;
+}
+#Outbound {
+  padding: 10px 5px;
+  border-bottom: 1px solid black;
+  height: 50%;
+}
+#Return {
+  padding: 10px 5px;
+  height: 50%;
+}
+.inactive {
+  opacity: 0.5;
+  background: #CCC;
+  border-right: 1px solid black;
+}
+.inactive:hover {
+  cursor: pointer;
+}
+
+#multi-legs {
+  list-style: none;
+  padding: 0;
+}
+#multi-legs li {
+  padding: 12px;
+  border-bottom: 1px solid black;
+  margin-bottom: -1px;
+}
+
+#search-journey-stations {
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+}
+#search-journey-stations input {
+  text-transform: none;
+  margin: 10px;
+  color: #ed793e;
+  border: 2px solid #ed793e;
+}
+#search-journey-stations img:first-child, img:last-child {
+  margin-bottom: 10px;
+}
+
+#calendar-container {
+  float: left;
+  text-align: center;
+}
+#calendar-container table {
+  display: table-cell;
+  border: 4px solid #ed793e;
+  float: left;
+  margin: 20px 0 0 20px;
+  padding: 10px;
+  border-radius: 20px 0 0 20px;
+  background-color: #282828;
+  color: white;
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+}
+#calendar-container td {
+  text-align: center;
+  padding: 0px;
+}
+#calendar-container td:hover {
+  color: #ed793e;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  transition: .7s;
+  cursor: pointer;
+}
+#table-header {
+  font-weight: bold;
+  color: #ed793e;
+}
+#table-header td:hover {
+  cursor: auto;
+}
+
+#date-display {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #ed793e;
+  border-radius: 0 20px 20px 0;
+  text-align: right;
+  padding: 10px 10px 0 10px;
+  box-sizing: border-box;
+  height: 191px;
+}
+#date-display p {
+  margin: 0;
+  font-size: 20px;
+}
+#date-display p:first-child {
+  color: white;
+  font-size: 40px;
+}
+#date-display p:last-child {
+  font-size: 12px;
+}
 
 
 
@@ -149,7 +285,6 @@ ul {
 #restriction-code-information p {
   margin: 5px 0px;
 }
-
 #ticket {
   margin: 20px auto;
   width: 400px;
@@ -186,11 +321,10 @@ ul {
 #label-route {
   margin-right: 180px;
 }
-
 #ticket-restriction-code-search input {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
-#ticket-restriction-code-search input[type=text] {
+input[type=text] {
   border:2px solid #ccc; 
   border-radius: 5px;
   width: 170px;
@@ -199,7 +333,7 @@ ul {
   margin-right: 5px;
   text-transform: uppercase;
 }
-#ticket-restriction-code-search input[type=text]:focus {
+input[type=text]:focus {
   border: 2px solid #ed793e;
 }
 input[type=submit] {
@@ -218,8 +352,6 @@ input[type=submit]:hover {
   background-image: url(images/textBackground.png);
   background-size: 100%;
 }
-
-
 input[name=day] {
   display: none;
 }
@@ -251,7 +383,6 @@ input[name=day] {
   padding: 0px 15px;
   border-radius: 10px;
 }
-
 footer {
   position: absolute;
   left: 0;
@@ -262,7 +393,6 @@ footer {
   border-top: 3px solid #FF9338;
   overflow: hidden;
 }
-
 footer a {
   text-decoration: none;
   color: white;
@@ -270,7 +400,6 @@ footer a {
 footer a:hover {
   color: #FF9338;
 }
-
 footer ul {
   list-style-type: none;
   text-align: center;
@@ -280,11 +409,9 @@ footer li {
   display: inline-block;
   margin: 5px 15px;
 }
-
 #social-media-icons li {
   margin: 5px 50px 0px 50px;
 }
-
 #copyright {
   margin: 1px;
   color: grey;

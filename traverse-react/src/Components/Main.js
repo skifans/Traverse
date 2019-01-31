@@ -1,9 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Main extends Component {
-  render() {
-    return (
-      <h2>This is the main page</h2>
-    );
-  }
-}
+export default () => (
+  <h2>This is the main page</h2>
+);

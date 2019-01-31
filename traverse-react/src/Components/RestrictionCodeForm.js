@@ -58,7 +58,7 @@ export default class RestrictionCodeForm extends Component {
                 </form>
             </div>
             <h3>
-              <img src="images/raillogo.png" alt="National Rail Logo" height="30px" width="47px" />
+              <img src="../images/raillogo.png" alt="National Rail Logo" height="30px" width="47px" />
             </h3>
           </div>
         </div>

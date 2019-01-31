@@ -126,17 +126,19 @@ ul {
 
 
 
-
 .restrictions-container {
-  display: inline-block;
-  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 .restrictions-container:not(:last-child) {
   border-right: solid black 3px;
-  padding-right: 20px;
 }
 .restriction-item {
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  box-sizing: border-box;
 }
 #restriction-code-information {
   margin: 20px auto 40px auto;

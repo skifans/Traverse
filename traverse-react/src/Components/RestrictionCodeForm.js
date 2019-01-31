@@ -47,8 +47,10 @@ export default class RestrictionCodeForm extends Component {
                 Search ticket code restrictions here:
               </p>
                 <form onSubmit={this.handleSubmit}>
-                  <label htmlFor="ticket-restriction-code" id="label-route"><img src="images/route.png" alt="Route" /></label><br />
-                  <input type="text" name="ticket-restriction-code"
+                  <label htmlFor="ticket-restriction-code" id="label-route">ROUTE:</label><br />
+                  <input
+                    type="text"
+                    id="ticket-restriction-code"
                     value={this.state.value}
                     onChange={this.handleChange}
                     placeholder="Enter Restriction Code" />

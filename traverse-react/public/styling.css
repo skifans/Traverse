@@ -261,7 +261,20 @@ input {
 
 
 
-
+.restrictions-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.restrictions-container:not(:last-child) {
+  border-right: solid black 3px;
+}
+.restriction-item {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
 #restriction-code-information {
   margin: 20px auto 40px auto;
 }
@@ -349,11 +362,8 @@ input[name=day] {
   cursor: pointer;
   font-size: 16px;
 }
-#day-list label:hover {
+#day-list label:hover, #day-list input[type=radio]:checked + label {
   background: #ed793e;
-}
-#day-list input[type=radio]:checked + label {
-  text-shadow: 1px 1px 1px black;
 }
 
 #results img {

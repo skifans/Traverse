@@ -83,7 +83,7 @@ export default class SearchJourneyForm extends Component{
           
           <Return/>
         </div>
-      </div>
-    )
+      </div>   
+    );
   }
 }

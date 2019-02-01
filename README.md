@@ -14,4 +14,4 @@
 
 1.  `cd` to the `traverse-react` folder in _Command Line_ or _Terminal_
 2.  Run `npm start`
-3.  Open a browser and navigate to `localhost:3000`
+3.  You should be navigated to `localhost:3000` in your browser, do it manually if this doesn't happen

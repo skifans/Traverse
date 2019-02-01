@@ -11,7 +11,6 @@ const RestrictionItem = ({ name, iconName, content }) => {
   );
 };
 
-// TODO: ensure data is complete, implement conditional rendering for if not
 export default ({ restrictions, title }) => (
   <div>
     <h3>{title}</h3>

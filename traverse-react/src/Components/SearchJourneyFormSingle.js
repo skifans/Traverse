@@ -6,7 +6,7 @@ export default class SearchJourneyFormSingle extends Component{
     return (
       <div id="search-journey-inputs">
         <div id="search-journey-stations">
-          <h2 id="title">Single</h2>
+          <h2>Single</h2>
           <form>
             <img src="../images/trainIcon.png" alt="" height="30px" width="auto" align="middle"></img>
             <input type="text" placeholder="Origin Station"></input><br/>

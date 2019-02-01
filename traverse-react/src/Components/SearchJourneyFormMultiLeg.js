@@ -22,15 +22,15 @@ export default class SearchJourneyFormMultiLeg extends Component{
       <div id="search-journey-inputs">
         <div id="search-journey-overview">
           <ul id="multi-legs">
-            <li className={""} id="First Leg" value="0" onClick={this.toggleClass}>First Leg</li>
-            <li className={this.state.text} id="Second Leg" value="1"  onClick={this.toggleClass}>Second Leg</li>
-            <li className={this.state.text} id="Third Leg" value="2"  onClick={this.toggleClass}>Third Leg</li>
-            <li className={this.state.text} id="Fourth Leg" value="3"  onClick={this.toggleClass}>Fourth Leg</li>
-            <li className={this.state.text} id="Fifth Leg" value="4"  onClick={this.toggleClass}>Fifth Leg</li>
+            <li className={""} value="0" onClick={this.toggleClass}>First Leg</li>
+            <li className={this.state.text} value="1" onClick={this.toggleClass}>Second Leg</li>
+            <li className={this.state.text} value="2" onClick={this.toggleClass}>Third Leg</li>
+            <li className={this.state.text} value="3" onClick={this.toggleClass}>Fourth Leg</li>
+            <li className={this.state.text} value="4" onClick={this.toggleClass}>Fifth Leg</li>
           </ul>
         </div>
-        <div id="search-journey-stations" style={{width: '35%'}}>
-          <h2 id="title">{this.state.title}</h2>
+        <div id="search-journey-stations">
+          <h2>{this.state.title}</h2>
           <form>
             <img src="../images/trainIcon.png" alt="" height="30px" width="auto" align="middle"></img>
             <input type="text" placeholder="Origin Station"></input><br/>

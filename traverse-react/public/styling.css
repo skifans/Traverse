@@ -120,12 +120,13 @@ p {
   border: 1px solid grey;
   border-radius: 7px;
   margin: 2px 20px 2px 0;
+  min-width: 350px;
 }
 #non-account-preferences ul {
   display: flex;
   flex-direction: column;
   flex-flow: column wrap;
-  max-height: 70px;
+  height: 70px;
 }
 
 #search-journey-inputs {

@@ -78,7 +78,7 @@ export default class SearchJourneyForm extends Component{
             </div>
         </div>
         
-        <Return/>
+        <MultiLeg/>
       </div>
     );
   }

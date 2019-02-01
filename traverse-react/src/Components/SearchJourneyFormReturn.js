@@ -34,20 +34,20 @@ export default class SearchJourneyFormReturn extends Component{
       <div id="search-journey-inputs">
         <div id="search-journey-overview">
           <div id="Outbound" className={this.state.active ? 'inactive': ''} onClick={this.toggleClass}>
-            <p style={{textAlign:'center'}}>Outbound</p>
+            <h4>Outbound</h4>
             <p>Station: {this.state.out}</p>
             <p>Date: </p>
             <p>Time: </p>
           </div>
           <div id="Return" className={this.state.active ? '': 'inactive'} onClick={this.toggleClass}>
-            <p style={{textAlign:'center'}}>Return</p>
+            <h4>Return</h4>
             <p>Station: {this.state.ret}</p>
             <p>Date: </p>
             <p>Time: </p>
           </div>
         </div>
-        <div id="search-journey-stations" style={{width: '35%'}}>
-          <h2 id="title">{this.state.title}</h2>
+        <div id="search-journey-stations">
+          <h2>{this.state.title}</h2>
           <form>
             <img src="../images/trainIcon.png" alt="" height="30px" width="auto" align="middle"></img>
             <input type="text" placeholder="Origin Station"

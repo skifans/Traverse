@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import RestrictionCodeForm from './components/RestrictionCodeForm';
-import RestrictionCodeResults from './components/RestrictionCodeResults';
-import SearchJourneyForm from './components/SearchJourneyForm.js';
-import Main from './components/Main';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import RestrictionCodeForm from './Components/RestrictionCodeForm';
+import RestrictionCodeResults from './Components/RestrictionCodeResults';
+import SearchJourneyForm from './Components/SearchJourneyForm.js';
+import Main from './Components/Main';
 import {Switch, Route} from 'react-router-dom';
 
 class App extends Component {

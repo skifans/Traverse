@@ -17,9 +17,13 @@ html {
 
 ul {
   margin: 0px;
+  padding: 0;
 }
 input {
   text-indent: 5px;
+}
+p {
+  margin: 0;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -39,7 +43,7 @@ input {
 #navbar {
   width: 100%;
   background-color: #282828;
-  border-bottom: 3px solid #FF9338;
+  border-bottom: 4px solid #ed793e;
 }
 
 #logo {
@@ -62,43 +66,31 @@ input {
   color: white;
 }
 #nav-links li a:hover {
-  color: #FF9338;
+  color: #ed793e;
 }
 
 #main-body {
-  margin: 30px auto 10px auto;
+  margin: 30px auto 20px auto;
   width: 60%;
   background-color: white;
 
   min-height: 100%;       /*For the footer, footer is 96px height*/
-  padding-bottom: 96px;
+  padding-bottom: 110px;
 }
 
-#search-journey-body {
-  margin: 20px auto 40px auto;
-}
 
 #search-journey-options {
   border: 1px solid black;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
 }
-#search-journey-options ul {
-  list-style-type: none;
-  overflow: hidden;
-  padding: 0px;
-}
-#search-journey-options li {
-  display: inline;
-}
-
-
 #drop-down-options {
-  width: 48%;
-  float: left;
+  max-width: 50%;
 }
 #col {
-  float: left;
-  margin: 0 10px 5px 15px;
+  display: inline-block;
+  margin: 0 10px 5px 10px;
 }
 #col label {
   display: block;
@@ -110,65 +102,62 @@ input {
   color: white;
 }
 
-
-#filter-options-title {
-  width: 50%;
-  float: right;
-}
-#filter-options-title p {
-  margin: 0px;
-  float: left;
-}
-#filter-options-title label {
-  margin-left: 50px;
-}
-
 #filter-options {
-  float: right;
-  width: 49%;
-  background: lightgray;
-  border: 1px solid grey;
-  border-radius: 5px;
-  margin: 5px 10px 20px 0px;
+  width: 50%;
+}
+#filter-options p {
+  display: inline-block;
+  margin: 3px 40px 3px 3px;
+}
+#filter-options ul {
+  list-style: none;
 }
 #filter-options li {
-  margin: 3px 20px 3px 10px;
+  margin: 3px;
 }
-#filter-options li:last-child {
-  margin-right: 31px;
+#non-account-preferences {
+  background: lightgray;
+  border: 1px solid grey;
+  border-radius: 7px;
+  margin: 2px 20px 2px 0;
 }
-
+#non-account-preferences ul {
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  max-height: 70px;
+}
 
 #search-journey-inputs {
   border: 1px solid black;
   border-top: 0px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: row;
 }
 
 #search-journey-overview {
-  float: left;
+  width: 130px;
+}
+#search-journey-overview h4 {
+  text-align: center;
+  margin: 0;
+  text-decoration: underline;
+  text-decoration-color: #ed793e;
 }
 #search-journey-overview p {
-  margin: 0;
-}
-#search-journey-overview input[type=text] {
-  width: 140px;
-  text-transform: none;
-  margin: 5px;
+  font-size: 13px;
+  margin: 3px;
 }
 #Outbound {
-  padding: 10px 5px;
-  border-bottom: 1px solid black;
   height: 50%;
 }
 #Return {
-  padding: 10px 5px;
-  height: 50%;
+  height: 50%;;
 }
 .inactive {
   opacity: 0.5;
   background: #CCC;
-  border-right: 1px solid black;
+  outline: 1px solid black;
 }
 .inactive:hover {
   cursor: pointer;
@@ -185,9 +174,11 @@ input {
 }
 
 #search-journey-stations {
-  float: left;
-  margin: 0 auto;
+  margin: auto;
   text-align: center;
+}
+#search-journey-stations h2 {
+  margin: 10px;
 }
 #search-journey-stations input {
   text-transform: none;
@@ -200,19 +191,16 @@ input {
 }
 
 #calendar-container {
-  float: left;
-  text-align: center;
+  margin: 5px auto;
+  display: flex;
+  flex-direction: row;
 }
 #calendar-container table {
-  display: table-cell;
   border: 4px solid #ed793e;
-  float: left;
-  margin: 20px 0 0 20px;
   padding: 10px;
   border-radius: 20px 0 0 20px;
   background-color: #282828;
   color: white;
-  border-collapse: separate;
   border-spacing: 10px 5px;
 }
 #calendar-container td {
@@ -237,14 +225,11 @@ input {
 }
 
 #date-display {
-  display: inline-block;
-  margin-top: 20px;
   background-color: #ed793e;
   border-radius: 0 20px 20px 0;
   text-align: right;
   padding: 10px 10px 0 10px;
-  box-sizing: border-box;
-  height: 191px;
+  height: 180.4px;
 }
 #date-display p {
   margin: 0;

@@ -12,9 +12,7 @@ export default class SearchJourneyFormMultiLeg extends Component{
     
   }
   toggleClass(e) {
-    if(e.target.className === 'inactive') {
-      this.setState({ title: e.target.id });
-    }
+    this.setState({ title: e.target.value });
   }
 
    render(){

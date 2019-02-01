@@ -16,8 +16,16 @@ export default class RestrictionCodeForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.history.push(`/restriction-codes/results`, { code: this.state.value });
+
+    if (this.state.value.length === 2) {
+      this.props.history.push(`/restriction-codes/results`, { code: this.state.value });
+    }
   }
+
+  componentDidMount() {
+    this.refs.codeInput.focus();
+  }
+
   render() {
     return (
       <div id="main-body">
@@ -53,7 +61,9 @@ export default class RestrictionCodeForm extends Component {
                     id="ticket-restriction-code"
                     value={this.state.value}
                     onChange={this.handleChange}
-                    placeholder="Enter Restriction Code" />
+                    ref="codeInput"
+                    placeholder="Enter Restriction Code"
+                    maxLength="2" />
                   <input type="submit" value="Search" />
                 </form>
             </div>

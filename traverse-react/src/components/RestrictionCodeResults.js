@@ -2,13 +2,24 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Restrictions from './Restrictions';
 
+const ErrorContainer = props => (
+  <div className="code-error-container">
+    {props.children}
+
+    <div id="search-again-btn">
+      <Link to="/restriction-codes"><input type="submit" value="Search Again" /></Link>
+    </div>
+  </div>
+);
+
 export default class RestrictionCodeResults extends Component {
   constructor(props){
     super(props);
-    // App starts by loading unless given code could be invalid
+
     this.state = {
       loading: this.props.location.state.code.length === 2,
-      data: {}
+      data: {},
+      error: null
     }
   }
 
@@ -17,46 +28,48 @@ export default class RestrictionCodeResults extends Component {
     
     fetch(`/api/restriction-codes/${code}`)
       .then(response => response.json())
-      .then(data => this.setState({ data, loading: false}));
+      .then(data => this.setState({ data, loading: false}))
+      .catch(error => this.setState({ error, data: null, loading: false }));
   }
 
   render() {
-    if(this.state.loading) {
+    if (this.state.loading) {
       return (
         <div className="loading-animation">Loading</div>
       );
-    } else {
-      return (
-        <div id="main-body">
-          <div id="results">
-            <h2>Ticket Restriction Code</h2>
-            <h2 id="current-code">{this.state.data.code}</h2><br/><br/>
+    } else if (this.state.data) {
+      const { data } = this.state;
 
-            <div id="day-list">
-              <input type="radio" id="mon" name="day"/>
-              <label htmlFor="mon">Monday</label>
-              <input type="radio" id="tue" name="day"/>
-              <label htmlFor="tue">Tuesday</label>
-              <input type="radio" id="wed" name="day"/>
-              <label htmlFor="wed">Wednesday</label>
-              <input type="radio" id="thu" name="day"/>
-              <label htmlFor="thu">Thursday</label>
-              <input type="radio" id="fri" name="day"/>
-              <label htmlFor="fri">Friday</label>
-              <input type="radio" id="sat" name="day"/>
-              <label htmlFor="sat">Saturday</label>
-              <input type="radio" id="sun" name="day"/>
-              <label htmlFor="sun">Sunday</label>
-            </div>
+      if (data.isValid) {
+        return (
+          <div id="main-body">
+            <div id="results">
+              <h2>Ticket Restriction Code</h2>
+              <h2 id="current-code">{data.code}</h2>
 
-            <Restrictions restrictions={this.state.data.outRestrictions} title="Outward Restrictions" />
-            <Restrictions restrictions={this.state.data.rtnRestrictions} title="Return Restrictions" />
+              <h3>Outward Restrictions</h3>
+              <Restrictions restrictions={data.outRestrictions} />
+              <h3>Return Restrictions</h3>
+              <Restrictions restrictions={data.rtnRestrictions} />
 
-            <div align="right">
-              <Link to='/restriction-codes'><input type="submit" value="Search Again" align="middle"/></Link>
+              <div id="search-again-btn">
+                <Link to="/restriction-codes"><input type="submit" value="Search Again" /></Link>
+              </div>
             </div>
           </div>
-        </div>
+        );
+      } else {
+        return (
+          <ErrorContainer>
+            <h1>We couldn't find the restriction code {data.code}, please try searching for a different code.</h1>
+          </ErrorContainer>
+        );
+      }
+    } else {
+      return (
+        <ErrorContainer>
+          <h1>A network error occured while looking up the given restriction code. Please try again later.</h1>
+        </ErrorContainer>
       );
     }
   }

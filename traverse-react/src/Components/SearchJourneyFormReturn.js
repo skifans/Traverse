@@ -34,16 +34,16 @@ export default class SearchJourneyFormReturn extends Component{
       <div id="search-journey-inputs">
         <div id="search-journey-overview">
           <div id="Outbound" className={this.state.active ? 'inactive': ''} onClick={this.toggleClass}>
-            <p>Outbound</p>
-            <input type="text" placeholder="Origin Station" value={this.state.out} disabled></input><br/>
-            <img src="../images/downArrow.png" alt="" height="20px" width="auto"></img><br/>
-            <input type="text" placeholder="Destination Station" value={this.state.ret} disabled></input><br/>
+            <p style={{textAlign:'center'}}>Outbound</p>
+            <p>Station: {this.state.out}</p>
+            <p>Date: </p>
+            <p>Time: </p>
           </div>
           <div id="Return" className={this.state.active ? '': 'inactive'} onClick={this.toggleClass}>
-            <p>Return</p>
-            <input type="text" placeholder="Origin Station" value={this.state.ret} disabled></input><br/>
-            <img src="../images/downArrow.png" alt="" height="20px" width="auto"></img><br/>
-            <input type="text" placeholder="Destination Station"  value={this.state.out} disabled></input><br/>
+            <p style={{textAlign:'center'}}>Return</p>
+            <p>Station: {this.state.ret}</p>
+            <p>Date: </p>
+            <p>Time: </p>
           </div>
         </div>
         <div id="search-journey-stations" style={{width: '35%'}}>

@@ -7,15 +7,13 @@ export default class SearchJourneyForm extends Component{
   constructor(props){
     super(props);
     this.state = {
-      type: ['Single', 'Return', 'MultiLeg'],
-      value: '0'
+      value: '0',
     }
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
     this.setState({ value: e.target.value });
-    console.log(this.state.type[e.target.value]);
   }
   
   render(){
@@ -82,8 +80,8 @@ export default class SearchJourneyForm extends Component{
                 </div>
             </form>
           </div>
-
-
+          
+          <Return/>
         </div>
       </div>   
     );

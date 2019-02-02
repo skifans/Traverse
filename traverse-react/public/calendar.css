@@ -1,0 +1,27 @@
+.calendar{
+  display: block;
+  position: absolute;
+  border: 5px solid gray;
+  background: white;
+  width: 300px;
+  z-index: 1;
+}
+
+table{
+  width: 100%;
+}
+
+.navigation-header{
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigation-header span{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.week-days{
+  display: flex;
+  justify-content: space-around;
+}

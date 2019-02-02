@@ -2,20 +2,33 @@ import React, {Component} from 'react';
 import Single from './SearchJourneyFormSingle.js';
 import Return from './SearchJourneyFormReturn.js';
 import MultiLeg from './SearchJourneyFormMultiLeg.js';
+import Calendar from './calendar/Calendar.js'
 
 export default class SearchJourneyForm extends Component{
   constructor(props){
     super(props);
     this.state = {
       value: '0',
+      calendarPosition: {
+        x: 0,
+        y: 0,
+        show: false
+      }
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleCalendarShow = this.handleCalendarShow.bind(this);
   }
 
   handleChange(e) {
     this.setState({ value: e.target.value });
   }
-  
+
+  //Temporary
+  handleCalendarShow(e){
+    const currentState = this.state.calendarPosition.show;
+    this.setState({calendarPosition: {x: e.clientX, y: e.clientY, show: !currentState}})
+  }
+
   render(){
     return (
       <div id="main-body">
@@ -80,10 +93,11 @@ export default class SearchJourneyForm extends Component{
                 </div>
             </form>
           </div>
-          
+          <button onClick={this.handleCalendarShow}>Click</button>
+          <Calendar position={this.state.calendarPosition}/>
           <Return/>
         </div>
-      </div>   
+      </div>
     );
   }
 }

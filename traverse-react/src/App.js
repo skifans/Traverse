@@ -5,7 +5,7 @@ import RestrictionCodeForm from './components/RestrictionCodeForm';
 import RestrictionCodeResults from './components/RestrictionCodeResults';
 import SearchJourneyForm from './components/SearchJourneyForm.js';
 import Main from './components/Main';
-import {Switch, Route} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
   render() {

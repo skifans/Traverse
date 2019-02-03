@@ -1,17 +1,16 @@
 import React from 'react';
 
 const Week = ({children}) =>{
-  console.log(children);
-  let days = children.map((day) => {
-    return (
-      <th>
-        {day}
-      </th>
-    )
-  })
+  // let days = children.map((day) => {
+  //   return (
+  //     <th className="day">
+  //       {day}
+  //     </th>
+  //   )
+  // })
   return(
-    <tr>
-      {days}
+    <tr className="week-row">
+      {children}
     </tr>
   )
 }

@@ -1,27 +1,69 @@
 .calendar{
   display: block;
   position: absolute;
-  border: 5px solid gray;
-  background: white;
+  border: 5px solid #ed793e;
+  border-radius: 20px;
+  background: #282828;
   width: 300px;
   z-index: 1;
 }
 
-table{
-  width: 100%;
+.calendar th{
+  border: none;
+  padding: 0px;
+}
+table button{
+  height: 100%;
+  background: none;
+  color: white;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0px;
+  outline: none;
 }
 
-.navigation-header{
-  display: flex;
-  justify-content: space-around;
+th span{
+  line-height: 50px;
+  height: 50px;
 }
+
+table{
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0px;
+  color: white;
+  padding: 10px;
+}
+
 
 .navigation-header span{
   margin-left: 5px;
   margin-right: 5px;
 }
+.day{
+  text-align: center;
+}
+
+.day-of-week{
+  color: #ed793e;
+}
 
 .week-days{
-  display: flex;
-  justify-content: space-around;
+
+}
+
+.week-row td:first-child{
+  background: #ed793e;
+
+}
+
+.week-row td:last-child{
+  background: #ed793e;
+
+}
+
+.gray{
+  color: #555;
 }

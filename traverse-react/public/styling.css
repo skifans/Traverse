@@ -25,6 +25,9 @@ input {
 p {
   margin: 0;
 }
+input:focus, textarea:focus {
+  outline: none;
+}
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   font-size: 13px;
@@ -136,6 +139,7 @@ p {
   flex-direction: row;
 }
 
+
 #search-journey-overview {
   width: 130px;
 }
@@ -163,7 +167,6 @@ p {
 .inactive:hover {
   cursor: pointer;
 }
-
 #multi-legs {
   list-style: none;
   padding: 0;
@@ -174,21 +177,50 @@ p {
   margin-bottom: -1px;
 }
 
-#search-journey-stations {
-  margin: auto;
-  text-align: center;
+
+
+#search-journey-inputs {
+  padding: 10px;
+  position: relative;
 }
-#search-journey-stations h2 {
-  margin: 10px;
-}
-#search-journey-stations input {
+#search-journey-inputs input[type=text] {
   text-transform: none;
   margin: 10px;
-  color: #ed793e;
   border: 2px solid #ed793e;
+  font-size: 16px;
+  padding: 5px;
 }
-#search-journey-stations img:first-child, img:last-child {
-  margin-bottom: 10px;
+#search-journey-inputs img {
+  vertical-align: middle;
+}
+#swapLoc {
+  border: 2px solid #ed793e;
+  border-radius: 20px;
+  margin: -15px;
+  z-index: 20;
+  position: relative;
+}
+#search-journey-date {
+  margin: 10px;
+  border: 2px solid #ed793e;
+  padding: 2px;
+  border-radius: 6px;
+}
+#search-journey-date input[type=text] {
+  border: none;
+  padding: 5px;
+  margin: 0;
+}
+.date-increment {
+  margin: 0 10px;
+}
+#search-journey-submit {
+  border-radius: 20px;
+  padding: 5px 15px 5px 10px;
+
+  position: absolute;
+  bottom: -15px;
+  right: 10px;
 }
 
 #calendar-container {
@@ -314,15 +346,12 @@ p {
 }
 input[type=text] {
   border:2px solid #ccc; 
-  border-radius: 5px;
+  border-radius: 6px;
   width: 170px;
   height: 20px;
   font-size: 14px;
   margin-right: 5px;
   text-transform: uppercase;
-}
-input[type=text]:focus {
-  border: 2px solid #ed793e;
 }
 input[type=submit] {
   padding: 3px 5px;

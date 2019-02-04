@@ -180,35 +180,42 @@ input:focus, textarea:focus {
 
 
 #search-journey-inputs {
-  padding: 10px;
   position: relative;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
 }
 #search-journey-inputs input[type=text] {
   text-transform: none;
-  margin: 10px;
+  margin: 5px;
   border: 2px solid #ed793e;
   font-size: 16px;
   padding: 5px;
 }
-#search-journey-inputs img {
+#search-journey-stations input {
+  height: 30px;
+}
+#search-journey-inputs img, #search-journey-inputs input[type=text] {
   vertical-align: middle;
+}
+#one-leg {
+  display: flex;
 }
 #swapLoc {
   border: 2px solid #ed793e;
   border-radius: 20px;
   margin: -15px;
-  z-index: 20;
+  z-index: 1;
   position: relative;
 }
 #search-journey-date {
-  margin: 10px;
+  margin: 5px;
   border: 2px solid #ed793e;
   padding: 2px;
   border-radius: 6px;
 }
 #search-journey-date input[type=text] {
   border: none;
-  padding: 5px;
   margin: 0;
 }
 .date-increment {
@@ -221,6 +228,14 @@ input:focus, textarea:focus {
   position: absolute;
   bottom: -15px;
   right: 10px;
+}
+#add-leg {
+  border-radius: 20px;
+  padding: 5px 15px 5px 10px;
+
+  position: absolute;
+  bottom: -15px;
+  left: 10px;
 }
 
 #calendar-container {

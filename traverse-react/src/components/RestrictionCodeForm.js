@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class RestrictionCodeForm extends Component {
   constructor(props) {
@@ -32,17 +33,12 @@ export default class RestrictionCodeForm extends Component {
         <div id="restriction-code-information">
           <h2>Ticket Restriction Codes</h2>
           <p>
-          Ticket restriction codes convey an important message about your ticket.
-          These could dictate when, where, or on which service you can travel.
-          They communicate these messages extremely poorly.
-          </p>
-           <p>
-           These codes are not consistently printed in the same placed on ticket, so finding them may be difficult.
-           Don’t worry, because they do have one thing in common: they are always two characters long e.g. L1, G3, 56, HY.
+            Ticket restriction codes restrict when, where, or on which service you can travel. 
+            They are typically found on the front, look for two character long code e.g. L1, G3, 56, HY. 
+            If you cannot find one, you may be eligible for any route.
           </p>
           <p>
-          They can be found on the front side of your ticket, typically in the bottom right corner.
-          If you cannot find a two-character code, you may be eligible for any route.
+            Search below using the ticket, or click <Link id="help-link" to="">here for help.</Link>
           </p>
         </div>
         <div id="ticket">

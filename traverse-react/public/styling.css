@@ -139,46 +139,6 @@ input:focus, textarea:focus {
   flex-direction: row;
 }
 
-
-#search-journey-overview {
-  width: 130px;
-}
-#search-journey-overview h4 {
-  text-align: center;
-  margin: 0;
-  text-decoration: underline;
-  text-decoration-color: #ed793e;
-}
-#search-journey-overview p {
-  font-size: 13px;
-  margin: 3px;
-}
-#Outbound {
-  height: 50%;
-}
-#Return {
-  height: 50%;;
-}
-.inactive {
-  opacity: 0.5;
-  background: #CCC;
-  outline: 1px solid black;
-}
-.inactive:hover {
-  cursor: pointer;
-}
-#multi-legs {
-  list-style: none;
-  padding: 0;
-}
-#multi-legs li {
-  padding: 12px;
-  border-bottom: 1px solid black;
-  margin-bottom: -1px;
-}
-
-
-
 #search-journey-inputs {
   position: relative;
   padding: 20px 10px;
@@ -238,62 +198,15 @@ input:focus, textarea:focus {
   left: 10px;
 }
 
-#calendar-container {
-  margin: 5px auto;
-  display: flex;
-  flex-direction: row;
+#help-link {
+  text-decoration: none;
+  color: black;
 }
-#calendar-container table {
-  border: 4px solid #ed793e;
-  padding: 10px;
-  border-radius: 20px 0 0 20px;
-  background-color: #282828;
-  color: white;
-  border-spacing: 10px 5px;
-}
-#calendar-container td {
-  text-align: center;
-  padding: 0px;
-}
-#calendar-container td:hover {
-  color: #ed793e;
-  -o-transition: .5s;
-  -ms-transition: .5s;
-  -moz-transition: .5s;
-  -webkit-transition: .5s;
-  transition: .7s;
+#help-link:hover {
   cursor: pointer;
-}
-#table-header {
-  font-weight: bold;
   color: #ed793e;
+  text-decoration: underline;
 }
-#table-header td:hover {
-  cursor: auto;
-}
-
-#date-display {
-  background-color: #ed793e;
-  border-radius: 0 20px 20px 0;
-  text-align: right;
-  padding: 10px 10px 0 10px;
-  height: 180.4px;
-}
-#date-display p {
-  margin: 0;
-  font-size: 20px;
-}
-#date-display p:first-child {
-  color: white;
-  font-size: 40px;
-}
-#date-display p:last-child {
-  font-size: 12px;
-}
-
-
-
-
 .restrictions {
   display: flex;
 }

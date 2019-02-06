@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default () => (
   <div id="navbar">
     <div id="logo">
-      <img src="/images/traverselogo3.png" alt="Logo" />
+      <Link to="/"><img src="/images/traverselogo3.png" alt="Logo"/></Link>
     </div>
 
     <div id="nav-links">

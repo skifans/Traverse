@@ -1,5 +1,17 @@
 import React from 'react';
 
 export default () => (
-  <h2>This is the main page</h2>
+  <div id="main-body">
+    <div id="card-selection">
+      <div className="card">
+        <img src="./images/journey-card.png" alt="Search Journey"/>
+        <h2>Search Journey</h2>
+      </div>
+      <div className="card">
+        <img src="./images/restrictionCard.png" alt="Search Codes"/>
+        <h2>Restriction Codes</h2>
+      </div>
+
+    </div>
+  </div>
 );

@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
-body a {
+:hover {
   -o-transition: .5s;
   -ms-transition: .5s;
   -moz-transition: .5s;
@@ -19,7 +19,7 @@ ul {
   margin: 0px;
   padding: 0;
 }
-input {
+input[type=text] {
   text-indent: 5px;
 }
 p {
@@ -43,35 +43,6 @@ input:focus, textarea:focus {
   color: pink;
 }
 
-#navbar {
-  width: 100%;
-  background-color: #282828;
-  border-bottom: 4px solid #ed793e;
-}
-
-#logo {
-  float: left;
-  padding: 5px 0 0 15%;
-}
-
-#nav-links ul {
-  padding-right: 15%;
-  list-style-type: none;
-  overflow: hidden;
-}
-#nav-links li {
-  float: right;
-}
-#nav-links li a {
-  display: block;
-  padding: 15px;
-  text-decoration: none;
-  color: white;
-}
-#nav-links li a:hover {
-  color: #ed793e;
-}
-
 #main-body {
   margin: 30px auto 20px auto;
   width: 60%;
@@ -81,6 +52,29 @@ input:focus, textarea:focus {
   padding-bottom: 110px;
 }
 
+/* Main page */
+#card-selection {
+  border: 3px solid black;
+  border-radius: 30px;
+  padding: 20px;
+  display: flex;
+  position: relative;
+}
+.card {
+  border: 3px solid #ed793e;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  text-align: center;
+}
+.card:hover {
+  cursor: pointer;
+  color: #ed793e;
+  box-shadow: 10px 10px 5px darkslategray;
+}
+.card:hover img {
+  background: #ed793e;
+}
 
 #search-journey-options {
   border: 1px solid black;
@@ -346,41 +340,5 @@ input[name=day] {
   width: 60%;
 }
 .code-error-container > * {
-  text-align: center;
-}
-
-footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #282828;
-  color:white;
-  border-top: 3px solid #FF9338;
-  overflow: hidden;
-}
-footer a {
-  text-decoration: none;
-  color: white;
-}
-footer a:hover {
-  color: #FF9338;
-}
-footer ul {
-  list-style-type: none;
-  text-align: center;
-  margin: 0px;
-}
-footer li {
-  display: inline-block;
-  margin: 5px 15px;
-}
-#social-media-icons li {
-  margin: 5px 50px 0px 50px;
-}
-#copyright {
-  margin: 1px;
-  color: grey;
-  font-size: 14px;
   text-align: center;
 }

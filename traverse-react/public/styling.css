@@ -175,7 +175,13 @@ input:focus, textarea:focus {
 }
 .date-increment {
   margin: 0 10px;
+  border: solid 2px transparent;
+  transition: 0s border;
 }
+.date-increment:active{
+  border: solid 2px #ed793e;
+}
+
 #search-journey-submit {
   border-radius: 20px;
   padding: 5px 15px 5px 10px;

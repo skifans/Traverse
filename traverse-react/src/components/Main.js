@@ -10,7 +10,7 @@ export default () => (
       </Link>
       
       <Link className="card" to="/restriction-codes">
-        <img src="./images/restrictionCard.png" alt="Search Codes"/>
+        <img src="./images/restriction-card.png" alt="Search Codes"/>
         <h2>Restriction Codes</h2>
       </Link>
 

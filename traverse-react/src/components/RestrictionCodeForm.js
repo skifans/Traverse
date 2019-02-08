@@ -51,7 +51,7 @@ export default class RestrictionCodeForm extends Component {
                 Search ticket code restrictions here:
               </p>
                 <form onSubmit={this.handleSubmit}>
-                  <label htmlFor="ticket-restriction-code" id="label-route">ROUTE:</label><br />
+                  <label htmlFor="ticket-restriction-code" id="label-route">CODE:</label><br />
                   <input
                     type="text"
                     id="ticket-restriction-code"

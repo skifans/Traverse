@@ -75,7 +75,7 @@ input:focus, textarea:focus {
   cursor: pointer;
   color: #ed793e;
   box-shadow: 7px 7px 5px #ed793e;
-  background: rgba(70, 70, 70, 0.8);
+  background: rgba(70, 70, 70, 0.9);
 }
 .card:first-child:hover img {
   background: url(./images/journey-card-hover.png);
@@ -132,7 +132,7 @@ input:focus, textarea:focus {
   display: flex;
   flex-direction: column;
   flex-flow: column wrap;
-  height: 70px;
+  height: 60px;
 }
 
 #search-journey-inputs {
@@ -158,7 +158,7 @@ input:focus, textarea:focus {
 #search-journey-stations input {
   height: 30px;
 }
-#search-journey-inputs img, #search-journey-inputs input[type=text] {
+#search-journey-inputs img {
   vertical-align: middle;
 }
 #one-leg {
@@ -172,6 +172,8 @@ input:focus, textarea:focus {
   position: relative;
 }
 #search-journey-date {
+  flex-grow: 1;
+  display: flex;
   margin: 5px;
   border: 2px solid #ed793e;
   padding: 2px;
@@ -179,10 +181,13 @@ input:focus, textarea:focus {
 }
 #search-journey-date input[type=text] {
   border: none;
-  margin: 0;
+  margin: auto 0;
+}
+#search-journey-date img {
+  margin: auto 5px;
 }
 .date-increment {
-  margin: 0 10px;
+  margin: auto 10px;
 }
 #search-journey-submit {
   border-radius: 20px;

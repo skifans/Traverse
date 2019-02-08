@@ -231,6 +231,7 @@ input:focus, textarea:focus {
   align-items: center;
   margin-top: 10px;
   box-sizing: border-box;
+  padding-right: 10px;
 }
 #restriction-code-information {
   margin: 20px auto 40px auto;

@@ -1,0 +1,36 @@
+//@import 'oldStyling';
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import 'reset';
+
+
+body {
+    
+    background: #681e9a;
+    background: -moz-linear-gradient(45deg, #681e9a 0%, #67bc6c 100%);
+    background: -webkit-linear-gradient(45deg, #681e9a 0%,#67bc6c 100%);
+    background: linear-gradient(45deg, #681e9a 0%,#67bc6c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#681e9a', endColorstr='#67bc6c',GradientType=1 );
+    
+}
+
+.App {
+
+    color: white;
+    font-family: Montserrat;
+    
+    width: 1200px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+#main-body {
+    flex: 1;
+}
+
+@import 'header';
+@import 'footer';

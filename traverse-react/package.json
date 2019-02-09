@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "react": "^16.7.0",
-    "react-calendar": "^2.18.1",
     "react-dom": "^16.7.0",
+    "react-flatpickr": "^3.7.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3"
   },

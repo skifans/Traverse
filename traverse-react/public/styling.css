@@ -155,6 +155,9 @@ input:focus, textarea:focus {
 }
 #one-leg {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
 #swapLoc {
   border: 2px solid #ed793e;
@@ -182,22 +185,22 @@ input:focus, textarea:focus {
   border: solid 2px #ed793e;
 }
 
-#search-journey-submit {
-  border-radius: 20px;
-  padding: 5px 15px 5px 10px;
+/*#search-journey-submit {*/
+  /*!*border-radius: 20px;*!*/
+  /*!*padding: 5px 15px 5px 10px;*!*/
 
-  position: absolute;
-  bottom: -15px;
-  right: 10px;
-}
-#add-leg {
-  border-radius: 20px;
-  padding: 5px 15px 5px 10px;
+  /*!*position: absolute;*!*/
+  /*!*bottom: -15px;*!*/
+  /*!*right: 10px;*!*/
+/*}*/
+/*#add-leg {*/
+  /*border-radius: 20px;*/
+  /*padding: 5px 15px 5px 10px;*/
 
-  position: absolute;
-  bottom: -15px;
-  left: 10px;
-}
+  /*position: absolute;*/
+  /*bottom: -15px;*/
+  /*left: 10px;*/
+/*}*/
 
 #help-link {
   text-decoration: none;
@@ -282,14 +285,14 @@ input[type=text] {
   margin-right: 5px;
   text-transform: uppercase;
 }
-input[type=submit] {
+.search-form-buttons {
   padding: 3px 5px;
   background: white;
   border-radius: 6px;
   border: solid 2px #ed793e;
   font-size: 14px;
 }
-input[type=submit]:hover {
+.search-form-buttons:hover {
   background: #ed793e;
   cursor: pointer;
 }
@@ -363,4 +366,11 @@ input[name=day] {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+/*
+  SearchJourneyFormInputs
+ */
+.calendar h4{
+  margin: 0px 5px;
 }

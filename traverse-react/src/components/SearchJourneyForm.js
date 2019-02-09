@@ -6,75 +6,129 @@ export default class SearchJourneyForm extends Component{
   constructor(props){
     super(props);
     this.state = {
-      selectedDate: new Date(),
-      origin: "",
-      destination: ""
-    }
+      selectedDate: [new Date()],
+      origin: [""],
+      destination: [""],
+      legs: 1
+    };
 
     this.handleDateSelect = this.handleDateSelect.bind(this);
-    this.handleDateIncrement = this.handleDateIncrement.bind(this);
-    this.handleDateDecrement = this.handleDateDecrement.bind(this);
     this.handleOriginInput = this.handleOriginInput.bind(this);
     this.handleDestinationInput = this.handleDestinationInput.bind(this);
     this.handleSwap = this.handleSwap.bind(this);
+    this.addLeg = this.addLeg.bind(this);
   }
 
-  handleDateSelect(date){
-    this.setState({selectedDate: date})
-  }
-  handleDateIncrement(){
-    this.setState((prevState) =>{
+  handleDateSelect(dateArr, id){
+    this.setState((prevState) => {
       return {
-        selectedDate: new Date(prevState.selectedDate.getTime() + 86400000)
+        selectedDate: prevState.selectedDate.map((d, i) => {
+          if(i !== id){
+            return d;
+          } else{
+            return dateArr[0];
+          }
+        })
       }
     })
   }
-  handleDateDecrement(){
-    let {selectedDate} = this.state;
-    let today = parseInt(new Date().getTime() / 86400000) * 86400000;
-    let selectedDateMillis = selectedDate.getTime();
-    if(selectedDateMillis - 86399999 > today){
-      this.setState((prevState) =>{
+  handleOriginInput(e, id){
+    console.log(e.target.value + "    " + id)
+    let newVal = e.target.value;
+    this.setState((prevState) => {
+      return {
+        origin: prevState.origin.map((d, i) => {
+          if(i !== id){
+            return d;
+          } else{
+            return newVal;
+          }
+        })
+      }
+    })
+  }
+  handleDestinationInput(e, id){
+    let newVal = e.target.value;
+    this.setState((prevState) => {
+      return {
+        destination: prevState.destination.map((d, i) => {
+          if(i !== id){
+            return d;
+          } else{
+            return newVal;
+          }
+        })
+      }
+    })
+  }
+  handleSwap(id){
+    this.setState((prevState) => {
+      return{
+        origin: prevState.origin.map((d, i) => {
+          if(i !== id){
+            return d;
+          } else{
+            return prevState.destination[id];
+          }
+        }),
+        destination: prevState.destination.map((d, i) => {
+          if(i !== id){
+            return d;
+          } else{
+            return prevState.origin[id];
+          }
+        })
+      }
+    })
+  }
+  addLeg(){
+    if(this.state.legs < 3) {
+      this.setState((prevState) => {
         return {
-          selectedDate: new Date(prevState.selectedDate.getTime() - 86400000)
+          legs: prevState.legs + 1,
+          selectedDate: prevState.selectedDate.concat([new Date()]),
+          destination: prevState.destination.concat([""]),
+          origin: prevState.origin.concat([""])
         }
       })
     }
   }
-  handleOriginInput(e){
-    this.setState({origin: e.target.value})
-    console.log(this.state.origin);
-  }
-  handleDestinationInput(e){
-    this.setState({destination: e.target.value})
-  }
-  handleSwap(){
-    this.setState((prevState) =>{
-      return {
-        origin: prevState.destination,
-        destination: prevState.origin
-      }
-    })
-  }
+
 
   render(){
-    let {selectedDate, origin, destination} = this.state;
+    let {selectedDate, origin, destination, legs} = this.state;
+
+    let inputLegs = [];
+    for(let i = 0; i < legs; i++){
+      inputLegs.push(<Inputs
+          key={i}
+          id={i}
+          dateValue={this.state.selectedDate[i]}
+          destination={destination[i]}
+          origin={origin[i]}
+          onClickDate={this.handleDateSelect}
+          onDestinationChange={this.handleDestinationInput}
+          onOriginChange={this.handleOriginInput}
+          onSwap={this.handleSwap}
+      />)
+    }
     return (
       <div id="main-body">
-        <h2> {selectedDate.getMonth() + " " + selectedDate.getDate()}</h2>
-        <Options/>
-        <Inputs
-          incrementDate={this.handleDateIncrement}
-          decrementDate={this.handleDateDecrement}
-          onClickDate={this.handleDateSelect}
-          dateValue={this.state.selectedDate}
-          onOriginChange={this.handleOriginInput}
-          origin={origin}
-          onDestinationChange={this.handleDestinationInput}
-          destination={destination}
-          onSwap={this.handleSwap}
-          showCalendar={true}
-        />
+        <form>
+          <Options/>
+          {/*<Inputs*/}
+            {/*onClickDate={this.handleDateSelect}*/}
+            {/*onDestinationChange={this.handleDestinationInput}*/}
+            {/*onOriginChange={this.handleOriginInput}*/}
+            {/*onSwap={this.handleSwap}*/}
+            {/*dateValue={this.state.selectedDate}*/}
+            {/*origin={origin}*/}
+            {/*destination={destination}*/}
+          {/*/>*/}
+          {inputLegs}
+          {legs < 3? <input onClick={this.addLeg} className="search-form-buttons" value="Add Leg" type="button"/>: ""}
+          <input className="search-form-buttons" value="Search" type="submit"/>
+        </form>
       </div>
     );
   }

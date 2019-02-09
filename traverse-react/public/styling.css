@@ -1,4 +1,5 @@
 body {
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
@@ -11,6 +12,7 @@ body {
 }
 
 html {
+  height: 100%;
   position: relative;
   min-height: 100%;
 }
@@ -44,12 +46,9 @@ input:focus, textarea:focus {
 }
 
 #main-body {
-  margin: 30px auto 20px auto;
+  margin: auto;
   width: 60%;
   background-color: white;
-
-  min-height: 100%;       /*For the footer, footer is 96px height*/
-  padding-bottom: 110px;
 }
 
 /* Main page */
@@ -163,6 +162,9 @@ input:focus, textarea:focus {
 }
 #one-leg {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
 #swapLoc {
   border: 2px solid #ed793e;
@@ -187,24 +189,30 @@ input:focus, textarea:focus {
   margin: auto 5px;
 }
 .date-increment {
-  margin: auto 10px;
+  margin: 0 10px;
+  border: solid 2px transparent;
+  transition: 0s border;
 }
-#search-journey-submit {
-  border-radius: 20px;
-  padding: 5px 15px 5px 10px;
+.date-increment:active{
+  border: solid 2px #ed793e;
+}
 
-  position: absolute;
-  bottom: -15px;
-  right: 10px;
-}
-#add-leg {
-  border-radius: 20px;
-  padding: 5px 15px 5px 10px;
+/*#search-journey-submit {*/
+  /*!*border-radius: 20px;*!*/
+  /*!*padding: 5px 15px 5px 10px;*!*/
 
-  position: absolute;
-  bottom: -15px;
-  left: 10px;
-}
+  /*!*position: absolute;*!*/
+  /*!*bottom: -15px;*!*/
+  /*!*right: 10px;*!*/
+/*}*/
+/*#add-leg {*/
+  /*border-radius: 20px;*/
+  /*padding: 5px 15px 5px 10px;*/
+
+  /*position: absolute;*/
+  /*bottom: -15px;*/
+  /*left: 10px;*/
+/*}*/
 
 #help-link {
   text-decoration: none;
@@ -282,7 +290,7 @@ input:focus, textarea:focus {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 input[type=text] {
-  border:2px solid #ccc; 
+  border:2px solid #ccc;
   border-radius: 6px;
   width: 170px;
   height: 20px;
@@ -290,14 +298,14 @@ input[type=text] {
   margin-right: 5px;
   text-transform: uppercase;
 }
-input[type=submit] {
+.search-form-buttons {
   padding: 3px 5px;
-  background: white; 
+  background: white;
   border-radius: 6px;
   border: solid 2px #ed793e;
   font-size: 14px;
 }
-input[type=submit]:hover {
+.search-form-buttons:hover {
   background: #ed793e;
   cursor: pointer;
 }
@@ -356,4 +364,26 @@ input[name=day] {
 }
 .code-error-container > * {
   text-align: center;
+}
+
+/*
+  Main page css fixes
+*/
+
+#root{
+  width: 100%;
+  height: 100%;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/*
+  SearchJourneyFormInputs
+ */
+.calendar h4{
+  margin: 0px 5px;
 }

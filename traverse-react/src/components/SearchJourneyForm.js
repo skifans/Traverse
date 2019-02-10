@@ -10,7 +10,7 @@ export default class SearchJourneyForm extends Component{
       origin: [""],
       destination: [""],
       legs: 1,
-      journeyType: 1
+      journeyType: 0
     };
 
     this.handleDateSelect = this.handleDateSelect.bind(this);

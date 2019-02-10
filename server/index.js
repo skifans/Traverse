@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const ejs = require('ejs');
 const restrictionDecoder = require('./modules/restriction-decoder');
 
 const PORT = 3001;
@@ -10,7 +9,6 @@ const BUILD_DIR = path.join(__dirname, '/../', 'traverse-react', 'build');
 // Server set up
 app.use(express.static(BUILD_DIR));
 app.set('views', __dirname + '/views');
-app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 
 // Default home page

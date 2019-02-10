@@ -97,6 +97,7 @@ export default class SearchJourneyForm extends Component{
 
   render(){
     let {selectedDate, origin, destination, legs} = this.state;
+    let deleteOpt = legs > 1;
 
     let inputLegs = [];
     for(let i = 0; i < legs; i++){
@@ -110,21 +111,13 @@ export default class SearchJourneyForm extends Component{
           onDestinationChange={this.handleDestinationInput}
           onOriginChange={this.handleOriginInput}
           onSwap={this.handleSwap}
+          deleteOption={deleteOpt}
       />)
     }
     return (
       <div id="main-body">
         <form>
           <Options/>
-          {/*<Inputs*/}
-            {/*onClickDate={this.handleDateSelect}*/}
-            {/*onDestinationChange={this.handleDestinationInput}*/}
-            {/*onOriginChange={this.handleOriginInput}*/}
-            {/*onSwap={this.handleSwap}*/}
-            {/*dateValue={this.state.selectedDate}*/}
-            {/*origin={origin}*/}
-            {/*destination={destination}*/}
-          {/*/>*/}
           {inputLegs}
           {legs < 3? <input onClick={this.addLeg} className="search-form-buttons" value="Add Leg" type="button"/>: ""}
           <input className="search-form-buttons" value="Search" type="submit"/>

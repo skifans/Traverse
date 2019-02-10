@@ -13,6 +13,12 @@ const SearchJourneyFormInputs = (props) => {
         props.onOriginChange(e, props.id)
     }
 
+    const deleteButton = props.deleteOption ? (
+        <div style={{position: "absolute", right: "5px", top: "5px"}}>
+            <button>X</button>
+        </div>
+    ) : "";
+
     return (
         <div id="search-journey-inputs">
           <div id="one-leg">
@@ -29,6 +35,7 @@ const SearchJourneyFormInputs = (props) => {
                 <h4>At</h4>
                 <Flatpickr options={{enableTime: true, noCalendar: true, dateFormat:"H:i", time_24hr:true}}/>
             </div>
+            {deleteButton}
           </div>
         </div>
       )

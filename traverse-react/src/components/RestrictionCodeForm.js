@@ -60,7 +60,7 @@ export default class RestrictionCodeForm extends Component {
                     ref="codeInput"
                     placeholder="Enter Restriction Code"
                     maxLength="2" />
-                  <input type="submit" value="Search" />
+                  <input className="search-form-buttons" type="submit" value="Search" />
                 </form>
             </div>
             <h3>

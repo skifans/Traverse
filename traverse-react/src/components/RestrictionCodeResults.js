@@ -53,7 +53,7 @@ export default class RestrictionCodeResults extends Component {
               <Restrictions restrictions={data.rtnRestrictions} />
 
               <div id="search-again-btn">
-                <Link to="/restriction-codes"><input type="submit" value="Search Again" /></Link>
+                <Link to="/restriction-codes"><input type="submit" className="search-form-buttons" value="Search Again" /></Link>
               </div>
             </div>
           </div>

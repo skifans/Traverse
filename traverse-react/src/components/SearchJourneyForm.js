@@ -17,6 +17,7 @@ export default class SearchJourneyForm extends Component{
     this.handleDestinationInput = this.handleDestinationInput.bind(this);
     this.handleSwap = this.handleSwap.bind(this);
     this.addLeg = this.addLeg.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleDateSelect(dateArr, id){
@@ -93,6 +94,13 @@ export default class SearchJourneyForm extends Component{
       })
     }
   }
+  handleSubmit(e) {
+    e.preventDefault();
+
+    if (this.state.origin !== "" && this.state.destination !== "") {
+      this.props.history.push('/search-journey-results', { org: this.state.origin});
+    }
+  }
 
 
   render(){
@@ -114,18 +122,21 @@ export default class SearchJourneyForm extends Component{
     }
     return (
       <div id="main-body">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <Options/>
-          {/*<Inputs*/}
-            {/*onClickDate={this.handleDateSelect}*/}
-            {/*onDestinationChange={this.handleDestinationInput}*/}
-            {/*onOriginChange={this.handleOriginInput}*/}
-            {/*onSwap={this.handleSwap}*/}
-            {/*dateValue={this.state.selectedDate}*/}
-            {/*origin={origin}*/}
-            {/*destination={destination}*/}
-          {/*/>*/}
-          {inputLegs}
+            {/*<Inputs*/}
+              {/*onClickDate={this.handleDateSelect}*/}
+              {/*onDestinationChange={this.handleDestinationInput}*/}
+              {/*onOriginChange={this.handleOriginInput}*/}
+              {/*onSwap={this.handleSwap}*/}
+              {/*dateValue={this.state.selectedDate}*/}
+              {/*origin={origin}*/}
+              {/*destination={destination}*/}
+            {/*/>*/}
+          <div id="search-journey-inputs">
+            {inputLegs}
+          </div>
+
           {legs < 3? <input onClick={this.addLeg} className="search-form-buttons" value="Add Leg" type="button"/>: ""}
           <input className="search-form-buttons" value="Search" type="submit"/>
         </form>

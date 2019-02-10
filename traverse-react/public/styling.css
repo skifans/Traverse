@@ -46,7 +46,8 @@ input:focus, textarea:focus {
 }
 
 #main-body {
-  margin: auto;
+  margin: 30px auto auto auto;
+  padding: 20px;
   width: 60%;
   background-color: white;
 }
@@ -149,13 +150,10 @@ input:focus, textarea:focus {
 }
 #search-journey-inputs input[type=text] {
   text-transform: none;
-  margin: 5px;
+  margin: 9px;
   border: 2px solid #ed793e;
   font-size: 16px;
   padding: 5px;
-}
-#search-journey-stations input {
-  height: 30px;
 }
 #search-journey-inputs img {
   vertical-align: middle;

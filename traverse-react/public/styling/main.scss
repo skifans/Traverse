@@ -1,6 +1,6 @@
 //@import 'oldStyling';
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300i,400,600i,700i');
 @import 'reset';
 
 
@@ -28,9 +28,19 @@ body {
 
 }
 
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
 #main-body {
     flex: 1;
 }
 
+
 @import 'header';
+@import 'main-page';
+@import 'search-form';
+@import 'search-results';
 @import 'footer';

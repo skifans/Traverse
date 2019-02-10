@@ -1,0 +1,68 @@
+#main-page {
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+
+    #title {
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 35px;
+
+        h1 {
+
+            font-size: 50px;
+            font-weight: 700;
+            font-style: italic;
+            text-align: center;
+            letter-spacing: 5px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid white;
+
+        }
+
+        h2 {
+
+            font-size: 20px;
+            font-weight: 300;
+            font-style: italic;
+            margin-top: 10px;
+            color: #D9CCEB;
+
+        }
+
+    }
+    
+    #cards {
+
+        display: flex;
+
+        a {
+
+            //background-color: red;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 30px;
+            border: 20px solid white;
+            text-align: center;
+            width: 350px;
+            height: 350px;
+            margin: 40px;
+            text-decoration: none;
+
+            h2 {
+
+                color: white;
+                margin-top: 35px;
+                
+
+            }
+
+        }
+
+    }   
+
+}

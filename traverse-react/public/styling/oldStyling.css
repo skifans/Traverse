@@ -353,7 +353,7 @@ input:focus, textarea:focus {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
-input[type=text] {
+#main-body input[type=text] {
   border: 2px solid #ccc;
   border-radius: 6px;
   width: 170px;
@@ -363,7 +363,7 @@ input[type=text] {
   text-transform: uppercase;
 }
 
-input[type=submit] {
+#main-body input[type=submit] {
   padding: 3px 5px;
   background: white;
   border-radius: 6px;
@@ -371,7 +371,7 @@ input[type=submit] {
   font-size: 14px;
 }
 
-input[type=submit]:hover {
+#main-body input[type=submit]:hover {
   background: #ed793e;
   cursor: pointer;
 }

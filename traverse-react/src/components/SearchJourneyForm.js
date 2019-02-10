@@ -9,7 +9,8 @@ export default class SearchJourneyForm extends Component{
       selectedDate: [new Date()],
       origin: [""],
       destination: [""],
-      legs: 1
+      legs: 1,
+      journeyType: 1
     };
 
     this.handleDateSelect = this.handleDateSelect.bind(this);
@@ -17,6 +18,8 @@ export default class SearchJourneyForm extends Component{
     this.handleDestinationInput = this.handleDestinationInput.bind(this);
     this.handleSwap = this.handleSwap.bind(this);
     this.addLeg = this.addLeg.bind(this);
+    this.deleteLeg = this.deleteLeg.bind(this);
+    this.handleJourneyTypeChange = this.handleJourneyTypeChange.bind(this);
   }
 
   handleDateSelect(dateArr, id){
@@ -93,10 +96,26 @@ export default class SearchJourneyForm extends Component{
       })
     }
   }
+  deleteLeg(e,id){
+    e.preventDefault();
+    this.setState((prevState) =>{
+      return {
+        selectedDate: [...prevState.selectedDate].splice(id - 1, 1),
+        origin: [...prevState.origin].splice(id - 1, 1),
+        destination: [...prevState.destination].splice(id - 1, 1),
+        legs: prevState.legs - 1
+      }
+    })
+  }
+
+  //Option's functions
+  handleJourneyTypeChange(e){
+    this.setState({journeyType: +e.target.value})
+  }
 
 
   render(){
-    let {selectedDate, origin, destination, legs} = this.state;
+    let {selectedDate, origin, destination, legs, journeyType} = this.state;
     let deleteOpt = legs > 1;
 
     let inputLegs = [];
@@ -111,15 +130,18 @@ export default class SearchJourneyForm extends Component{
           onDestinationChange={this.handleDestinationInput}
           onOriginChange={this.handleOriginInput}
           onSwap={this.handleSwap}
+          onDelete={this.deleteLeg}
           deleteOption={deleteOpt}
       />)
     }
     return (
       <div id="main-body">
         <form>
-          <Options/>
+          <Options journeyType={journeyType}
+                   onJourneyTypeChange={this.handleJourneyTypeChange}
+          />
           {inputLegs}
-          {legs < 3? <input onClick={this.addLeg} className="search-form-buttons" value="Add Leg" type="button"/>: ""}
+          {legs < 3 && journeyType === 2? <input onClick={this.addLeg} className="search-form-buttons" value="Add Leg" type="button"/>: ""}
           <input className="search-form-buttons" value="Search" type="submit"/>
         </form>
       </div>

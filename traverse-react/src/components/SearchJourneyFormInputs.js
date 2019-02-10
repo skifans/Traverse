@@ -15,7 +15,7 @@ const SearchJourneyFormInputs = (props) => {
 
     const deleteButton = props.deleteOption ? (
         <div style={{position: "absolute", right: "5px", top: "5px"}}>
-            <button>X</button>
+            <button onClick={(e) => props.onDelete(e,props.id)}>X</button>
         </div>
     ) : "";
 
@@ -23,9 +23,9 @@ const SearchJourneyFormInputs = (props) => {
         <div id="search-journey-inputs">
           <div id="one-leg">
             <div id="search-journey-stations">
-              <input onChange={originChange} value={props.origin} type="text" placeholder="Origin Station"/>
+              <input onChange={originChange} value={props.origin || ""} type="text" placeholder="Origin Station"/>
               <img onClick={() => {props.onSwap(props.id)}} id="swapLoc" src="/images/swapArrows.png" alt=""/>
-              <input onChange={destChange} value={props.destination} type="text" placeholder="Destination Station"/>
+              <input onChange={destChange} value={props.destination || ""} type="text" placeholder="Destination Station"/>
             </div>
             <div className="calendar">
                 <h4>When</h4>

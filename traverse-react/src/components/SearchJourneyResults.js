@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-import React, {Component} from 'react';
-
-export default class SearchJourneyResults extends Component{
-  constructor(props){
-    super(props);
-
-    this.state = {
-
-    }
-  }
-
-  componentWillMount() {
-    const { origin, destination } = this.props.location.state;
-    console.log(origin);
-    console.log(destination);
-  }
-
-  render(){
-
-    return(
-      <div id="main-body">
-        <h2>Result</h2>
-        <p></p>
-      </div>
-    );
-  }
-}
-=======
 import React, {Component} from 'react';
 
 export default class SearchJourneyResults extends Component{
@@ -76,7 +47,6 @@ export default class SearchJourneyResults extends Component{
                         <div class="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="./styling/open.png" />
                     </div>
                     <div class="entry">
                         <div class="cell">
@@ -98,7 +68,6 @@ export default class SearchJourneyResults extends Component{
                         <div class="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="./styling/open.png" />
                     </div>
                     <div class="entry">
                         <div class="cell">
@@ -120,7 +89,6 @@ export default class SearchJourneyResults extends Component{
                         <div class="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="./styling/open.png" />
                     </div>
                 </div>
                 <h3>Other journeys</h3>
@@ -145,7 +113,6 @@ export default class SearchJourneyResults extends Component{
                         <div class="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="./styling/open.png" />
                     </div>
                     <div class="entry">
                         <div class="cell">
@@ -167,7 +134,6 @@ export default class SearchJourneyResults extends Component{
                         <div class="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="./styling/open.png" />
                     </div>
                     <div class="entry">
                         <div class="cell">
@@ -189,7 +155,6 @@ export default class SearchJourneyResults extends Component{
                         <div class="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="./styling/open.png" />
                     </div>
                 </div>
             </div>
@@ -197,4 +162,3 @@ export default class SearchJourneyResults extends Component{
     );
   }
 }
->>>>>>> new-design

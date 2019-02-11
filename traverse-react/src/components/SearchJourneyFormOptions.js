@@ -16,7 +16,7 @@ export default class SearchJourneyFormOptions extends Component{
           </div>
           <div id="col">
             <label htmlFor="num-of-adults">Number of Adults</label>
-            <select id="num-of-adults" style={{width:'80px'}}>
+            <select id="num-of-adults" style={{ width:'80px' }}>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -27,7 +27,7 @@ export default class SearchJourneyFormOptions extends Component{
           </div>
           <div id="col">
             <label htmlFor="num-of-children">Number of Children</label>
-            <select id="num-of-children" style={{width:'80px'}}>
+            <select id="num-of-children" style={{ width:'80px' }}>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -54,10 +54,10 @@ export default class SearchJourneyFormOptions extends Component{
             <p>Filter options</p><label><input type="checkbox"/>Use Account Preferences</label>
             <div id="non-account-preferences">
               <ul>
-                <li><label><input type="checkbox"/>Step free access</label></li>
-                <li><label><input type="checkbox"/>Departure assistance</label></li>
-                <li><label><input type="checkbox"/>Bike Storage (Station)</label></li>
-                <li><label><input type="checkbox"/>Bike Storage (Train)</label></li>
+                <li><label><input type="checkbox" />Step free access</label></li>
+                <li><label><input type="checkbox" />Departure assistance</label></li>
+                <li><label><input type="checkbox" />Bike Storage (Station)</label></li>
+                <li><label><input type="checkbox" />Bike Storage (Train)</label></li>
               </ul>
             </div>
           </div>

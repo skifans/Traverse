@@ -36,7 +36,6 @@ export default class SearchJourneyForm extends Component{
     })
   }
   handleOriginInput(e, id){
-    console.log(e.target.value + "    " + id)
     let newVal = e.target.value;
     this.setState((prevState) => {
       return {
@@ -116,9 +115,9 @@ export default class SearchJourneyForm extends Component{
       let val = +e.target.value
       this.setState((prevState) =>{
         return {
-          selectedDate: [...prevState.selectedDate].splice(1),
-          origin: [...prevState.origin].splice(1),
-          destination: [...prevState.destination].splice(1),
+          selectedDate: [...prevState.selectedDate].splice(0),
+          origin: [...prevState.origin].splice(0),
+          destination: [...prevState.destination].splice(0),
           legs: 1,
           journeyType: val
         }

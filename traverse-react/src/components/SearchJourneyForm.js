@@ -140,7 +140,9 @@ export default class SearchJourneyForm extends Component{
           <Options journeyType={journeyType}
                    onJourneyTypeChange={this.handleJourneyTypeChange}
           />
-          {inputLegs}
+          <div id="search-journey-inputs">
+            {inputLegs}
+          </div>
           {legs < 3 && journeyType === 2? <input onClick={this.addLeg} className="search-form-buttons" value="Add Leg" type="button"/>: ""}
           <input className="search-form-buttons" value="Search" type="submit"/>
         </form>

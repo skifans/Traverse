@@ -8,7 +8,7 @@ export default class SearchJourneyFormOptions extends Component{
         <div id="drop-down-options">
           <div id="col">
             <label htmlFor="journey-type">Journey Type</label>
-            <select id="journey-type" onChange={this.handleChange}>
+            <select value={this.props.journeyType} id="journey-type" onChange={this.props.onJourneyTypeChange}>
               <option value="0">Single</option>
               <option value="1">Return</option>
               <option value="2">Multi-leg</option>

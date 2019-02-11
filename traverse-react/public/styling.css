@@ -385,3 +385,10 @@ input[name=day] {
 .calendar h4{
   margin: 0px 5px;
 }
+
+.delete-button{
+  border-radius: 50%;
+  background: #ed793e;
+  border: none;
+  cursor: pointer;
+}

@@ -110,7 +110,20 @@ export default class SearchJourneyForm extends Component{
 
   //Option's functions
   handleJourneyTypeChange(e){
-    this.setState({journeyType: +e.target.value})
+    if(this.state.legs === 1){
+      this.setState({journeyType: +e.target.value})
+    } else{
+      let val = +e.target.value
+      this.setState((prevState) =>{
+        return {
+          selectedDate: [...prevState.selectedDate].splice(1),
+          origin: [...prevState.origin].splice(1),
+          destination: [...prevState.destination].splice(1),
+          legs: 1,
+          journeyType: val
+        }
+      })
+    }
   }
 
 

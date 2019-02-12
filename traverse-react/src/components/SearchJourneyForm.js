@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import Inputs from './SearchJourneyFormInputs';
 
 export default class SearchJourneyForm extends Component{
   constructor(props){
@@ -106,7 +107,6 @@ export default class SearchJourneyForm extends Component{
     })
   }
 
-  //Option's functions
   handleJourneyTypeChange(e){
     if(this.state.legs === 1){
       this.setState({journeyType: +e.target.value})
@@ -150,9 +150,10 @@ export default class SearchJourneyForm extends Component{
         <div id="search-journey">
           <h1 id="title" >Search journey</h1>
           <div id="card">
+            <form>
             <div id="settings">
               <ul>
-                <li><select onChange={handleJourneyTypeChange}>
+                <li><select onChange={this.handleJourneyTypeChange}>
                   <option value="0">one-way</option>
                   <option value="1">return</option>
                   <option value="2">multi-leg</option>
@@ -190,23 +191,13 @@ export default class SearchJourneyForm extends Component{
             </div>
             <div id="search">
               {inputLegs}
-              <form onSubmit={(e) => { e.preventDefault(); }} >
-                <div>
-                  <input type="text" placeholder="origin" />
-                  <img src="./images/arrows.png" />
-                  <input type="text" placeholder="destination" />
-                  <input type="date"/>
-                </div>
-                {legs < 3 && journeyType === 2? <input onClick={this.addLeg} className="search-form-buttons" value="Add Leg" type="button"/>: ""}
-                <Link to="/search-journey/results" ><input type="submit" value="Search!"/></Link>
-              </form>
+              {legs < 3 && journeyType === 2? <input onClick={this.addLeg} className="search-form-buttons" value="Add Leg" type="button"/>: ""}
+              <Link to="/search-journey/results" ><input type="submit" value="Search!"/></Link>
             </div>
+            </form>
           </div>
         </div>
       </main>
-            
-          Xzzz
-          
     );
   }
 }

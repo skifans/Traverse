@@ -2,18 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default () => (
-  <div id="main-body">
-    <div id="card-selection">
-      <Link className="card" to="/search-journey">
-        <img src="./images/journey-card.png" alt="Search Journey"/>
-        <h2>Search Journey</h2>
-      </Link>
-      
-      <Link className="card" to="/restriction-codes">
-        <img src="./images/restriction-card.png" alt="Search Codes"/>
-        <h2>Restriction Codes</h2>
-      </Link>
-
+  <main>
+    <div id="main-page">
+      <div id="title">
+        <h1>Traverse</h1>
+        <h2>traverse with ease</h2>
+      </div>
+      <div id="cards">
+        <Link to="/search-journey">
+          <img src="./images/train-solid.svg" alt="Search Journey"/>
+          <h2>search journey</h2>
+        </Link>
+        
+        <Link to="/restriction-codes">
+          <img src="./images/code-branch-solid.svg" alt="Search Codes"/>
+          <h2>restriction codes</h2>
+        </Link>
+        </div>
     </div>
-  </div>
+  </main>
 );

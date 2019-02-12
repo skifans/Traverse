@@ -1,0 +1,127 @@
+#search-results {
+
+    width: 80%;
+    margin-top: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+
+    #settings {
+
+        overflow: auto;
+
+        ul {
+
+            float: left;
+
+            li {
+                display: inline-block;
+                width: 100px;
+                margin: 20px 30px;
+                padding: 5px;
+                font-size: 15px;
+                border-bottom: 3px solid white;
+            }
+
+        }
+
+        div {
+
+            float: right;
+            display: flex;
+            align-items: center;
+            justify-content: center;       
+            background-color: rgba(255, 255, 255, 0.5);
+            height: 40px;
+            width: 260px;
+            border-radius: 15px;
+            margin: 15px 50px 0 0;
+
+            svg {
+
+                width: 24px;
+                padding: 10px;
+                color: #6F88F4;
+
+            }
+
+        }
+
+
+    }
+
+    #details {
+
+        border-top: 3px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+        padding: 20px 40px;
+        font-size: 18px;
+
+        svg {
+
+            width: 12px;
+
+        }
+
+        span {
+
+            margin-left: 40px;
+            font-size: 15px;
+
+        }
+
+    }
+
+    #results {
+
+        h3 {
+            margin: 25px 0 7px 80px;
+        }
+
+        .entries {
+
+            display: flex;
+            margin: auto;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            width: 90%;
+            margin-bottom: 20px;
+
+            .entry {
+
+                display: flex;
+                height: 100px;
+                align-items: center;
+                border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+
+                div {
+
+                    padding: 5px 27px;
+
+                }
+
+                .cell {
+
+                    p:last-child {
+                        padding-top: 10px;
+                        color: rgba(111,136,244, 0.7);
+                        font-size: 14px;
+                    }
+
+                }
+
+                .price {
+                    font-size: 20px;
+                }
+
+            }
+
+            .entry:last-child {
+                border: none;
+            }
+
+        }
+
+    }
+
+}

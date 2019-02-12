@@ -1,0 +1,139 @@
+#search-journey {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+
+    #title {
+
+        font-size: 25px;
+        font-weight: 700;
+        font-style: italic;
+        text-align: center;
+        letter-spacing: 3px;
+        padding-bottom: 15px;
+        margin: 30px 0;
+        border-bottom: 4px solid white;
+
+    }
+
+    #card {
+
+        height: 175px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 15px;
+
+        #settings {
+
+            overflow: auto;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+
+            ul {
+
+                float: left;
+
+                li:first-child {
+                    margin-left: 40px;
+                }
+
+                li {
+
+                    display: inline-block;
+
+                    select {
+                        
+                        width: 130px;
+                        height: 27px;
+                        margin: 20px 20px;
+                        padding: 5px;
+                        font-size: 15px;
+
+                    }
+
+                }
+
+            }
+
+            div {
+
+                float: right;
+                display: flex;
+                align-items: center;
+                justify-content: center;       
+                background-color: rgba(255, 255, 255, 0.5);
+                height: 40px;
+                width: 260px;
+                border-radius: 15px;
+                margin: 15px 50px 0 0;
+
+                svg {
+
+                    width: 24px;
+                    padding: 10px;
+                    color: #6F88F4;
+
+                }
+
+            }
+
+        }
+
+        #search {
+
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            form {
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                input {
+
+                    height: 33px;
+                    width: 200px;
+                    border-radius: 10px;
+                    padding-left: 10px;
+                    font-family: inherit;
+
+                }
+
+                input[type="date"] {
+
+                    width: 270px;
+
+                }
+
+                div {
+
+                    display: flex;
+                    align-items: center;
+                    margin: 40px 0 20px 0;
+
+                }
+
+                div > * {
+                    margin: 10px 20px;
+                }
+
+                input[type="submit"] {
+                    height: 40px;
+                    width: 130px;
+                    background-color: #68D15A;
+                    border-radius: 15px;
+                    font-size: 17px;
+                    color: white;
+                    border: solid 1px #707070;
+                }
+
+            }
+
+        }
+
+    }
+
+}

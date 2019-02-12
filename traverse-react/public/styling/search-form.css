@@ -1,0 +1,142 @@
+#search-journey {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+}
+
+#search-journey #title {
+  font-size: 25px;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 3px;
+  padding-bottom: 15px;
+  margin: 30px 0;
+  border-bottom: 4px solid white;
+}
+
+#search-journey #card {
+  height: 175px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+}
+
+#search-journey #card #settings {
+  overflow: auto;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+#search-journey #card #settings ul {
+  float: left;
+}
+
+#search-journey #card #settings ul li:first-child {
+  margin-left: 40px;
+}
+
+#search-journey #card #settings ul li {
+  display: inline-block;
+}
+
+#search-journey #card #settings ul li select {
+  width: 130px;
+  height: 27px;
+  margin: 20px 20px;
+  padding: 5px;
+  font-size: 15px;
+}
+
+#search-journey #card #settings div {
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 40px;
+  width: 260px;
+  border-radius: 15px;
+  margin: 15px 50px 0 0;
+}
+
+#search-journey #card #settings div svg {
+  width: 24px;
+  padding: 10px;
+  color: #6F88F4;
+}
+
+#search-journey #card #search {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#search-journey #card #search form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#search-journey #card #search form input {
+  height: 33px;
+  width: 200px;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-family: inherit;
+}
+
+#search-journey #card #search form input[type="date"] {
+  width: 270px;
+}
+
+#search-journey #card #search form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 40px 0 20px 0;
+}
+
+#search-journey #card #search form div > * {
+  margin: 10px 20px;
+}
+
+#search-journey #card #search form input[type="submit"] {
+  height: 40px;
+  width: 130px;
+  background-color: #68D15A;
+  border-radius: 15px;
+  font-size: 17px;
+  color: white;
+  border: solid 1px #707070;
+}
+/*# sourceMappingURL=search-form.css.map */

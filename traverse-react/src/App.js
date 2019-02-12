@@ -16,8 +16,8 @@ class App extends Component {
         <Switch>
           <Route path='/restriction-codes/results' component={RestrictionCodeResults}/>
           <Route path='/restriction-codes' component={RestrictionCodeForm}/>
+          <Route path='/search-journey/results' component={SearchJourneyResults}/>
           <Route path='/search-journey' component={SearchJourneyForm}/>
-          <Route path='/search-journey-results' component={SearchJourneyResults}/>
           <Route path='/' component={Main}/>
         </Switch>
         <Footer />

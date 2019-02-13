@@ -24,7 +24,6 @@
 }
 
 #search-journey #card {
-  height: 175px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
 }
@@ -79,22 +78,12 @@
 }
 
 #search-journey #card #search {
-  height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#search-journey #card #search form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -104,7 +93,16 @@
           align-items: center;
 }
 
-#search-journey #card #search form input {
+#search-journey #card #search #one-leg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#search-journey #card #search #one-leg input {
   height: 33px;
   width: 200px;
   border-radius: 10px;
@@ -112,25 +110,31 @@
   font-family: inherit;
 }
 
-#search-journey #card #search form input[type="date"] {
+#search-journey #card #search #one-leg input[type="date"] {
   width: 270px;
 }
 
-#search-journey #card #search form div {
+#search-journey #card #search #one-leg div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 40px 0 20px 0;
+  margin: 10px;
 }
 
-#search-journey #card #search form div > * {
-  margin: 10px 20px;
+#search-journey #card #search #one-leg div > * {
+  margin: 10px;
 }
 
-#search-journey #card #search form input[type="submit"] {
+#search-journey #card #search #one-leg img {
+  margin: 3px;
+}
+
+#search-journey #card #search input[type="submit"] {
+  position: relative;
+  top: 25px;
   height: 40px;
   width: 130px;
   background-color: #68D15A;

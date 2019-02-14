@@ -309,7 +309,7 @@ input[type=text] {
 }
 
 #ticket-background {
-  background-image: url(images/textBackground.png);
+  background-image: url('../images/textBackground.png');
   background-size: 100%;
 }
 input[name=day] {

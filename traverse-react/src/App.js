@@ -17,12 +17,8 @@ class App extends Component {
           <Route path='/restriction-codes/results' component={RestrictionCodeResults}/>
           <Route path='/restriction-codes' component={RestrictionCodeForm}/>
           <Route path='/search-journey' component={SearchJourneyForm}/>
-<<<<<<< HEAD
-          <Route path='/search-journey-results' component={SearchJourneyResults}/>
-=======
           {/* TODO: Make this work */}
           <Route path='/search-journey/results' component={SearchJourneyResults}/>
->>>>>>> new-design
           <Route path='/' component={Main}/>
         </Switch>
         <Footer />

@@ -53,7 +53,7 @@
   font-size: 15px;
 }
 
-#search-journey #card #settings div {
+#search-journey #card #settings #option-container {
   float: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -71,7 +71,17 @@
   margin: 15px 50px 0 0;
 }
 
-#search-journey #card #settings div svg {
+#search-journey #card #settings #option-container .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 8px;
+}
+
+#search-journey #card #settings #option-container svg {
   width: 24px;
   padding: 10px;
   color: #6F88F4;
@@ -110,10 +120,6 @@
   font-family: inherit;
 }
 
-#search-journey #card #search #one-leg input[type="date"] {
-  width: 270px;
-}
-
 #search-journey #card #search #one-leg div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,12 +130,32 @@
   margin: 10px;
 }
 
-#search-journey #card #search #one-leg div > * {
-  margin: 10px;
-}
-
 #search-journey #card #search #one-leg img {
   margin: 3px;
+}
+
+#search-journey #card #search #one-leg .delete-button {
+  background-color: lightcoral;
+  border: none;
+  border-radius: 3px;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+}
+
+#search-journey #card #search .search-form-buttons {
+  margin-right: auto;
+  margin-left: 20px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 8px;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
 }
 
 #search-journey #card #search input[type="submit"] {

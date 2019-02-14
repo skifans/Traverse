@@ -1,4 +1,386 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300i,400,600i,700i");
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+:hover {
+  -webkit-transition: .5s;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+
+input[type=text] {
+  text-indent: 5px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-size: 13px;
+  text-indent: 5px;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: pink;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: pink;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: pink;
+}
+
+/* Search journey page */
+#search-journey-options {
+  border: 1px solid black;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#drop-down-options {
+  max-width: 50%;
+}
+
+#col {
+  display: inline-block;
+  margin: 0 10px 5px 10px;
+}
+
+#col label {
+  display: block;
+}
+
+#col select {
+  padding: 2px;
+  border-radius: 5px;
+  background: #ed793e;
+  color: white;
+}
+
+#filter-options {
+  width: 50%;
+}
+
+#filter-options p {
+  display: inline-block;
+  margin: 3px 40px 3px 3px;
+}
+
+#filter-options ul {
+  list-style: none;
+}
+
+#filter-options li {
+  margin: 3px;
+}
+
+#non-account-preferences {
+  background: lightgray;
+  border: 1px solid grey;
+  border-radius: 7px;
+  margin: 2px 20px 2px 0;
+  min-width: 350px;
+}
+
+#non-account-preferences ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+  height: 60px;
+}
+
+#search-journey-inputs {
+  border: 1px solid black;
+  border-top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#search-journey-inputs {
+  position: relative;
+  padding: 20px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#search-journey-inputs input[type=text] {
+  text-transform: none;
+  margin: 5px;
+  border: 2px solid #ed793e;
+  font-size: 16px;
+  padding: 5px;
+}
+
+#search-journey-stations input {
+  height: 30px;
+}
+
+#search-journey-inputs img {
+  vertical-align: middle;
+}
+
+#one-leg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#swapLoc {
+  border: 2px solid #ed793e;
+  border-radius: 20px;
+  margin: -15px;
+  z-index: 1;
+  position: relative;
+}
+
+#search-journey-date {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px;
+  border: 2px solid #ed793e;
+  padding: 2px;
+  border-radius: 6px;
+}
+
+#search-journey-date input[type=text] {
+  border: none;
+  margin: auto 0;
+}
+
+#search-journey-date img {
+  margin: auto 5px;
+}
+
+.date-increment {
+  margin: auto 10px;
+}
+
+#search-journey-submit {
+  border-radius: 20px;
+  padding: 5px 15px 5px 10px;
+  position: absolute;
+  bottom: -15px;
+  right: 10px;
+}
+
+#add-leg {
+  border-radius: 20px;
+  padding: 5px 15px 5px 10px;
+  position: absolute;
+  bottom: -15px;
+  left: 10px;
+}
+
+#help-link {
+  text-decoration: none;
+  color: black;
+}
+
+#help-link:hover {
+  cursor: pointer;
+  color: #ed793e;
+  text-decoration: underline;
+}
+
+.restrictions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.restrictions-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.restrictions-container:not(:last-child) {
+  border-right: solid black 2px;
+}
+
+.restriction-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#restriction-code-information {
+  margin: 20px auto 40px auto;
+}
+
+#restriction-code-information h2 {
+  margin: 0px;
+}
+
+#restriction-code-information p {
+  margin: 5px 0px;
+}
+
+#ticket {
+  margin: 20px auto;
+  width: 400px;
+}
+
+#ticket-restriction-code-search {
+  text-align: center;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+#ticket-restriction-code-search h2 {
+  color: black;
+  background-color: #ed793e;
+  margin: 0px;
+  padding: 5px;
+  height: 30px;
+}
+
+#ticket-restriction-code-search h3 {
+  text-align: left;
+  background-color: #ed793e;
+  margin: 0px;
+  padding: 5px 0px 15px 30px;
+  height: 20px;
+}
+
+#ticket-restriction-code-search p {
+  padding: 10px;
+  margin: 0px;
+}
+
+#ticket-restriction-code-search form {
+  text-align: end;
+  margin: 0px;
+  padding: 40px 5px 5px 0px;
+}
+
+#label-route {
+  margin-right: 180px;
+}
+
+#ticket-restriction-code-search input {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+#ticket-background {
+  background-image: url(images/textBackground.png);
+  background-size: 100%;
+}
+
+input[name=day] {
+  display: none;
+}
+
+#day-list {
+  text-align: center;
+}
+
+#day-list label {
+  margin: 20px 20px 0px 20px;
+  padding: 4px 6px;
+  border: solid 2px #ed793e;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#day-list label:hover, #day-list input[type=radio]:checked + label {
+  background: #ed793e;
+}
+
+#results img {
+  margin: 4px 20px 4px 20px;
+}
+
+#results h2, h3 {
+  margin: 15px 0px 5px 5px;
+}
+
+#results h2:first-child {
+  display: inline;
+  border-bottom: 3px solid #ed793e;
+}
+
+#current-code {
+  border: 2px solid #ed793e;
+  display: inline;
+  padding: 0px 15px;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+
+#search-again-btn {
+  float: right;
+}
+
+#search-again-btn a {
+  text-decoration: none;
+}
+
+.code-error-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 60%;
+}
+
+.code-error-container > * {
+  text-align: center;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -93,7 +475,13 @@ main {
 }
 
 header {
-  overflow: auto;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-bottom: 3px solid white;
   margin-bottom: 20px;
 }
@@ -109,6 +497,9 @@ header a:hover {
 
 header #menu {
   float: left;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,13 +527,13 @@ header #menu li {
   margin: 10px 20px 0px 20px;
 }
 
-header #login {
+header #login, header #signup {
   float: right;
   display: flex-inline;
   margin-top: 6px;
 }
 
-header #login form {
+header #login form, header #signup form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -151,11 +542,11 @@ header #login form {
           align-items: flex-start;
 }
 
-header #login form * {
+header #login form *, header #signup form * {
   margin-right: 5px;
 }
 
-header #login input {
+header #login input, header #signup input {
   height: 24px;
   width: 150px;
   border-radius: 10px;
@@ -164,39 +555,65 @@ header #login input {
   letter-spacing: 1px;
 }
 
-header #login input[type=image] {
+header #login input[type=image], header #signup input[type=image] {
   width: 24px;
   fill: white;
 }
 
-header #login input::-webkit-input-placeholder {
+header #login input::-webkit-input-placeholder, header #signup input::-webkit-input-placeholder {
   font-family: Montserrat;
   font-style: italic;
 }
 
-header #login input:-ms-input-placeholder {
+header #login input:-ms-input-placeholder, header #signup input:-ms-input-placeholder {
   font-family: Montserrat;
   font-style: italic;
 }
 
-header #login input::-ms-input-placeholder {
+header #login input::-ms-input-placeholder, header #signup input::-ms-input-placeholder {
   font-family: Montserrat;
   font-style: italic;
 }
 
-header #login input::placeholder {
+header #login input::placeholder, header #signup input::placeholder {
   font-family: Montserrat;
   font-style: italic;
 }
 
-header #login p {
+header #login p, header #signup p {
   font-size: 13px;
   text-align: right;
   margin: 4px 15px 0 0;
 }
 
-header #login span {
+header #login span, header #signup span {
   color: blue;
+}
+
+header #signup form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header #signup form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header #signup form div * {
+  margin-bottom: 5px;
 }
 
 #main-page {
@@ -328,7 +745,7 @@ header #login span {
   font-size: 15px;
 }
 
-#search-journey #card #settings div {
+#search-journey #card #settings #option-container {
   float: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -346,7 +763,17 @@ header #login span {
   margin: 15px 50px 0 0;
 }
 
-#search-journey #card #settings div svg {
+#search-journey #card #settings #option-container .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 8px;
+}
+
+#search-journey #card #settings #option-container svg {
   width: 24px;
   padding: 10px;
   color: #6F88F4;
@@ -385,10 +812,6 @@ header #login span {
   font-family: inherit;
 }
 
-#search-journey #card #search #one-leg input[type="date"] {
-  width: 270px;
-}
-
 #search-journey #card #search #one-leg div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -399,12 +822,32 @@ header #login span {
   margin: 10px;
 }
 
-#search-journey #card #search #one-leg div > * {
-  margin: 10px;
-}
-
 #search-journey #card #search #one-leg img {
   margin: 3px;
+}
+
+#search-journey #card #search #one-leg .delete-button {
+  background-color: lightcoral;
+  border: none;
+  border-radius: 3px;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+}
+
+#search-journey #card #search .search-form-buttons {
+  margin-right: auto;
+  margin-left: 20px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 8px;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
 }
 
 #search-journey #card #search input[type="submit"] {
@@ -443,7 +886,7 @@ header #login span {
   border-bottom: 3px solid white;
 }
 
-#search-results #settings div {
+#search-results #settings #options-container {
   float: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -461,7 +904,17 @@ header #login span {
   margin: 15px 50px 0 0;
 }
 
-#search-results #settings div svg {
+#search-results #settings #options-container .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 8px;
+}
+
+#search-results #settings #options-container svg {
   width: 24px;
   padding: 10px;
   color: #6F88F4;

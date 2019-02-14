@@ -14,7 +14,7 @@ const SearchJourneyFormInputs = (props) => {
     }
 
     const deleteButton = props.deleteOption ? (
-        <div style={{position: "absolute", right: "5px", top: "5px"}}>
+        <div>
             <button className="delete-button" onClick={(e) => props.onDelete(e,props.id)}>X</button>
         </div>
     ) : "";

@@ -22,7 +22,7 @@
   border-bottom: 3px solid white;
 }
 
-#search-results #settings div {
+#search-results #settings #options-container {
   float: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,7 +40,17 @@
   margin: 15px 50px 0 0;
 }
 
-#search-results #settings div svg {
+#search-results #settings #options-container .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 8px;
+}
+
+#search-results #settings #options-container svg {
   width: 24px;
   padding: 10px;
   color: #6F88F4;

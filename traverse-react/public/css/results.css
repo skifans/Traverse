@@ -1,19 +1,31 @@
-#search-results {
+main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#container {
   width: 80%;
   margin-top: 40px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
 }
 
-#search-results #settings {
+#container #settings {
   overflow: auto;
 }
 
-#search-results #settings ul {
+#container #settings ul {
   float: left;
 }
 
-#search-results #settings ul li {
+#container #settings ul li {
   display: inline-block;
   width: 100px;
   margin: 20px 30px;
@@ -22,7 +34,7 @@
   border-bottom: 3px solid white;
 }
 
-#search-results #settings #options-container {
+#container #settings div {
   float: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,43 +52,33 @@
   margin: 15px 50px 0 0;
 }
 
-#search-results #settings #options-container .option {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0px 8px;
-}
-
-#search-results #settings #options-container svg {
+#container #settings div svg {
   width: 24px;
   padding: 10px;
   color: #6F88F4;
 }
 
-#search-results #details {
+#container #details {
   border-top: 3px solid rgba(255, 255, 255, 0.5);
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
   padding: 20px 40px;
   font-size: 18px;
 }
 
-#search-results #details svg {
+#container #details svg {
   width: 12px;
 }
 
-#search-results #details span {
+#container #details span {
   margin-left: 40px;
   font-size: 15px;
 }
 
-#search-results #results h3 {
+#container #results h3 {
   margin: 25px 0 7px 80px;
 }
 
-#search-results #results .entries {
+#container #results .entries {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,7 +93,7 @@
   margin-bottom: 20px;
 }
 
-#search-results #results .entries .entry {
+#container #results .entries .entry {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -102,21 +104,20 @@
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 }
 
-#search-results #results .entries .entry div {
+#container #results .entries .entry div {
   padding: 5px 27px;
 }
 
-#search-results #results .entries .entry .cell p:last-child {
+#container #results .entries .entry .cell p:last-child {
   padding-top: 10px;
   color: rgba(111, 136, 244, 0.7);
   font-size: 14px;
 }
 
-#search-results #results .entries .entry .price {
+#container #results .entries .entry .price {
   font-size: 20px;
 }
 
-#search-results #results .entries .entry:last-child {
+#container #results .entries .entry:last-child {
   border: none;
 }
-/*# sourceMappingURL=search-results.css.map */

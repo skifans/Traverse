@@ -12,7 +12,7 @@ const loginFields = (
         <input type="text" placeholder="username" />
         <input type="password" placeholder="password" />
     </form>
-    <p>not registered? <span onClick={() => alert("it's ya boyyy")} >sign up!</span></p>
+    <p>not registered? <span onClick={() => alert("")} >sign up!</span></p>
   </div>
 );
 
@@ -46,6 +46,18 @@ export default class Login extends Component{
       this.state = {
         selected: 0
       }
+
+      this.handleLogin = this.handleLogin.bind(this);
+
+  }
+
+  handleLogin(e) {
+
+    e.preventDefault();
+
+    //TODO: Make this work...
+    this.props.history.push('/profile');
+
   }
   
   render(){
@@ -53,7 +65,7 @@ export default class Login extends Component{
       return (
         <div id="login">
         <form>
-          <input type="image" src="images/login.png" />
+          <input type="image" src="images/login.png" onClick={this.handleLogin} />
           <input type="text" placeholder="username" value="" />
           <input type="password" placeholder="password" />
         </form>

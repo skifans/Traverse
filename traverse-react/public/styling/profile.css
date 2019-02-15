@@ -1,0 +1,108 @@
+#profile-container {
+  height: 80%;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 40px;
+}
+
+#profile-container > div {
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 530px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+#profile-container #recent, #profile-container #recommended {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#profile-container #recent p, #profile-container #recommended p {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+#profile-container #recent {
+  width: 450px;
+}
+
+#profile-container #recent p {
+  padding: 20px 40px;
+}
+
+#profile-container #recommended {
+  width: 300px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#profile-container #recommended p {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+#profile-container #profile {
+  background-color: transparent;
+  width: 350px;
+}
+
+#profile-container #profile #details {
+  height: 230px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
+}
+
+#profile-container #profile #details #text {
+  margin-right: 15px;
+}
+
+#profile-container #profile #details #text h3 {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+#profile-container #profile #details #text p {
+  color: #5D73D5;
+  font-size: 13px;
+}
+
+#profile-container #profile #details img {
+  width: 180px;
+  height: 180px;
+}
+
+#profile-container #profile #buttons {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  height: 300px;
+}
+
+#profile-container #profile #buttons li {
+  padding: 21px 40px;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+#profile-container #profile #buttons li:last-child {
+  border: none;
+}
+/*# sourceMappingURL=profile.css.map */

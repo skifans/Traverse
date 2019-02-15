@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+
 const restrictionDecoder = require('./modules/restriction-decoder');
+const Fare = require('./modules/Fare');
 
 const PORT = 3001;
 const BUILD_DIR = path.join(__dirname, '/../', 'traverse-react', 'build');
@@ -20,6 +22,11 @@ app.get('/api/restriction-codes/:code', (req, res) => {
   const codeObj = restrictionDecoder(req.params.code);
   res.send(codeObj);
 });
+
+app.get('/api/route-fare/:orig/:dest', (req, res) => {
+  Fare.fetchFaresForRoute(req.params.orig, req.params.dest)
+    .then(fares => res.send(fares));
+})
 
 // Website listener, should be changed when website will be deployed
 app.listen(PORT, () =>

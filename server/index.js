@@ -23,7 +23,7 @@ app.get('/api/restriction-codes/:code', (req, res) => {
   res.send(codeObj);
 });
 
-app.get('/api/route-fare/:orig/:dest', (req, res) => {
+app.get('/api/route-fares/:orig/:dest', (req, res) => {
   Fare.fetchFaresForRoute(req.params.orig, req.params.dest)
     .then(fares => res.send(fares));
 })

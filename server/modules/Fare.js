@@ -8,6 +8,15 @@ function fareIsRelevant(fare) {
   return fare.category.desc !== 'OTHER' || fare.ticket.type.desc !== 'SEASON';
 }
 
+function responseToObject(res) {
+  return {
+    railcardValid: res.railcard_valid,
+    fares: res.fares
+      .filter(fare => fareIsRelevant(fare))
+      .map(fare => new Fare(fare))
+  }
+}
+
 class Fare {
   constructor(fare) {
     this.code = fare.ticket.code;
@@ -19,7 +28,12 @@ class Fare {
       this.category = Fare.CATEGORY_ADVANCE;
     }
 
-    this.restrictionCode = fare.restriction_code;
+    if (fare.restriction_code !== '  ') {
+      this.restrictionCode = fare.restriction_code;
+    }
+    
+    this.outValidity = fare.ticket.validity.out;
+    this.rtnValidity = fare.ticket.validity.rtn;
     this.isSingle = (fare.ticket.type.desc === 'SINGLE');
     this.isStdClass = (fare.ticket.tclass.desc === 'STD');
     this.isAdult = Object.keys(fare.adult).length > 0;
@@ -44,7 +58,7 @@ class Fare {
     // Make query
     return fetch(queryUrl)
       .then(data => data.json())
-      .then(res => res.fares.filter(fare => fareIsRelevant(fare)).map(fare => new Fare(fare)));
+      .then(responseToObject);
   }
 }
 

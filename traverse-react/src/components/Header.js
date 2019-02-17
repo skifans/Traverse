@@ -12,7 +12,7 @@ export default () => (
         </div>
         <div id="login">
             <form>
-                <input type="image" src="images/login.png" />
+                <input type="image" src="images/login.png" alt="Login" />
                 <input type="text" placeholder="username" />
                 <input type="password" placeholder="password" />
             </form>

@@ -127,7 +127,7 @@ export default class SearchJourneyForm extends Component{
 
   render() {
     // TODO: implement journey legs in new UI
-    /*const { origin, destination, legs } = this.state;
+    const { origin, destination, legs, journeyType } = this.state;
     const deleteOpt = legs > 1;
 
     let inputLegs = [];
@@ -147,7 +147,7 @@ export default class SearchJourneyForm extends Component{
           deleteOption={deleteOpt}
         />
       );
-    }*/
+    }
 
     return (
       <main>

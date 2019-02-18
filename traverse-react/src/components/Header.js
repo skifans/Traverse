@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from './Login';
 import { Link } from 'react-router-dom';
 
 export default () => (
@@ -10,13 +11,6 @@ export default () => (
                 <li><Link to="/restriction-codes">look-up restriction codes</Link></li>
             </ul>
         </div>
-        <div id="login">
-            <form>
-                <input type="image" src="images/login.png" alt="Login" />
-                <input type="text" placeholder="username" />
-                <input type="password" placeholder="password" />
-            </form>
-            <p>not registered? <span>sign up!</span></p>
-        </div>
+        <Login />
     </header>
 );

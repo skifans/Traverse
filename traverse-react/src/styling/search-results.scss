@@ -24,7 +24,7 @@
 
         }
 
-        div {
+        #options-container {
 
             float: right;
             display: flex;
@@ -35,6 +35,15 @@
             width: 260px;
             border-radius: 15px;
             margin: 15px 50px 0 0;
+
+
+            .option {
+
+                display: flex;
+                align-items: center;
+                margin: 0px 8px;
+
+            }
 
             svg {
 

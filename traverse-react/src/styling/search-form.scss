@@ -20,7 +20,6 @@
 
     #card {
 
-        height: 175px;
         background-color: rgba(255, 255, 255, 0.5);
         border-radius: 15px;
 
@@ -55,7 +54,7 @@
 
             }
 
-            div {
+            #option-container {
 
                 float: right;
                 display: flex;
@@ -66,6 +65,14 @@
                 width: 260px;
                 border-radius: 15px;
                 margin: 15px 50px 0 0;
+
+                .option {
+
+                    display: flex;
+                    align-items: center;
+                    margin: 0px 8px;
+
+                }
 
                 svg {
 
@@ -81,15 +88,14 @@
 
         #search {
 
-            height: 100px;
             display: flex;
             justify-content: center;
+            flex-direction: column;
             align-items: center;
 
-            form {
+            #one-leg {
 
                 display: flex;
-                flex-direction: column;
                 align-items: center;
 
                 input {
@@ -102,34 +108,58 @@
 
                 }
 
-                input[type="date"] {
-
-                    width: 270px;
-
-                }
-
                 div {
 
                     display: flex;
                     align-items: center;
-                    margin: 40px 0 20px 0;
+                    margin: 10px;
+                }
+
+
+                img {
+                    margin: 3px;
+                }
+
+                .delete-button {
+
+                    background-color: lightcoral;
+                    border: none;
+                    border-radius: 3px;
+                    color: inherit;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 24px;
 
                 }
 
-                div > * {
-                    margin: 10px 20px;
-                }
+            }
 
-                input[type="submit"] {
-                    height: 40px;
-                    width: 130px;
-                    background-color: #68D15A;
-                    border-radius: 15px;
-                    font-size: 17px;
-                    color: white;
-                    border: solid 1px #707070;
-                }
+            .search-form-buttons {
 
+                margin-right: auto;
+                margin-left: 20px;
+                background-color: lightgreen;
+                border: none;
+                border-radius: 8px;
+                color: inherit;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+
+            }
+
+            input[type="submit"] {
+                position: relative;
+                top: 25px;
+                height: 40px;
+                width: 130px;
+                background-color: #68D15A;
+                border-radius: 15px;
+                font-size: 17px;
+                color: white;
+                border: solid 1px #707070;
             }
 
         }

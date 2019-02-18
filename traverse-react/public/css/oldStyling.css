@@ -38,50 +38,6 @@ input:focus, textarea:focus {
   color: pink;
 }
 
-#main-body {
-  margin: 30px auto 20px auto;
-  width: 60%;
-}
-
-/* Main page */
-#card-selection {
-  border: 3px solid #ed793e;
-  border-radius: 30px;
-  padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: black;
-  background-image: url(./images/map.jpg);
-}
-
-.card {
-  border: 3px solid #ed793e;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 20px auto;
-  text-align: center;
-  text-decoration: none;
-  color: black;
-  background: white;
-}
-
-.card:hover {
-  cursor: pointer;
-  color: #ed793e;
-  -webkit-box-shadow: 7px 7px 5px #ed793e;
-          box-shadow: 7px 7px 5px #ed793e;
-  background: rgba(70, 70, 70, 0.9);
-}
-
-.card:first-child:hover img {
-  background: url(./images/journey-card-hover.png);
-}
-
-.card:last-child:hover img {
-  background: url(./images/restriction-card-hover.png);
-}
-
 /* Search journey page */
 #search-journey-options {
   border: 1px solid black;
@@ -353,29 +309,6 @@ input:focus, textarea:focus {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
-#main-body input[type=text] {
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  width: 170px;
-  height: 20px;
-  font-size: 14px;
-  margin-right: 5px;
-  text-transform: uppercase;
-}
-
-#main-body input[type=submit] {
-  padding: 3px 5px;
-  background: white;
-  border-radius: 6px;
-  border: solid 2px #ed793e;
-  font-size: 14px;
-}
-
-#main-body input[type=submit]:hover {
-  background: #ed793e;
-  cursor: pointer;
-}
-
 #ticket-background {
   background-image: url(images/textBackground.png);
   background-size: 100%;
@@ -446,4 +379,3 @@ input[name=day] {
 .code-error-container > * {
   text-align: center;
 }
-/*# sourceMappingURL=oldStyling.css.map */

@@ -6,6 +6,7 @@ import RestrictionCodeResults from './components/RestrictionCodeResults';
 import SearchJourneyForm from './components/SearchJourneyForm.js';
 import SearchJourneyResults from './components/SearchJourneyResults.js';
 import Main from './components/Main';
+import Profile from './components/Profile.js';
 import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -16,9 +17,9 @@ class App extends Component {
         <Switch>
           <Route path='/restriction-codes/results' component={RestrictionCodeResults}/>
           <Route path='/restriction-codes' component={RestrictionCodeForm}/>
-          <Route path='/search-journey' component={SearchJourneyForm}/>
-          {/* TODO: Make this work */}
           <Route path='/search-journey/results' component={SearchJourneyResults}/>
+          <Route path='/search-journey' component={SearchJourneyForm}/>
+          <Route path='/profile' component={Profile}/>
           <Route path='/' component={Main}/>
         </Switch>
         <Footer />

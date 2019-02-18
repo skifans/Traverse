@@ -24,7 +24,6 @@
 }
 
 #search-journey #card {
-  height: 175px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
 }
@@ -54,7 +53,7 @@
   font-size: 15px;
 }
 
-#search-journey #card #settings div {
+#search-journey #card #settings #option-container {
   float: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -72,29 +71,29 @@
   margin: 15px 50px 0 0;
 }
 
-#search-journey #card #settings div svg {
+#search-journey #card #settings #option-container .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 8px;
+}
+
+#search-journey #card #settings #option-container svg {
   width: 24px;
   padding: 10px;
   color: #6F88F4;
 }
 
 #search-journey #card #search {
-  height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#search-journey #card #search form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -104,7 +103,16 @@
           align-items: center;
 }
 
-#search-journey #card #search form input {
+#search-journey #card #search #one-leg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#search-journey #card #search #one-leg input {
   height: 33px;
   width: 200px;
   border-radius: 10px;
@@ -112,25 +120,47 @@
   font-family: inherit;
 }
 
-#search-journey #card #search form input[type="date"] {
-  width: 270px;
-}
-
-#search-journey #card #search form div {
+#search-journey #card #search #one-leg div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 40px 0 20px 0;
+  margin: 10px;
 }
 
-#search-journey #card #search form div > * {
-  margin: 10px 20px;
+#search-journey #card #search #one-leg img {
+  margin: 3px;
 }
 
-#search-journey #card #search form input[type="submit"] {
+#search-journey #card #search #one-leg .delete-button {
+  background-color: lightcoral;
+  border: none;
+  border-radius: 3px;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+}
+
+#search-journey #card #search .search-form-buttons {
+  margin-right: auto;
+  margin-left: 20px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 8px;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+#search-journey #card #search input[type="submit"] {
+  position: relative;
+  top: 25px;
   height: 40px;
   width: 130px;
   background-color: #68D15A;
@@ -139,4 +169,3 @@
   color: white;
   border: solid 1px #707070;
 }
-/*# sourceMappingURL=search-form.css.map */

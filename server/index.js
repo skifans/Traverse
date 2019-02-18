@@ -26,7 +26,7 @@ app.get('/api/restriction-codes/:code', (req, res) => {
 app.get('/api/route-fares/:orig/:dest', (req, res) => {
   Fare.fetchFaresForRoute(req.params.orig, req.params.dest)
     .then(fares => res.send(fares));
-})
+});
 
 // Website listener, should be changed when website will be deployed
 app.listen(PORT, () =>

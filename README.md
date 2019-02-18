@@ -1,5 +1,5 @@
 # Traverse
-Traverse is a web app which aims to simplify and aid in the planning of complex UK train journeys. We take into account factors to do with your journey beyond just origin and destination, such as the need for wheelchair access or extra flexibility implicitly attached to a ticket. We then present you with what we believe to be the most relevant fares for your journey.
+Traverse is a web app which aims to simplify and aid in the planning of complex UK train journeys. We take into account factors to do with your journey beyond just origin and destination, such as the need for wheelchair access or extra flexibility implicitly attached to a ticket. We then present you with the most relevant fares for your journey.
 
 ## How to run our app
 1. Start by downloading and installing [node.js](https://nodejs.org/en/download/)

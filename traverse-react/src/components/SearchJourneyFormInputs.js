@@ -19,6 +19,9 @@ const SearchJourneyFormInputs = (props) => {
         </div>
     ) : "";
 
+    let today = new Date();
+    today = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    console.log(today)
     return (
           <div id="one-leg">
             <div>
@@ -27,7 +30,7 @@ const SearchJourneyFormInputs = (props) => {
               <input onChange={destChange} value={props.destination || ""} type="text" placeholder="Destination Station"/>
             </div>
             <div className="calendar">
-                <Flatpickr placeholder="Select Date..." onClose={dateChange} options={{defaultDate: props.dateValue, minDate: new Date(), altInput: true}}/>
+                <Flatpickr placeholder="Select Date..." onClose={dateChange} value={props.dateValue} options={{defaultDate: props.dateValue, minDate: today, altInput: true}}/>
             </div>
             <div className="calendar">
                 <Flatpickr placeholder="Select Time..." options={{enableTime: true, noCalendar: true, dateFormat:"H:i", time_24hr:true}}/>

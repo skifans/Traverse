@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 
 /*
 
@@ -65,7 +66,7 @@ export default class Login extends Component{
       return (
         <div id="login">
         <form>
-          <input type="image" src="images/login.png" onClick={this.handleLogin} />
+          <Link to="/profile"><input type="image" src="images/login.png"/></Link>
           <input type="text" placeholder="username" value="" />
           <input type="password" placeholder="password" />
         </form>

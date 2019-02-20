@@ -4,6 +4,7 @@ const path = require('path');
 
 const restrictionDecoder = require('./modules/restriction-decoder');
 const Fare = require('./modules/Fare');
+const crsLookup = require('./modules/crs-lookup');
 
 const PORT = 3001;
 const BUILD_DIR = path.join(__dirname, '/../', 'traverse-react', 'build');
@@ -18,14 +19,23 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(BUILD_DIR, 'index.html'));
 });
 
+// --- API endpoints ---
+// Restriction code lookup given TRC
 app.get('/api/restriction-codes/:code', (req, res) => {
   const codeObj = restrictionDecoder(req.params.code);
   res.send(codeObj);
 });
 
+// Fares for a given route
 app.get('/api/route-fares/:orig/:dest', (req, res) => {
   Fare.fetchFaresForRoute(req.params.orig, req.params.dest)
     .then(fares => res.send(fares));
+});
+
+// CRS code lookup given partial station name
+app.get('/api/crs-lookup/:input', (req, res) => {
+  const results = crsLookup(req.params.input);
+  res.send(results);
 });
 
 // Website listener, should be changed when website will be deployed

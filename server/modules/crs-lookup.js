@@ -8,7 +8,6 @@ module.exports = input => {
   input = input.toLowerCase();
   const stationNames = Object.keys(codeMap);
 
-  console.time('reduced in');
   let results = stationNames
     // Filter for names starting with input or CRS == input
     .filter(name => 
@@ -42,7 +41,6 @@ module.exports = input => {
 
     // Map to simple output string
     .map(name => `${name} [${codeMap[name]}]`);
-  console.timeEnd('reduced in');
 
   return results;
 }

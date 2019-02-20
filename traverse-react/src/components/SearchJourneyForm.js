@@ -6,7 +6,7 @@ export default class SearchJourneyForm extends Component{
   constructor(props){
     super(props);
     this.state = {
-      selectedDate: [new Date()],
+      selectedDate: [""],
       origin: [""],
       destination: [""],
       legs: 1,
@@ -86,9 +86,10 @@ export default class SearchJourneyForm extends Component{
   addLeg(){
     if(this.state.legs < 3) {
       this.setState((prevState) => {
+        console.log(prevState.legs)
         return {
           legs: prevState.legs + 1,
-          selectedDate: prevState.selectedDate.concat([new Date()]),
+          selectedDate: prevState.selectedDate.concat([""]),
           destination: prevState.destination.concat([""]),
           origin: prevState.origin.concat([""])
         }
@@ -97,11 +98,20 @@ export default class SearchJourneyForm extends Component{
   }
   deleteLeg(e,id){
     e.preventDefault();
+
+    const deleteRow = (d, i) =>{
+      if(i !== id ){
+        return d
+      } else {
+        return
+      }
+    }
+
     this.setState((prevState) =>{
       return {
-        selectedDate: [...prevState.selectedDate].splice(id - 1, 1),
-        origin: [...prevState.origin].splice(id - 1, 1),
-        destination: [...prevState.destination].splice(id - 1, 1),
+        selectedDate: [...prevState.selectedDate].map(deleteRow).filter((d) => d !== undefined),
+        origin: [...prevState.origin].map(deleteRow).filter((d) => d !== undefined),
+        destination: [...prevState.destination].map(deleteRow).filter((d) => d !== undefined),
         legs: prevState.legs - 1
       }
     })
@@ -148,6 +158,8 @@ export default class SearchJourneyForm extends Component{
         />
       );
     }
+
+    console.log(this.state)
 
     return (
       <main>

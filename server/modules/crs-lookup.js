@@ -40,7 +40,10 @@ module.exports = input => {
     .slice(0, LIMIT)
 
     // Map to simple output string
-    .map(name => `${name} [${codeMap[name]}]`);
+    .map(stationName => ({
+      stationName,
+      crs: codeMap[stationName]
+    }));
 
   return results;
 }

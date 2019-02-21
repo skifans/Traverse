@@ -10,6 +10,7 @@ const PORT = 3001;
 const BUILD_DIR = path.join(__dirname, '/../', 'traverse-react', 'build');
 
 // Server set up
+app.use(express.json())
 app.use(express.static(BUILD_DIR));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
@@ -37,6 +38,11 @@ app.get('/api/crs-lookup/:input', (req, res) => {
   const results = crsLookup(req.params.input);
   res.send(results);
 });
+
+// Fares for a given routes
+app.post('/api/route-fares', (req, res)=>{
+  console.log(req.body)
+})
 
 // Website listener, should be changed when website will be deployed
 app.listen(PORT, () =>

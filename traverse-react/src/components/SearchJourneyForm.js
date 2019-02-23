@@ -50,7 +50,7 @@ export default class SearchJourneyForm extends Component{
       }
     };
 
-    fetch('/api/route-fares', {
+    fetch('/api/search-journey', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

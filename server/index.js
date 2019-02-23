@@ -3,8 +3,8 @@ const app = express();
 const path = require('path');
 
 const restrictionDecoder = require('./modules/restriction-decoder');
-const Fare = require('./modules/Fare');
 const crsLookup = require('./modules/crs-lookup');
+const searchJourney = require('./modules/search-journey');
 
 const PORT = 3001;
 const BUILD_DIR = path.join(__dirname, '/../', 'traverse-react', 'build');
@@ -28,10 +28,10 @@ app.get('/api/restriction-codes/:code', (req, res) => {
 });
 
 // Fares for a given route
-app.get('/api/route-fares/:orig/:dest', (req, res) => {
+/*app.get('/api/route-fares/:orig/:dest', (req, res) => {
   Fare.fetchFaresForRoute(req.params.orig, req.params.dest)
     .then(fares => res.send(fares));
-});
+});*/
 
 // CRS code lookup given partial station name
 app.get('/api/crs-lookup/:input', (req, res) => {
@@ -40,9 +40,10 @@ app.get('/api/crs-lookup/:input', (req, res) => {
 });
 
 // Fares for a given routes
-app.post('/api/route-fares', (req, res)=>{
-  console.log(req.body)
-})
+app.post('/api/search-journey', async (req, res) => {
+  const results = await searchJourney(req.body);
+  res.send(results);
+});
 
 // Website listener, should be changed when website will be deployed
 app.listen(PORT, () =>

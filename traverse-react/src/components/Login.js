@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 /*
 
-Initital implementation. Out of scope tho
+Initital implementation. Out of scope though
 
 
 const loginFields = (
@@ -66,8 +66,8 @@ export default class Login extends Component{
       return (
         <div id="login">
         <form>
-          <Link to="/profile"><input type="image" src="images/login.png"/></Link>
-          <input type="text" placeholder="username" value="" />
+          <Link to="/profile"><input type="image" src="/images/login.png"/></Link>
+          <input type="text" placeholder="email" value="" />
           <input type="password" placeholder="password" />
         </form>
         <p>forgot your password? <span onClick={() => this.setState({ selected: 2 })} >click here!</span></p>
@@ -78,14 +78,8 @@ export default class Login extends Component{
       return (
       <div id="signup">
         <form>
-          <div className="cell">
-            <input type="text" placeholder="full name" />
             <input type="text" placeholder="email" />
-          </div> 
-          <div className="cell">
-            <input type="text" placeholder="username" />
             <input type="password" placeholder="password" />
-          </div>
           <div className="cell">
             <input type="button" value="Sign up!" />
             <p>registered? <span onClick={() => this.setState({ selected: 0 })} >log in!</span></p>

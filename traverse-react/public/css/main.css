@@ -22,21 +22,25 @@ input:focus, textarea:focus {
   /* Chrome/Opera/Safari */
   font-size: 13px;
   text-indent: 5px;
+  text-transform: none;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
   color: pink;
+  text-transform: none;
 }
 
 :-ms-input-placeholder {
   /* IE 10+ */
   color: pink;
+  text-transform: none;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
   color: pink;
+  text-transform: none;
 }
 
 /* Search journey page */
@@ -237,6 +241,7 @@ input:focus, textarea:focus {
 
 .restrictions-container:not(:last-child) {
   border-right: solid black 2px;
+  padding-right: 5px;
 }
 
 .restriction-item {
@@ -273,13 +278,14 @@ input:focus, textarea:focus {
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid black;
+  font-weight: bold;
 }
 
 #ticket-restriction-code-search h2 {
   color: black;
   background-color: #ed793e;
   margin: 0px;
-  padding: 5px;
+  padding-top: 10px;
   height: 30px;
 }
 
@@ -303,16 +309,21 @@ input:focus, textarea:focus {
 }
 
 #label-route {
-  margin-right: 180px;
+  margin-right: 170px;
 }
 
 #ticket-restriction-code-search input {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  margin: 2px;
+}
+#ticket-restriction-code-search input[type=text] {
+  text-transform: uppercase;
 }
 
+
 #ticket-background {
-  background-image: url(images/textBackground.png);
+  background-image: url(/images/textBackground.png);
   background-size: 100%;
+  color: black;
 }
 
 input[name=day] {
@@ -338,10 +349,6 @@ input[name=day] {
 
 #results img {
   margin: 4px 20px 4px 20px;
-}
-
-#results h2, h3 {
-  margin: 15px 0px 5px 5px;
 }
 
 #results h2:first-child {
@@ -374,7 +381,6 @@ input[name=day] {
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 60%;
 }
 
 .code-error-container > * {
@@ -422,6 +428,10 @@ ol, ul {
 
 blockquote, q {
   quotes: none;
+}
+
+#results h2, h3 {
+  margin: 15px 0px 5px 5px;
 }
 
 blockquote:before, blockquote:after,
@@ -558,6 +568,7 @@ header #login input, header #signup input {
 header #login input[type=image], header #signup input[type=image] {
   width: 24px;
   fill: white;
+  margin-top: 3px;
 }
 
 header #login input::-webkit-input-placeholder, header #signup input::-webkit-input-placeholder {
@@ -596,7 +607,6 @@ header #signup form {
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;
 }
 
 header #signup form div {
@@ -638,7 +648,7 @@ header #signup form div * {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 35px;
+  margin-bottom: 10px;
 }
 
 #main-page #title h1 {
@@ -740,13 +750,12 @@ header #signup form div * {
 #search-journey #card #settings ul li select {
   width: 130px;
   height: 27px;
-  margin: 20px 20px;
-  padding: 5px;
+  margin: 10px;
+  padding: 2px 2px 5px 2px;
   font-size: 15px;
 }
 
 #search-journey #card #settings #option-container {
-  float: right;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -757,10 +766,8 @@ header #signup form div * {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: rgba(255, 255, 255, 0.5);
-  height: 40px;
-  width: 260px;
   border-radius: 15px;
-  margin: 15px 50px 0 0;
+  margin: 5px;
 }
 
 #search-journey #card #settings #option-container .option {

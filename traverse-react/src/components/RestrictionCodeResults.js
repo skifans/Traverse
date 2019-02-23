@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import Restrictions from './Restrictions';
 
 const ErrorContainer = props => (
-  <div className="code-error-container">
-    {props.children}
+  <div id="main-body">
+    <div className="code-error-container">
+      {props.children}
 
-    <div id="search-again-btn">
-      <Link to="/restriction-codes"><input type="submit" value="Search Again" /></Link>
+      <div id="search-again-btn">
+        <Link to="/restriction-codes"><input type="submit" value="Search Again" /></Link>
+      </div>
     </div>
   </div>
 );

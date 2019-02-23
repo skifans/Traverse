@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 import Inputs from './SearchJourneyFormInputs';
 
 export default class SearchJourneyForm extends Component{

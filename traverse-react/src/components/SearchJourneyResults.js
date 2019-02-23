@@ -49,7 +49,7 @@ export default class SearchJourneyResults extends Component{
                         <div className="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="images/open.png" />
+                        <img alt="" src="images/open.png" />
                     </div>
                     <div className="entry">
                         <div className="cell">
@@ -71,7 +71,7 @@ export default class SearchJourneyResults extends Component{
                         <div className="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="images/open.png" />
+                        <img alt="" src="images/open.png" />
                     </div>
                     <div className="entry">
                         <div className="cell">
@@ -93,7 +93,7 @@ export default class SearchJourneyResults extends Component{
                         <div className="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="images/open.png" />
+                        <img alt="" src="images/open.png" />
                     </div>
                 </div>
                 <h3>Other journeys</h3>
@@ -118,7 +118,7 @@ export default class SearchJourneyResults extends Component{
                         <div className="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="images/open.png" />
+                        <img alt="" src="images/open.png" />
                     </div>
                     <div className="entry">
                         <div className="cell">
@@ -140,7 +140,7 @@ export default class SearchJourneyResults extends Component{
                         <div className="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="images/open.png" />
+                        <img alt="" src="images/open.png" />
                     </div>
                     <div className="entry">
                         <div className="cell">
@@ -162,7 +162,7 @@ export default class SearchJourneyResults extends Component{
                         <div className="price">
                             <p>£ 16.90</p>
                         </div>
-                        <img src="images/open.png" />
+                        <img alt="" src="images/open.png" />
                     </div>
                 </div>
             </div>

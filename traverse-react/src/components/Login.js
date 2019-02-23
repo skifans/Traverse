@@ -62,11 +62,11 @@ export default class Login extends Component{
   }
   
   render(){
-    if (this.state.selected == 0) {
+    if (this.state.selected === 0) {
       return (
         <div id="login">
         <form>
-          <Link to="/profile"><input type="image" src="/images/login.png"/></Link>
+          <Link to="/profile"><input type="image" alt="" src="/images/login.png"/></Link>
           <input type="text" placeholder="email" value="" />
           <input type="password" placeholder="password" />
         </form>
@@ -74,7 +74,7 @@ export default class Login extends Component{
         <p>not registered? <span onClick={() => this.setState({ selected: 1 })} >sign up!</span></p>
       </div>
       );
-    } else if (this.state.selected == 1) {
+    } else if (this.state.selected === 1) {
       return (
       <div id="signup">
         <form>
@@ -87,7 +87,7 @@ export default class Login extends Component{
         </form>
       </div>
       );
-    } else if (this.state.selected == 2) {
+    } else if (this.state.selected === 2) {
       return (
         <div id="forgot">
           <form>

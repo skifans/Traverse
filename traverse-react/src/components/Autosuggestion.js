@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Autosuggest from 'react-autosuggest';
 
-
+let timeoutId = null;
 
 class Autosuggestion extends Component{
     constructor(props){
@@ -30,9 +30,12 @@ class Autosuggestion extends Component{
             placeholder: this.props.placeholder
         }
         const onSuggestionsFetchRequested = ({value}) => {
-            fetch('/api/crs-lookup/' + value, {method: "GET"}).then(res => res.json()).then(data => {
-                this.setState({suggestions: data.slice(0,5)})
-            });
+            if (timeoutId) clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                fetch('/api/crs-lookup/' + value, {method: "GET"}).then(res => res.json()).then(data => {
+                    this.setState({suggestions: data.slice(0,5)})
+                });
+            }, 200);
         };
         const onSuggestionsClearRequested = () => {
             this.setState({
@@ -44,7 +47,7 @@ class Autosuggestion extends Component{
             //return suggestion.stationName
         }
         const renderSuggestion = suggestion => (
-            <span>{suggestion.stationName} - {suggestion.crs}</span>
+            <span>{suggestion.stationName} [{suggestion.crs}]</span>
         )
         return (
             <Autosuggest

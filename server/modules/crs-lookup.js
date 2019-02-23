@@ -5,7 +5,7 @@ const LIMIT = 15;
 
 module.exports = input => {
   // Lowercase input for comparison and get station names from keys
-  input = input.toLowerCase();
+  input = input.toLowerCase().replace(/'/, '');
   const stationNames = Object.keys(codeMap);
 
   let results = stationNames

@@ -51,7 +51,7 @@ export default class SearchJourneyForm extends Component{
       }
     };
 
-    fetch('/api/route-fares', {
+    fetch('/api/search-journey', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -207,11 +207,11 @@ export default class SearchJourneyForm extends Component{
                   <option value="2">multi-leg</option>
                 </select></li>
                 <li><select ref={this.adults}>
-                  <option value="1">1 passanger</option>
-                  <option value="2">2 passangers</option>
-                  <option value="3">3 passangers</option>
-                  <option value="4">4 passangers</option>
-                  <option value="5">5 passangers</option>
+                  <option value="1">1 passenger</option>
+                  <option value="2">2 passengers</option>
+                  <option value="3">3 passengers</option>
+                  <option value="4">4 passengers</option>
+                  <option value="5">5 passengers</option>
                 </select></li>
                 <li><select ref={this.railcards}>
                   <option>railcard</option>

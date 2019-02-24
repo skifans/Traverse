@@ -1,0 +1,224 @@
+#search-results {
+
+    width: 80%;
+    margin-top: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+
+    #settings {
+
+        overflow: auto;
+
+        ul {
+
+            float: left;
+
+            li {
+                display: inline-block;
+                width: 100px;
+                margin: 20px 30px;
+                padding: 5px;
+                font-size: 15px;
+                border-bottom: 3px solid white;
+            }
+
+        }
+
+        #options-container {
+
+            float: right;
+            display: flex;
+            align-items: center;
+            justify-content: center;       
+            background-color: rgba(255, 255, 255, 0.5);
+            height: 40px;
+            width: 260px;
+            border-radius: 15px;
+            margin: 15px 50px 0 0;
+
+
+            .option {
+
+                display: flex;
+                align-items: center;
+                margin: 0px 8px;
+
+            }
+
+            svg {
+
+                width: 24px;
+                padding: 10px;
+                color: #6F88F4;
+
+            }
+
+        }
+
+
+    }
+
+    #details {
+
+        border-top: 3px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+        padding: 20px 40px;
+        font-size: 18px;
+
+        svg {
+
+            width: 12px;
+
+        }
+
+        span {
+
+            margin-left: 40px;
+            font-size: 15px;
+
+        }
+
+    }
+
+    #results {
+
+        h3 {
+            margin: 25px 0 7px 80px;
+        }
+
+        .entries {
+
+            display: flex;
+            margin: auto;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            width: 90%;
+            margin-bottom: 20px;
+
+            .entry {
+
+                display: flex;
+                flex-direction: column;
+                border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+
+                .main {
+
+                    display: flex;
+                    height: 100px;
+                    align-items: center;
+
+                    div {
+
+                        padding: 5px 27px;
+
+                    }
+
+                    .cell {
+
+                        p:last-child {
+                            padding-top: 10px;
+                            color: rgba(111,136,244, 0.7);
+                            font-size: 14px;
+                        }
+
+                    }
+
+                    .price {
+                        font-size: 20px;
+                    }
+
+                    img {
+                        margin: 0px;
+                    }
+
+                }
+
+                .details {
+
+                    display: none;
+                    background-color: rgba(255, 255, 255, 0.25);
+
+                    .hop {
+
+                        color: rgba(111, 136, 244, 0.7);
+                        
+
+                        .travel {
+
+                            display:flex;
+                            align-items: center;
+
+                            //margin-left: 50px;
+
+                            img {
+
+                                width: 48px;
+                                height: 48px;
+
+                            }
+
+                            div {
+                                border-left: dashed 5px rgba(255, 255, 255, 0.5);
+
+                                p {
+                                    padding: 10px 0px 10px 20px;
+                                }
+                            
+                            }
+
+                        }
+
+                        .wait {
+
+                            padding: 20px 70px;
+                            border-top: 3px solid rgba(255, 255, 255, 0.5);
+                            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+
+                        }
+
+                        .hopBottom {
+
+                            display: flex;
+                            justify-content: flex-end;
+                            height: 70px;
+                            border-top: 3px solid rgba(255, 255, 255, 0.5);
+
+                            input[type="button"] {
+
+                                margin: 10px 20px;
+                                width: 90px;
+                                background-color: #68D15A;
+                                border-radius: 15px;
+                                font-size: 17px;
+                                color: white;
+                                border: solid 1px #707070;
+                                cursor: pointer;
+
+                            }
+
+                            input[type="button"]:hover {
+
+                                background-color: #41b332;
+                
+                            }
+
+                            
+
+                        }
+                    
+                    }
+
+                }
+
+            }
+
+            .entry:last-child {
+                border: none;
+            }
+
+        }
+
+    }
+
+}

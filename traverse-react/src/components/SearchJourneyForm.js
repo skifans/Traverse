@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 import Inputs from './SearchJourneyFormInputs';
 
 export default class SearchJourneyForm extends Component{
@@ -71,7 +70,11 @@ export default class SearchJourneyForm extends Component{
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data),
-    }).then(res => res.json()).then(data => console.log(data))
+      }).then(res => res.json()).then(dataReceived => { 
+        console.log(dataReceived);
+        this.props.history.push(`/search-journey/results`, { data, dataReceived });
+      })
+
   }
   handleTimeSelect(timeArr, id){
     this.setState((prevState) => {

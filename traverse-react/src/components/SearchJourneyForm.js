@@ -63,15 +63,6 @@ export default class SearchJourneyForm extends Component{
       }
     };
     console.log(data)
-    fetch('/api/search-journey', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data),
-    }).then(res => res.json()).then(data => console.log(data))
-
     // TODO: Validate the crucial inputs
     this.props.history.push('/search-journey/results', {data});
   }

@@ -12,8 +12,8 @@ const Details = ({ origin, destination, date }) => {
   );
 };
 
-export default () => (
+export default ({journeyDetails}) => (
   <div id="details">
-    <Details origin={"Manchester"} destination={'Lancaster'} date={"Sunday 17th February"}/>
+    <Details origin={journeyDetails.routes[0].routeParts[0].origin} destination={journeyDetails.routes[0].routeParts[journeyDetails.routes[0].routeParts.length-1].destination} date={journeyDetails.datetime.substring(0,10)}/>
   </div>
 );

@@ -15,7 +15,7 @@ export default () => (
                         <h3>Rose Meachum</h3>
                         <p>member since 2016</p>
                     </div>
-                    <img src="images/profile.png" alt="Profile picture" />
+                    <img src="images/profile.png" alt="Profile" />
                 </div>
                 <ul id="buttons">
                     <li>Change username</li>

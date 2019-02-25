@@ -28,11 +28,8 @@ export default class SearchJourneyResults extends Component{
 
         if (this.state.currentLeg < this.state.data.legs.length - 1) {
 
-            this.setState((prevState)=>{
-                return {
-                    currentLeg: prevState.currentLeg + 1
-                }
-            })
+            // Temporarty poor fix to a problem
+            this.setState({ currentLeg: ++this.state.currentLeg })
 
             this.origin = this.state.dataReceived[this.state.currentLeg].routes.routes[0].routeParts[0].origin;
             this.destination = this.state.dataReceived[this.state.currentLeg].routes.routes[0].routeParts[this.state.dataReceived[this.state.currentLeg].routes.routes[0].routeParts.length-1].destination;

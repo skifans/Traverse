@@ -21,17 +21,11 @@ app.get('/', (req, res) => {
 });
 
 // --- API endpoints ---
-// Restriction code lookup given TRC
+// Restrictions lookup given TRC
 app.get('/api/restriction-codes/:code', (req, res) => {
   const codeObj = restrictionDecoder(req.params.code);
   res.send(codeObj);
 });
-
-// Fares for a given route
-/*app.get('/api/route-fares/:orig/:dest', (req, res) => {
-  Fare.fetchFaresForRoute(req.params.orig, req.params.dest)
-    .then(fares => res.send(fares));
-});*/
 
 // CRS code lookup given partial station name
 app.get('/api/crs-lookup/:input', (req, res) => {
@@ -45,7 +39,7 @@ app.post('/api/search-journey', async (req, res) => {
   res.send(results);
 });
 
-// Website listener, should be changed when website will be deployed
+// Website listener
 app.listen(PORT, () =>
   console.log(`Traverse app listening on port ${PORT}!`)
 );

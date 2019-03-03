@@ -60,6 +60,11 @@ class Fare {
       .then(data => data.json())
       .then(responseToObject);
   }
+
+  // Accepts n arguments, returning true if all are valid CRSs (case insensitive)
+  static isValidCrs() {
+    return [...arguments].every(crs => /^[A-z]{3}$/.test(crs));
+  }
 }
 
 Fare.CATEGORY_ADVANCE = 0;

@@ -12,7 +12,7 @@ const DEFAULT_OPTS = {
 module.exports = async formData => {
   const response = [];
 
-  formData.adults = formData.adults ? parseInt(leg.adults) : 1;
+  formData.adults = formData.adults ? parseInt(formData.adults) : 1;
   formData.children = formData.children ? parseInt(formData.children) : 0;
   formData.options = formData.options ? formData.options : DEFAULT_OPTS;
 
@@ -20,6 +20,7 @@ module.exports = async formData => {
 
     // Process each leg of the journey
     for (let i = 0; i < formData.legs.length; i++) {
+      const leg = formData.legs[i];
       response.push({
         fares: {},
         routes: {},
@@ -38,12 +39,12 @@ module.exports = async formData => {
         const routeSet = new RouteSet(leg.origin, leg.destination, leg.datetime);
 
         // Await async API responses
-        const fareFetch = Fare.fetchFaresForRoute(leg.origin, leg.destination);
         const routeFetch = routeSet.findRoutes();
-        const data = await Promise.all([fareFetch, routeFetch]);
+        const fareFetch = Fare.fetchFaresForRoute(leg.origin, leg.destination);
+        const data = await Promise.all([routeFetch, fareFetch]);
 
         // Push responses to returned array
-        const fareData = data[0];
+        const fareData = data[1];
         response[i].fares = fareData;
         response[i].routes = routeSet;
 

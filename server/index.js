@@ -10,7 +10,7 @@ const PORT = 3001;
 const BUILD_DIR = path.join(__dirname, '/../', 'traverse-react', 'build');
 
 // Server set up
-app.use(express.json())
+app.use(express.json());
 app.use(express.static(BUILD_DIR));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');

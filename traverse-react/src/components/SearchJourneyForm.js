@@ -32,50 +32,60 @@ export default class SearchJourneyForm extends Component{
     this.loading = React.createRef();
   }
 
+  checkData(){
+    console.log("Checking Data");
+
+
+    return false;
+  }
+
 
   handleSubmit(e){
     e.preventDefault();
-    this.loading.current.style.display = "block";
-    let today = new Date();
-    today = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
-    let datetime = this.state.selectedDate.map((d, i) => {
-      let time = this.state.selectedTime[i];
-      if(time){
-        return new Date(d.getTime() + time.getTime() - today)
-      } else{
-        return d
-      }
-    });
-    console.log(datetime);
-    let legs = [];
-    for(let i = 0; i < this.state.legs; i++){
-      legs.push({origin: this.state.origin[i].crs, destination: this.state.destination[i].crs, datetime: datetime[i]})
-    }
+    if(!this.checkData()) {
 
-    let data = {
-      legs: legs,
-      adults: this.adults.current.value,
-      children: this.children.current.value,
-      railcards: this.railcards.current.value,
-      options: {
-        stepFree: this.stepFree.current.checked,
-        deptAssistance: this.deptAssistance.current.checked,
-        bikeStorageStn: this.bikeStorageStn.current.checked,
-        bikeStorageTrain: this.bikeStorageTrain.current.checked
+      this.loading.current.style.display = "block";
+      let today = new Date();
+      today = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
+      let datetime = this.state.selectedDate.map((d, i) => {
+        let time = this.state.selectedTime[i];
+        if (time) {
+          return new Date(d.getTime() + time.getTime() - today)
+        } else {
+          return d
+        }
+      });
+      console.log(datetime);
+      let legs = [];
+      for (let i = 0; i < this.state.legs; i++) {
+        legs.push({origin: this.state.origin[i].crs, destination: this.state.destination[i].crs, datetime: datetime[i]})
       }
-    };
-    console.log(data);
-    fetch('/api/search-journey', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data),
-      }).then(res => res.json()).then(dataReceived => { 
+
+      let data = {
+        legs: legs,
+        adults: this.adults.current.value,
+        children: this.children.current.value,
+        railcards: this.railcards.current.value,
+        options: {
+          stepFree: this.stepFree.current.checked,
+          deptAssistance: this.deptAssistance.current.checked,
+          bikeStorageStn: this.bikeStorageStn.current.checked,
+          bikeStorageTrain: this.bikeStorageTrain.current.checked
+        }
+      };
+      console.log(data);
+      fetch('/api/search-journey', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      }).then(res => res.json()).then(dataReceived => {
         console.log(dataReceived);
-        this.props.history.push(`/search-journey/results`, { data, dataReceived });
+        this.props.history.push(`/search-journey/results`, {data, dataReceived});
       })
+    }
 
   }
   handleTimeSelect(timeArr, id){
@@ -226,9 +236,7 @@ export default class SearchJourneyForm extends Component{
 
 
   render() {
-    // TODO: implement journey legs in new UI
     const { origin, destination, legs, journeyType } = this.state;
-    console.log(this.loading)
     const deleteOpt = legs > 1;
     let inputLegs = [];
     for(let i = 0; i < legs; i++) {
@@ -238,8 +246,8 @@ export default class SearchJourneyForm extends Component{
           id={i}
           dateValue={this.state.selectedDate[i]}
           timeValue={this.state.selectedTime[i]}
-          destination={destination[i].stationName}
-          origin={origin[i].stationName}
+          destination={destination[i]}
+          origin={origin[i]}
           onClickDate={this.handleDateSelect}
           onClickTime={this.handleTimeSelect}
           onDestinationChange={this.handleDestinationInput}

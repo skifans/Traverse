@@ -8,45 +8,55 @@ const monthsOfYear = ["January", "February", "March", "April", "May", "June", "J
 export default class SearchJourneyResults extends Component{
     constructor(props){
         super(props)
-        
-        this.state = {
-            data: this.props.location.state.data,
-            dataReceived: this.props.location.state.dataReceived,
-            currentLeg: -1,
-        }
+        this.inputData = props.location.state.data;
+        this.dataReceived = props.location.state.dataReceived;
 
-        this.passengerCount = parseInt(this.state.data.adults) + parseInt(this.state.data.children);
+        this.passengerCount = parseInt(this.inputData.adults) + parseInt(this.inputData.children);
+
+        let origin = this.dataReceived[0].routes.routes[0].routeParts[0].origin;
+        let length = this.dataReceived[0].routes.routes[0].routeParts.length-1;
+        let destination = this.dataReceived[0].routes.routes[0].routeParts[length].destination;
+
+        let date = this.inputData.legs[0].datetime;
+
+        this.state = {
+            currentLeg: 0,
+            origin: origin,
+            destination: destination,
+            date: date
+        };
 
         this.handleEntrySelection = this.handleEntrySelection.bind(this)
-        this.handleEntrySelection();
 
     }
 
     
 
     handleEntrySelection(){
+        const {inputData, dataReceived} = this;
+        let leg = this.state.currentLeg + 1;
 
-        if (this.state.currentLeg < this.state.data.legs.length - 1) {
+        if (this.state.currentLeg < inputData.legs.length - 1) {
 
-            // Temporarty poor fix to a problem
-            this.setState({ currentLeg: ++this.state.currentLeg })
 
-            this.origin = this.state.dataReceived[this.state.currentLeg].routes.routes[0].routeParts[0].origin;
-            this.destination = this.state.dataReceived[this.state.currentLeg].routes.routes[0].routeParts[this.state.dataReceived[this.state.currentLeg].routes.routes[0].routeParts.length-1].destination;
+            let origin = dataReceived[leg].routes.routes[0].routeParts[0].origin;
+            let length = dataReceived[leg].routes.routes[0].routeParts.length-1;
+            let destination = dataReceived[leg].routes.routes[0].routeParts[length].destination;
             
-            let dateObject = this.state.data.legs[this.state.currentLeg].datetime;
-            this.date = daysOfWeek[dateObject.getDay()] + ", " + dateObject.getDate() + " " + monthsOfYear[dateObject.getMonth()];
+            let date = inputData.legs[leg].datetime
 
-            this.forceUpdate();
-
+            this.setState({ currentLeg: leg, origin, destination, date});
         }
 
     }
   
     render(){
+        const { date, origin, destination, currentLeg} = this.state;
+        let stringDate =  daysOfWeek[date.getDay()] + ", " + date.getDate() + " " + monthsOfYear[date.getMonth()];
+        const {passengerCount} = this;
 
-        let passengers = this.passengerCount + " passenger";
-        if (this.passengerCount > 1) passengers += 's';
+        let passengers = passengerCount + " passenger";
+        if (passengerCount > 1) passengers += 's';
 
         return (
             <main>
@@ -55,7 +65,7 @@ export default class SearchJourneyResults extends Component{
                     <ul>
                         <li>one-way</li>
                         <li>{ passengers }</li>
-                        <li>{ this.state.data.railcards }</li>
+                        <li>{ this.inputData.railcards }</li>
                     </ul>
                     <div id="options-container">
                         <div className="option">
@@ -69,86 +79,11 @@ export default class SearchJourneyResults extends Component{
                     </div>
                 </div>
                 <div id="details">
-                    <p>{ this.origin } <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" className="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg> { this.destination }  <span>{ this.date }</span></p>
+                    <p>{ origin } <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" className="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg> { destination }  <span>{ stringDate }</span></p>
                 </div>
                 <div id="results">
                     <h3>Recommended journeys</h3>
-                    <Entries routes={this.state.dataReceived[this.state.currentLeg].routes} handleClick={this.handleEntrySelection} />
-                    <h3>Other journeys</h3>
-                    <div className="entries" >
-                        <div className="entry">
-                            <div className="main">
-                                <div className="cell">
-                                    <p>11:48 - 12:35</p>
-                                    <p>transpennine express</p>
-                                </div>
-                                <div className="cell">
-                                    <p>47 m</p>
-                                    <p>LAN–MAN</p>
-                                </div>
-                                <div className="cell">
-                                    <p>Off-peak</p>
-                                    <p>No changes</p>
-                                </div>
-                                <div className="cell">
-                                    <p>Wheelchair access</p>
-                                    <p>Support provided</p>
-                                </div>
-                                <div className="price">
-                                    <p>£ 16.90</p>
-                                </div>
-                                <img src="/images/open.png" alt="Expand button"/>
-                            </div>
-                        </div>
-                        <div className="entry">
-                            <div className="main">
-                                <div className="cell">
-                                    <p>11:48 - 12:35</p>
-                                    <p>transpennine express</p>
-                                </div>
-                                <div className="cell">
-                                    <p>47 m</p>
-                                    <p>LAN–MAN</p>
-                                </div>
-                                <div className="cell">
-                                    <p>Off-peak</p>
-                                    <p>No changes</p>
-                                </div>
-                                <div className="cell">
-                                    <p>Wheelchair access</p>
-                                    <p>Support provided</p>
-                                </div>
-                                <div className="price">
-                                    <p>£ 16.90</p>
-                                </div>
-                                <img src="/images/open.png" alt="Expand button"/>
-                            </div>
-                        </div>
-                        <div className="entry">
-                            <div className="main">
-                                <div className="cell">
-                                    <p>11:48 - 12:35</p>
-                                    <p>transpennine express</p>
-                                </div>
-                                <div className="cell">
-                                    <p>47 m</p>
-                                    <p>LAN–MAN</p>
-                                </div>
-                                <div className="cell">
-                                    <p>Off-peak</p>
-                                    <p>No changes</p>
-                                </div>
-                                <div className="cell">
-                                    <p>Wheelchair access</p>
-                                    <p>Support provided</p>
-                                </div>
-                                <div className="price">
-                                    <p>£ 16.90</p>
-                                </div>
-                                <img src="/images/open.png" alt="Expand button"/>
-                            </div>
-                        </div>
-                    </div>
+                    <Entries routes={this.dataReceived[currentLeg].routes} handleClick={this.handleEntrySelection} />
                 </div>
             </div>
             </main>

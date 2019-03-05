@@ -4,6 +4,7 @@
 }
 
 .loading-animation{
+  opacity: 1;
   margin: auto;
   margin-top: 150px;
   width: 150px;

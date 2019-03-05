@@ -10,7 +10,7 @@ export default class SearchJourneyForm extends Component{
       origin: [""],
       destination: [""],
       legs: 1,
-      journeyType: 0
+      journeyType: 0,
     };
     this.handleDateSelect = this.handleDateSelect.bind(this);
     this.handleTimeSelect = this.handleTimeSelect.bind(this);
@@ -20,7 +20,7 @@ export default class SearchJourneyForm extends Component{
     this.addLeg = this.addLeg.bind(this);
     this.deleteLeg = this.deleteLeg.bind(this);
     this.handleJourneyTypeChange = this.handleJourneyTypeChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     this.bikeStorageTrain = React.createRef();
     this.bikeStorageStn = React.createRef();
@@ -29,23 +29,25 @@ export default class SearchJourneyForm extends Component{
     this.adults = React.createRef();
     this.children = React.createRef();
     this.railcards = React.createRef();
+    this.loading = React.createRef();
   }
 
 
   handleSubmit(e){
     e.preventDefault();
+    this.loading.current.style.display = "block";
     let today = new Date();
-    today = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime()
+    today = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
     let datetime = this.state.selectedDate.map((d, i) => {
-      let time = this.state.selectedTime[i]
+      let time = this.state.selectedTime[i];
       if(time){
         return new Date(d.getTime() + time.getTime() - today)
       } else{
         return d
       }
-    })
-    console.log(datetime)
-    let legs = []
+    });
+    console.log(datetime);
+    let legs = [];
     for(let i = 0; i < this.state.legs; i++){
       legs.push({origin: this.state.origin[i].crs, destination: this.state.destination[i].crs, datetime: datetime[i]})
     }
@@ -62,7 +64,7 @@ export default class SearchJourneyForm extends Component{
         bikeStorageTrain: this.bikeStorageTrain.current.checked
       }
     };
-    console.log(data)
+    console.log(data);
     fetch('/api/search-journey', {
       method: 'POST',
       headers: {
@@ -156,7 +158,7 @@ export default class SearchJourneyForm extends Component{
           selectedDate: prevState.selectedDate.concat([""]),
           selectedTime: prevState.selectedTime.concat([""]),
           destination: prevState.destination.concat([""]),
-          origin: prevState.origin.concat([""])
+          origin: prevState.origin.concat(prevState.destination[prevState.legs - 1])
         }
       })
     }
@@ -183,15 +185,38 @@ export default class SearchJourneyForm extends Component{
     })
   }
   handleJourneyTypeChange(e){
+    let val = +e.target.value;
     if(this.state.legs === 1){
-      this.setState({journeyType: +e.target.value})
+      if(val === 2){
+        this.setState((prevState) => {
+          return {
+            journeyType: val,
+            legs: prevState.legs + 1,
+            selectedDate: prevState.selectedDate.concat([""]),
+            selectedTime: prevState.selectedTime.concat([""]),
+            destination: prevState.destination.concat([""]),
+            origin: prevState.origin.concat(prevState.destination[prevState.legs - 1])
+          }
+        })
+      } else {
+        this.setState((prevState) =>{
+          return {
+            selectedDate: [...prevState.selectedDate].splice(0),
+            origin: [...prevState.origin].splice(0),
+            destination: [...prevState.destination].splice(0),
+            selectedTime: [...prevState.selectedTime].splice(0),
+            legs: 1,
+            journeyType: val
+          }
+        })
+      }
     } else{
-      let val = +e.target.value
       this.setState((prevState) =>{
         return {
           selectedDate: [...prevState.selectedDate].splice(0),
           origin: [...prevState.origin].splice(0),
           destination: [...prevState.destination].splice(0),
+          selectedTime: [...prevState.selectedTime].splice(0),
           legs: 1,
           journeyType: val
         }
@@ -203,8 +228,8 @@ export default class SearchJourneyForm extends Component{
   render() {
     // TODO: implement journey legs in new UI
     const { origin, destination, legs, journeyType } = this.state;
+    console.log(this.loading)
     const deleteOpt = legs > 1;
-
     let inputLegs = [];
     for(let i = 0; i < legs; i++) {
       inputLegs.push(
@@ -239,7 +264,7 @@ export default class SearchJourneyForm extends Component{
                   <option value="1">Return</option>
                   <option value="2">Multi-leg</option>
                 </select></li>
-                <li><select defaultValue={0} ref={this.adults}>
+                <li><select defaultValue={1} ref={this.adults}>
                   <option value="0">0 Adults</option>
                   <option value="1">1 Adult</option>
                   <option value="2">2 Adults</option>
@@ -287,6 +312,9 @@ export default class SearchJourneyForm extends Component{
             </div>
 
             <div id="search">
+              <div ref={this.loading} className="loading-journey">
+                <div className="loading-animation">Loading</div>
+              </div>
               {inputLegs}
               {legs < 3 && journeyType === 2? <input onClick={this.addLeg} className="search-form-buttons" value="+ add another leg" type="button"/>: ""}
               <input type="submit" value="Search!"/>

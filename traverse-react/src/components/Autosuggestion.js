@@ -13,15 +13,12 @@ class Autosuggestion extends Component{
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-        console.log(this.state)
         if(nextProps.value.stationName !== this.state.value.stationName){
             this.setState({value: nextProps.value})
         }
     }
 
     onChange = (e, {newValue, method}) =>{
-        console.log(newValue, method)
         if(method === 'enter'){
             e.preventDefault();
             this.props.onChange(newValue)
@@ -39,8 +36,6 @@ class Autosuggestion extends Component{
             inputValue = this.state.value.stationName
         } else if (this.state.value !== "") {
             inputValue = this.state.value;
-        } else{
-            console.log("Something else")
         }
 
         let inputProps = {

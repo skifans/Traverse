@@ -11,6 +11,7 @@ export default class SearchJourneyForm extends Component{
       destination: [""],
       legs: 1,
       journeyType: 0,
+      errors: []
     };
     this.handleDateSelect = this.handleDateSelect.bind(this);
     this.handleTimeSelect = this.handleTimeSelect.bind(this);
@@ -32,18 +33,31 @@ export default class SearchJourneyForm extends Component{
     this.loading = React.createRef();
   }
 
-  checkData(){
-    console.log("Checking Data");
-
-
-    return false;
+  getErrors(){
+    let errors = [];
+    if (+this.adults.current.value + (+this.children.current.value) === 0) {
+      errors.push("Passengers number can't be 0. Add either adult or child.")
+    }
+    if(this.state.origin.findIndex( d => d === "") > -1){
+      errors.push("Origin field is empty.")
+    }
+    if(this.state.destination.findIndex( d => d === "") > -1){
+      errors.push("Destination field is empty.")
+    }
+    if(this.state.selectedDate.findIndex( d => d === "") > -1){
+      errors.push("Date field is empty.")
+    }
+    if(this.state.selectedDate.findIndex( d => d === "") > -1){
+      errors.push("Time field is empty.")
+    }
+    return errors;
   }
 
 
   handleSubmit(e){
     e.preventDefault();
-    if(!this.checkData()) {
-
+    let errors = this.getErrors();
+    if(errors.length <= 0) {
       this.loading.current.style.display = "block";
       let today = new Date();
       today = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
@@ -85,6 +99,8 @@ export default class SearchJourneyForm extends Component{
         console.log(dataReceived);
         this.props.history.push(`/search-journey/results`, {data, dataReceived});
       })
+    } else{
+      this.setState({errors: errors})
     }
 
   }
@@ -264,6 +280,15 @@ export default class SearchJourneyForm extends Component{
         <div id="search-journey">
           <h1 id="title">Search journey</h1>
           <div id="card">
+            <div>
+              <ul>
+              {this.state.errors.map((d, i) => {
+                return (
+                  <li key={i}>{d}</li>
+                )
+              })}
+              </ul>
+            </div>
             <form onSubmit={this.handleSubmit}>
             <div id="settings">
               <ul>

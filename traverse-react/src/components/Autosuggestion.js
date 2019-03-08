@@ -65,6 +65,11 @@ class Autosuggestion extends Component{
         const shouldRenderSuggestion = (value) => {
             return value.length > 1
         }
+        const renderInputComponent = inputProps => (
+            <div>
+                <input {...inputProps} spellCheck={false}/>
+            </div>
+        )
 
 
         return (
@@ -76,6 +81,7 @@ class Autosuggestion extends Component{
                 shouldRenderSuggestions={shouldRenderSuggestion}
                 getSuggestionValue={getSuggestionValue}
                 renderSuggestion={renderSuggestion}
+                renderInputComponent={renderInputComponent}
             />
         )
     }

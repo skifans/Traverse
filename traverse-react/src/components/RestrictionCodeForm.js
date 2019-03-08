@@ -59,7 +59,9 @@ export default class RestrictionCodeForm extends Component {
                     onChange={this.handleChange}
                     ref="codeInput"
                     placeholder="Enter Restriction Code"
-                    maxLength="2" />
+                    maxLength="2"
+                    spellCheck={false}
+                  />
                   <input className="search-form-buttons" type="submit" value="Search" />
                 </form>
             </div>

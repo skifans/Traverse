@@ -17,7 +17,6 @@ header {
 
     #menu {
 
-        float: left;
         flex: 1;
         display: flex;
         align-items: center;
@@ -44,7 +43,7 @@ header {
     }
 
     #login, #signup {
-        float:right;
+        
         display: flex-inline;
         margin-top: 6px;
 
@@ -70,6 +69,7 @@ header {
         input[type=image] {
             width: 24px;
             fill: white;
+            margin-top: 3px;
         }
 
         input::placeholder {
@@ -92,7 +92,6 @@ header {
     #signup form{
 
         display: flex;
-        align-items: center;
 
         div {
 

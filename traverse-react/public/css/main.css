@@ -97,6 +97,10 @@ input:focus, textarea:focus {
   text-transform: none;
 }
 
+#search{
+  padding-top: 10px;
+}
+
 /* Search journey page */
 #search-journey-options {
   border: 1px solid black;
@@ -813,6 +817,8 @@ header #signup form div * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-content: space-evenly;
+  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -833,7 +839,6 @@ header #signup form div * {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 5px;
 }
 
 #search-journey #card #search #one-leg img {

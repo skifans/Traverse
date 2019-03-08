@@ -77,6 +77,7 @@ export default class SearchJourneyForm extends Component{
 
       let data = {
         legs: legs,
+        journeyType: this.state.journeyType,
         adults: this.adults.current.value,
         children: this.children.current.value,
         railcards: this.railcards.current.value,

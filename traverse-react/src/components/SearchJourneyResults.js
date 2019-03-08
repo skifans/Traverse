@@ -4,6 +4,7 @@ import Entries from './SearchJourneyResultsEntryContainer.js';
 
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const journeyTypes = ["One-way", "Return", "Multi-leg"];
 
 export default class SearchJourneyResults extends Component{
     constructor(props){
@@ -63,7 +64,7 @@ export default class SearchJourneyResults extends Component{
                 <div id="search-results">
                 <div id="settings">
                     <ul>
-                        <li>one-way</li>
+                        <li>{ journeyTypes[this.inputData.journeyType]}</li>
                         <li>{ passengers }</li>
                         <li>{ this.inputData.railcards }</li>
                     </ul>

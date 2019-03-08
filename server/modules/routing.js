@@ -43,8 +43,4 @@ const Route = (routeData, reqDatetime) => {
   }
 };
 
-const validateDates = (routeData, reqDatetime) => {
-  
-}
-
-module.exports = { Route, RoutePart, validateDates };
+module.exports = { Route, RoutePart };

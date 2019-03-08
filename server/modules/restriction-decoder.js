@@ -16,7 +16,7 @@ function mapCodeData(codeData) {
     const segment = codeData.slice(i, i + 4);
 
     // Only include restriction if its items aren't blank
-    if (!segment.every(item => item === "")) {
+    if (!segment.every(item => item === '')) {
       // Reduce this segment into a restriction object
       const restrictionObj = segment.reduce((restrictionItem, field, i) => {
         restrictionItem[COLUMN_HEADERS[i]] = field;

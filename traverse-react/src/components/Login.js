@@ -66,8 +66,8 @@ export default class Login extends Component{
       return (
         <div id="login">
         <form>
-          <Link to="/profile"><input type="image" alt="" src="/images/login.png"/></Link>
-          <input type="text" placeholder="email" value="" />
+          <Link to="/profile"><input type="image" src="/images/login.png" alt="Login button"/></Link>
+          <input type="text" placeholder="email"  defaultValue="" />
           <input type="password" placeholder="password" />
         </form>
         <p>forgot your password? <span onClick={() => this.setState({ selected: 2 })} >click here!</span></p>

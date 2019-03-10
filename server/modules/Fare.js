@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 const API_ENDPOINT = 'http://api.brfares.com/querysimple';
 
 function fareIsRelevant(fare) {
-  return fare.category.desc !== 'OTHER' || fare.ticket.type.desc !== 'SEASON';
+  return fare.ticket.type.desc !== 'SEASON' && !['OTHER', 'QUOTA'].includes(fare.category.desc);
 }
 
 function responseToObject(res) {

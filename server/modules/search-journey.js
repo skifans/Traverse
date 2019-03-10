@@ -4,9 +4,7 @@ const Fare = require('./Fare');
 
 const DEFAULT_OPTS = {
   'stepFree': false,
-  'deptAssistance': false,
-  'bikeStorageStn': false,
-  'bikeStorageTrain': false
+  'deptAssistance': false
 };
 
 module.exports = async formData => {
@@ -24,7 +22,6 @@ module.exports = async formData => {
       response.push({
         fares: {},
         routes: {},
-        services: [],
         error: false
       });
 
@@ -38,15 +35,28 @@ module.exports = async formData => {
         // Construct set of routes for journey
         const routeSet = new RouteSet(leg.origin, leg.destination, leg.datetime);
 
-        // Await async API responses
-        const routeFetch = routeSet.findRoutes();
-        const fareFetch = Fare.fetchFaresForRoute(leg.origin, leg.destination);
-        const data = await Promise.all([routeFetch, fareFetch]);
+        // Indicate whether this leg is accessible according to requested needs
+        if (formData.stepFree) {
+          response[i].isStepFree = routeSet.origin.wheelchairAccess && routeSet.destination.wheelchairAccess;
+        }
+        if (formData.deptAssistance) {
+          response[i].hasDeptAssistance = routeSet.origin.staffHelp && routeSet.destination.staffHelp;
+        }
 
-        // Push responses to returned array
-        const fareData = data[1];
-        response[i].fares = fareData;
-        response[i].routes = routeSet;
+        // Await async API responses
+        const routeFetch = routeSet.fetchRoutes();
+        const fareFetch = Fare.fetchFaresForRoute(leg.origin, leg.destination);
+
+        try {
+          const data = await Promise.all([routeFetch, fareFetch]);
+
+          // Push responses to returned array
+          const fareData = data[1];
+          response[i].fares = fareData;
+          response[i].routes = routeSet;
+        } catch (err) {
+          response[i].error = true;
+        }
 
       } else {
         response[i].error = true;
@@ -57,7 +67,6 @@ module.exports = async formData => {
     response.push({
       fares: {},
       routes: {},
-      services: [],
       error: true
     });
   }

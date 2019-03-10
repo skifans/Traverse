@@ -1,5 +1,3 @@
-const crsLocations = require('../assets/crs-locations.json');
-
 const toDatetime = (date, time) => new Date(...date.split('-'), ...time.split(':'));
 
 const RoutePart = partData => ({
@@ -20,7 +18,7 @@ const Route = (routeData, reqDatetime) => {
     departureDatetime = new Date(reqDatetime).setHours(...timeParts);
   }
   if (routeData.arrival_time) {
-    arrivalDatetime = toDatetime(routeData.arrival_date, routeData.arrival_time)
+    arrivalDatetime = toDatetime(routeData.arrival_date, routeData.arrival_time);
   } else {
     const depTime = routeData.departure_time.split(':').map(parseInt);
     const arrTime = routeData.arrival_time.split(':').map(parseInt);

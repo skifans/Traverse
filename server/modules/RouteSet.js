@@ -15,13 +15,13 @@ class RouteSet {
     this.routes = [];
   }
 
-  findRoutes() {
+  fetchRoutes() {
     const from = `lonlat:${this.origin.lon},${this.origin.lat}`;
     const to = `lonlat:${this.destination.lon},${this.destination.lat}`;
     const formattedDate = `${this.datetime.getFullYear()}-${addZero(this.datetime.getMonth() + 1)}-${addZero(this.datetime.getDate())}`;
     const formattedTime = `${addZero(this.datetime.getHours())}:${addZero(this.datetime.getMinutes())}`;
 
-    const url = `${endpoint}/from/${from}/to/${to}/at/${formattedDate}/${formattedTime}.json`;
+    const url = `${endpoint}/from/${from}/to/${to}/at/${formattedDate}/${formattedTime}.json?modes=train`;
     return fetch(url)
       .then(res => res.json())
       .then(res => {

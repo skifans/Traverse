@@ -5,6 +5,15 @@ import Entries from './SearchJourneyResultsEntryContainer.js';
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const journeyTypes = ["One-way", "Return", "Multi-leg"];
+const railcards = {
+    YNG: '16-25',
+    TST: '26-30',
+    SNR: 'Senior',
+    FAM: 'Family and Friends',
+    '2TR': 'Two Together',
+    NEW: 'Network',
+    DIS: 'Disabled Persons'
+}
 
 export default class SearchJourneyResults extends Component{
     constructor(props){
@@ -66,7 +75,7 @@ export default class SearchJourneyResults extends Component{
                     <ul>
                         <li>{ journeyTypes[this.inputData.journeyType]}</li>
                         <li>{ passengers }</li>
-                        <li>{ this.inputData.railcards }</li>
+                        <li>{ railcards[this.inputData.railcards] || 'No' } Railcard</li>
                     </ul>
                     <div id="options-container">
                         <div className="option">

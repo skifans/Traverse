@@ -93,7 +93,7 @@ export default class SearchJourneyResultsEntry extends Component {
                     <p>{this.state.crsOrigin}-{this.state.crsDestination}</p>
                 </div>
                 <div className="cell" style={{ width: "85px" }}>
-                    <p>Catergory unknown</p>
+                    <p>Category unknown</p>
                     <p>{changes}</p>
                 </div>
                 <div className="cell" style={{ width: "150px" }} >

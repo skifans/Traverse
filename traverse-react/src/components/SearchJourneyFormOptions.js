@@ -40,13 +40,13 @@ export default class SearchJourneyFormOptions extends Component{
             <label htmlFor="railcard-discount">Railcard</label>
             <select id="railcard-discount">
               <option>None</option>
-              <option value="STT">16-25 Railcard</option>
+              <option value="YNG">16-25 Railcard</option>
               <option value="TST">26-30 Railcard</option>
-              <option value="SRC">Senior Railcard</option>
-              <option value="FFR">Family and Friends Railcard</option>
-              <option value="TTR">Two Together Railcard</option>
-              <option value="NRC">Network Railcard</option>
-              <option value="DPR">Disabled Persons Railcard</option>
+              <option value="SRN">Senior Railcard</option>
+              <option value="FAM">Family and Friends Railcard</option>
+              <option value="2TR">Two Together Railcard</option>
+              <option value="NEW">Network Railcard</option>
+              <option value="DIS">Disabled Persons Railcard</option>
             </select>
           </div>
         </div>

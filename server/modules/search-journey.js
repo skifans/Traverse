@@ -13,6 +13,7 @@ module.exports = async formData => {
   formData.adults = formData.adults ? parseInt(formData.adults) : 1;
   formData.children = formData.children ? parseInt(formData.children) : 0;
   formData.options = formData.options ? formData.options : DEFAULT_OPTS;
+  formData.railcards = formData.railcards ? formData.railcards : false;
 
   if (formData.legs && Array.isArray(formData.legs)) {
 
@@ -36,16 +37,16 @@ module.exports = async formData => {
         const routeSet = new RouteSet(leg.origin, leg.destination, leg.datetime);
 
         // Indicate whether this leg is accessible according to requested needs
-        if (formData.stepFree) {
+        if (formData.options.stepFree) {
           response[i].isStepFree = routeSet.origin.wheelchairAccess && routeSet.destination.wheelchairAccess;
         }
-        if (formData.deptAssistance) {
+        if (formData.options.deptAssistance) {
           response[i].hasDeptAssistance = routeSet.origin.staffHelp && routeSet.destination.staffHelp;
         }
 
         // Await async API responses
         const routeFetch = routeSet.fetchRoutes();
-        const fareFetch = Fare.fetchFaresForRoute(leg.origin, leg.destination);
+        const fareFetch = Fare.fetchFaresForRoute(leg.origin, leg.destination, formData.railcards);
 
         try {
           const data = await Promise.all([routeFetch, fareFetch]);
@@ -55,6 +56,7 @@ module.exports = async formData => {
           response[i].fares = fareData;
           response[i].routes = routeSet;
         } catch (err) {
+          console.log(err);
           response[i].error = true;
         }
 

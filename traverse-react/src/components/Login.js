@@ -1,74 +1,59 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 
-/*
-
-Initital implementation. Out of scope though
-
-
-const loginFields = (
-  <div id="login">
-    <form>
-        <input type="image" src="images/login.png" />
-        <input type="text" placeholder="username" />
-        <input type="password" placeholder="password" />
-    </form>
-    <p>not registered? <span onClick={() => alert("")} >sign up!</span></p>
-  </div>
-);
-
-const signupFields = (
-    <div id="signup">
-      <form>
-          <input type="image" src="images/login.png" />
-          <input type="text" placeholder="username" />
-          <input type="password" placeholder="password" />
-      </form>
-      <p>registered? <span>log in!</span></p>
-  </div>
-);
-
-const forgotFields = (
-    <div id="login">
-      <form>
-          <input type="image" src="images/login.png" />
-          <input type="text" placeholder="username" />
-          <input type="password" placeholder="password" />
-      </form>
-      <p>not registered? <span>sign up!</span></p>
-  </div>
-);
-*/
 
 export default class Login extends Component{
   constructor(props) {
       super(props);
 
       this.state = {
-        selected: 0
+        selected: 0,
+        login: {
+          username: "",
+          password: ""
+        }
       }
 
       this.handleLogin = this.handleLogin.bind(this);
-
+      this.handleLoginChange = this.handleLoginChange.bind(this);
+      this.handleLoginPasswordChange = this.handleLoginPasswordChange.bind(this);
   }
 
+
+
   handleLogin(e) {
+      e.preventDefault();
 
-    e.preventDefault();
-
-    //TODO: Make this work...
-    this.props.history.push('/profile');
-
+      this.props.onLogin(this.state.login.username)
+  }
+  handleLoginChange(e){
+    e.persist()
+    this.setState((prevState)=>{
+      console.log(prevState)
+      return {
+        login: {...prevState.login, username: e.target.value}
+      }
+    })
+  }
+  handleLoginPasswordChange(e){
+    e.persist()
+    this.setState((prevState)=>{
+      console.log(prevState)
+      return {
+        login: {...prevState.login, password: e.target.value}
+      }
+    })
   }
   
   render(){
+    console.log(this.state)
     if (this.state.selected === 0) {
       return (
         <div id="login">
-        <form>
-          <Link to="/profile"><input type="image" src="/images/login.png" alt="Login button"/></Link>
-          <input type="text" placeholder="email"  defaultValue="" />
-          <input type="password" placeholder="password" />
+        <form onSubmit={this.handleLogin}>
+          <input type="image" src="/images/login.png" alt="Login button"/>
+          <input onChange={this.handleLoginChange} type="text" placeholder="email"  defaultValue="" />
+          <input onChange={this.handleLoginPasswordChange} type="password" placeholder="password" />
         </form>
         <p>forgot your password? <span onClick={() => this.setState({ selected: 2 })} >click here!</span></p>
         <p>not registered? <span onClick={() => this.setState({ selected: 1 })} >sign up!</span></p>

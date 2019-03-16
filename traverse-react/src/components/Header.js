@@ -3,18 +3,33 @@ import Login from './Login';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { logIn, logOut } from "../actions/actionCreators";
+import { FirebaseContext } from './Firebase'
 
-const Header = function(props){
-    let loginField = null;
-    if(props.logged){
-        loginField = <div>{props.username}<button onClick={onLogoutClick}>X</button></div>
-    } else{
-        loginField = <Login onLogin={onLoginClick}/>
-    }
-
-    function onLogoutClick(){
+const LoggedField = function(props){
+    function signOut(){
+        props.firebase.doSignOut()
         props.dispatch(logOut())
     }
+
+    return(
+        <div>
+            <Link to="/profile">{props.username}</Link>
+            <button onClick={signOut}>
+                X
+            </button>
+        </div>
+    )
+}
+
+const Header = function(props){
+    function getField(firebase){
+        if(props.logged){
+            return <LoggedField {...props} username={props.username} firebase={firebase}/>
+        } else{
+            return <Login firebase={firebase} onLogin={onLoginClick}/>
+        }
+    }
+
 
     function onLoginClick(username){
         props.dispatch(logIn(username))
@@ -28,7 +43,7 @@ const Header = function(props){
                     <li><Link to="/restriction-codes">look-up restriction codes</Link></li>
                 </ul>
             </div>
-            {loginField}
+            <FirebaseContext.Consumer>{(firebase) => getField(firebase)}</FirebaseContext.Consumer>
         </header>
     );
 }

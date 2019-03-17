@@ -108,7 +108,7 @@ export default class SearchJourneyResults extends Component{
             results = (
                 <main>
                     <div className="error" id="search-results">
-                        <h1>Your request could not be fuffiled.</h1>
+                        <h1>Your request could not be fulfilled.</h1>
                         <h2>No results are available for your journey</h2>
                         <input id="search-again-button" type="button" value="Search again" onClick={() => this.props.history.push(`/search-journey`)} />
                     </div>

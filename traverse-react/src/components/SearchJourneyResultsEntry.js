@@ -102,11 +102,11 @@ export default class SearchJourneyResultsEntry extends Component {
 
         let support = "Support unknown";
         if (this.state.hasDeptAssistance) {
-            support = (parts === 1) ? "Support available" : "Partial support available";
+            support = (parts === 1) ? "Departure assistance available" : "Partial support available";
         } else if (this.state.hasDeptAssistance === undefined) {
             support = "";
         } else {
-            support = "Support not available";
+            support = "Departure assistance not available";
         }
 
 

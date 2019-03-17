@@ -294,7 +294,7 @@ input:focus, textarea:focus {
 }
 
 .restrictions-container:not(:last-child) {
-  border-right: solid black 2px;
+  border-right: solid #fff 2px;
   padding-right: 5px;
 }
 
@@ -482,6 +482,8 @@ main {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  width: 80%;
+  margin: auto;
 }
 
 .loading-journey {
@@ -631,6 +633,65 @@ header #signup form div {
 
 header #signup form div * {
   margin-bottom: 5px;
+}
+
+header #logged-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 10px;
+  height: 100%;
+  background-color: rgba(144, 127, 250, 0.2);
+}
+
+header #logged-in #main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+header #logged-in #main > * {
+  margin: 2px;
+  font-family: inherit;
+}
+
+header #logged-in #main p {
+  font-size: 14px;
+  border-bottom: 2px solid #fff;
+}
+
+header #logged-in #main .button {
+  color: #fff;
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+header #logged-in #main .button a:hover {
+  text-decoration: none;
+}
+
+header #logged-in #main #account-button {
+  margin-right: auto;
+}
+
+header #logged-in #main #signout-button {
+  margin-left: auto;
+}
+
+header #logged-in img {
+  width: 60px;
+  height: 60px;
 }
 
 #main-page {

@@ -7,16 +7,19 @@ import { FirebaseContext } from './Firebase'
 
 const LoggedField = function(props){
     function signOut(){
+        console.log(props);
         props.firebase.doSignOut()
         props.dispatch(logOut())
     }
 
     return(
-        <div>
-            <Link to="/profile">{props.username}</Link>
-            <button onClick={signOut}>
-                X
-            </button>
+        <div id="logged-in">
+            <img src="images/profile.png" alt="Profile" />
+            <div id="main">
+                <p>{props.username}</p>
+                <button className="button" id="account-button"><Link to="/profile">View account</Link></button>
+                <button className="button" id="signout-button" onClick={signOut} >Sign out</button>
+            </div>
         </div>
     )
 }

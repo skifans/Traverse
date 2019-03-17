@@ -69,7 +69,7 @@ export default class SearchJourneyResults extends Component{
 
         this.setState({selectedRoutes: currentRoutes});
 
-        console.log(this.state.selectedRoutes);
+        console.log(this.dataReceived, leg);
 
         if (this.state.currentLeg < inputData.legs.length - 1) {
 

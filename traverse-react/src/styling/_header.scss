@@ -107,4 +107,60 @@ header {
 
     }
 
+    #logged-in {
+        display: flex;
+        align-items: center;
+
+        padding: 0px 10px;
+        height: 100%;
+        background-color: rgba(144, 127, 250, 0.20);
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            
+
+            & > * {
+                margin: 2px;
+                font-family: inherit;
+            }
+
+            p {
+                font-size: 14px;
+                border-bottom: 2px solid #fff;
+            }
+
+            .button {
+                
+                color: #fff;
+                background-color: transparent;
+                border-radius: 15px;
+
+
+                a:hover {
+                    text-decoration: none;
+                }
+
+            }
+
+            #account-button {
+                margin-right: auto;
+            }
+
+            #signout-button {
+                margin-left: auto;
+            }
+
+        }
+
+
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
 }

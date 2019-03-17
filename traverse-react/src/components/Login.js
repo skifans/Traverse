@@ -106,8 +106,6 @@ export default class Login extends Component{
           <p>registered? <span onClick={() => this.setState({ selected: 0 })} >log in!</span></p>
         </div>
       );
-    } else {
-      return (<p>????</p>);
     }
   }
 

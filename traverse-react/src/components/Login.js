@@ -69,7 +69,7 @@ export default class Login extends Component{
   handleReset(e){
       e.preventDefault()
       this.props.firebase.doPasswordReset(this.state.forgotEmail).then(() =>{
-          this.setState({selected: 0, loginEmail: this.state.forgotEmail})
+          this.setState({selected: 0, loginEmail: this.state.forgotEmail, error: null})
       }).catch(error =>{
           this.setState({error: error.message})
       })
@@ -85,18 +85,20 @@ export default class Login extends Component{
   }
 
   render(){
-      console.log(this.state)
+    const { error } = this.state
+      console.log(error)
     if (this.state.selected === 0) {
         let disable = this.isInvalid("login")
         return (
         <div id="login">
+            {null || error }
         <form onSubmit={this.handleLogin}>
           <input type="image" src="/images/login.png" alt="Login button" disabled={disable}/>
-          <input onChange={this.handleChange} value={this.state.loginEmail} type="text" placeholder="email" name="loginEmail" defaultValue="" />
+          <input onChange={this.handleChange} value={this.state.loginEmail} type="text" placeholder="email" name="loginEmail"/>
           <input onChange={this.handleChange} type="password" name="loginPassword" placeholder="password" />
         </form>
-        <p>forgot your password? <span onClick={() => this.setState({ selected: 2 })} >click here!</span></p>
-        <p>not registered? <span onClick={() => this.setState({ selected: 1 })} >sign up!</span></p>
+        <p>forgot your password? <span onClick={() => this.setState({ selected: 2, error: null })} >click here!</span></p>
+        <p>not registered? <span onClick={() => this.setState({ selected: 1, error: null })} >sign up!</span></p>
       </div>
       );
     } else if (this.state.selected === 1) {
@@ -108,7 +110,7 @@ export default class Login extends Component{
             <input onChange={this.handleChange} name="signupPassword" type="password" placeholder="password" />
           <div className="cell">
             <input type="submit" value="Sign up!" disabled={disable}/>
-            <p>registered? <span onClick={() => this.setState({ selected: 0 })} >log in!</span></p>
+            <p>registered? <span onClick={() => this.setState({ selected: 0, error: null })} >log in!</span></p>
           </div>
         </form>
       </div>
@@ -121,7 +123,7 @@ export default class Login extends Component{
             <input onChange={this.handleChange} name="forgotEmail" type="text" placeholder="email" />
             <input type="submit" value="Send email!" disabled={disable}/>
           </form>
-          <p>registered? <span onClick={() => this.setState({ selected: 0 })} >log in!</span></p>
+          <p>registered? <span onClick={() => this.setState({ selected: 0, error: null })} >log in!</span></p>
         </div>
       );
     }

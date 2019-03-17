@@ -48,7 +48,6 @@ export default class SearchJourneyResults extends Component{
         let destination = this.dataReceived[0].routes.routes[0].routeParts[length].destination;
 
         let date = this.inputData.legs[0].datetime;
-        let stringDate = "";
 
         
 

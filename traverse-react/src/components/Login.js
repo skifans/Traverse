@@ -13,6 +13,7 @@ export default class Login extends Component{
         signupPassword: "",
         forgotEmail: "",
         error: null,
+        errorVisable: { display: "none" },
       }
 
       this.handleLogin = this.handleLogin.bind(this);
@@ -77,6 +78,7 @@ export default class Login extends Component{
 
   handleChange(e){
     e.persist()
+    this.setState({errorVisable: {display: "none"}});
     this.setState((prevState) =>{
       return {
         ...prevState, [e.target.name]: e.target.value
@@ -85,16 +87,21 @@ export default class Login extends Component{
   }
 
   render(){
-    const { error } = this.state
-      console.log(error)
+    const { error, errorVisable } = this.state
+    console.log("The error is --> "+ error)
+    if (error && errorVisable.display === "none" ) {
+      this.setState({errorVisable: {display: "block"}});
+    }
     if (this.state.selected === 0) {
         let disable = this.isInvalid("login")
         return (
         <div id="login">
-            {null || error }
         <form onSubmit={this.handleLogin}>
           <input type="image" src="/images/login.png" alt="Login button" disabled={disable}/>
-          <input onChange={this.handleChange} value={this.state.loginEmail} type="text" placeholder="email" name="loginEmail"/>
+          <div id="email">
+            <input onChange={this.handleChange} value={this.state.loginEmail} type="text" placeholder="email" name="loginEmail"/>
+            <div id="error-modal" style={errorVisable} >{ error }</div>
+          </div>
           <input onChange={this.handleChange} type="password" name="loginPassword" placeholder="password" />
         </form>
         <p>forgot your password? <span onClick={() => this.setState({ selected: 2, error: null })} >click here!</span></p>

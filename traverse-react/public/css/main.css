@@ -1219,6 +1219,7 @@ header #logged-in img {
 #search-results #details #main #price p {
   border-radius: 15px;
   padding: 5px 30px;
+  font-size: 16px;
   background-color: #105BA0;
 }
 

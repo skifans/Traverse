@@ -80,7 +80,7 @@ export default class Login extends Component{
     this.setState({errorVisable: {display: "none"}});
     this.setState((prevState) =>{
       return {
-        ...prevState, [e.target.name]: e.target.value
+        ...prevState, [e.target.name]: e.target.value, error: null
       }
     })
   }

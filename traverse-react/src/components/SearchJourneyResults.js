@@ -23,10 +23,14 @@ export default class SearchJourneyResults extends Component{
         this.inputData = props.location.state.data;
         this.dataReceived = props.location.state.dataReceived;
 
+        console.log(this.dataReceived);
+
         this.error = false;
         for (let i = 0; i < this.dataReceived.length; i++) {
-            if (this.dataReceived[i].routes.routes.length === 0 || this.dataReceived[i].error)
-                this.error = true;
+            if (this.dataReceived[i].error || 
+                this.dataReceived[i].routes.routes.length === 0 ||
+                this.dataReceived[i].routes.routes[0].routeParts.length === 0
+                ) { this.error = true; }
         }
 
         this.passengerCount = parseInt(this.inputData.adults) + parseInt(this.inputData.children);
@@ -51,7 +55,7 @@ export default class SearchJourneyResults extends Component{
 
         }
 
-        console.log(this.dataReceived);
+        
 
         this.handleEntrySelection = this.handleEntrySelection.bind(this)
 

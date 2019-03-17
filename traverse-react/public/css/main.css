@@ -703,13 +703,13 @@ header #email {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
+  font-size: 14px;
 }
 
 header #email #error-modal {
   position: absolute;
   top: 30px;
   width: 200px;
-  height: 40px;
   padding: 10px;
   border-radius: 15px;
   background-color: #105BA0;

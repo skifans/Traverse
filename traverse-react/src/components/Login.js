@@ -114,9 +114,11 @@ export default class Login extends Component{
       return (
       <div id="signup">
         <form onSubmit={this.handleSignup}>
-            <input onChange={this.handleChange} name="signupUsername" type="text" placeholder="email" />
+            <div id="email">
+              <input onChange={this.handleChange} name="signupUsername" type="text" placeholder="email" />
+              {errDiv()}
+            </div>
             <input onChange={this.handleChange} name="signupPassword" type="password" placeholder="password" />
-            {errDiv()}
             <div className="cell">
             <input type="submit" value="Sign up!" disabled={disable}/>
             <p>registered? <span onClick={() => this.setState({ selected: 0, error: null })} >log in!</span></p>

@@ -27,7 +27,8 @@ export default class SearchJourneyResults extends Component{
         for (let i = 0; i < this.dataReceived.length; i++) {
             if (this.dataReceived[i].error || 
                 this.dataReceived[i].routes.routes.length === 0) { 
-                    this.error = true; 
+                    this.error = true;
+                    break;
                 }
             
             for (let j = 0; j < this.dataReceived[i].routes.routes.length; j++) {

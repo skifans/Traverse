@@ -1200,6 +1200,68 @@ header #logged-in img {
   font-size: 15px;
 }
 
+#search-results #details #main #price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+  margin: 0px 7px 0px auto;
+}
+
+#search-results #details #main #price p {
+  border-radius: 15px;
+  padding: 5px 30px;
+  background-color: #105BA0;
+}
+
+#search-results #details #main #price #modal {
+  width: 550px;
+  color: #000;
+  font-size: 16px;
+  background-color: #fff;
+  border: 3px solid #105BA0;
+  border-radius: 15px;
+  position: absolute;
+  top: 40px;
+  display: none;
+}
+
+#search-results #details #main #price #modal th {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#search-results #details #main #price #modal table {
+  width: 100%;
+  text-align: center;
+}
+
+#search-results #details #main #price #modal table td {
+  padding: 3px;
+}
+
+#search-results #details #main #price #modal table #main-title {
+  border-bottom: 2px solid #105BA0;
+}
+
+#search-results #details #main #price #modal table #main-title th {
+  padding: 10px 0px;
+}
+
+#search-results #details #main #price:hover #modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 #search-results #results h3 {
   margin: 25px 0 7px 80px;
 }

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 
 
 export default class Login extends Component{
@@ -8,29 +7,31 @@ export default class Login extends Component{
 
       this.state = {
         selected: 0,
-        loginUsername: "",
+        loginEmail: "",
         loginPassword: "",
         signupUsername: "",
-        signupPassword: ""
+        signupPassword: "",
+        forgotEmail: "",
+        error: null,
       }
 
       this.handleLogin = this.handleLogin.bind(this);
       this.handleChange = this.handleChange.bind(this)
       this.handleSignup = this.handleSignup.bind(this)
+      this.handleReset = this.handleReset.bind(this)
   }
 
 
 
   handleLogin(e) {
       e.preventDefault();
-      const {loginUsername, loginPassword} = this.state
+      const {loginEmail, loginPassword} = this.state
       this.props.firebase
-          .doSignInWithEmailAndPassword(loginUsername, loginPassword)
+          .doSignInWithEmailAndPassword(loginEmail, loginPassword)
           .then(authUser => {
             this.props.onLogin(authUser.user.email)
           }).catch(error =>{
-            console.log(error)
-            //TODO Implement error handling
+            this.setState({error: error.message})
       })
 
   }
@@ -41,23 +42,37 @@ export default class Login extends Component{
       this.props.firebase
           .doCreateUserWithEmailAndPassword(signupUsername, signupPassword)
           .then(authUser => {
-            this.props.onLogin(authUser.user.email)
+              this.props.onLogin(authUser.user.email)
           }).catch(error => {
-            //TODO Implement error handlings
-      })
+              this.setState({error: error.message})
+          })
   }
 
   isInvalid(method){
     switch (method) {
-      case "signup":
-        const {signupUsername, signupPassword} = this.state
-        if(
-            signupUsername === "" || signupPassword === ""
-        ){
-          return true
-        }
-        return false
+        case "signup":
+            const {signupUsername, signupPassword} = this.state
+            return signupUsername === "" || signupPassword === "";
+
+        case "forgot":
+            const {forgotEmail } = this.state
+            return forgotEmail === "" || !forgotEmail.includes("@");
+
+        case "login":
+            const {loginEmail, loginPassword} = this.state
+            return loginEmail === "" || loginPassword === ""
+        default:
+            return true
     }
+  }
+
+  handleReset(e){
+      e.preventDefault()
+      this.props.firebase.doPasswordReset(this.state.forgotEmail).then(() =>{
+          this.setState({selected: 0, loginEmail: this.state.forgotEmail})
+      }).catch(error =>{
+          this.setState({error: error.message})
+      })
   }
 
   handleChange(e){
@@ -70,12 +85,14 @@ export default class Login extends Component{
   }
 
   render(){
+      console.log(this.state)
     if (this.state.selected === 0) {
-      return (
+        let disable = this.isInvalid("login")
+        return (
         <div id="login">
         <form onSubmit={this.handleLogin}>
-          <input type="image" src="/images/login.png" alt="Login button"/>
-          <input onChange={this.handleChange} type="text" placeholder="email" name="loginUsername" defaultValue="" />
+          <input type="image" src="/images/login.png" alt="Login button" disabled={disable}/>
+          <input onChange={this.handleChange} value={this.state.loginEmail} type="text" placeholder="email" name="loginEmail" defaultValue="" />
           <input onChange={this.handleChange} type="password" name="loginPassword" placeholder="password" />
         </form>
         <p>forgot your password? <span onClick={() => this.setState({ selected: 2 })} >click here!</span></p>
@@ -97,11 +114,12 @@ export default class Login extends Component{
       </div>
       );
     } else if (this.state.selected === 2) {
-      return (
+        let disable = this.isInvalid("forgot")
+        return (
         <div id="forgot">
-          <form>
-            <input type="text" placeholder="email" />
-            <input type="button" value="Send email!" />
+          <form onSubmit={this.handleReset}>
+            <input onChange={this.handleChange} name="forgotEmail" type="text" placeholder="email" />
+            <input type="submit" value="Send email!" disabled={disable}/>
           </form>
           <p>registered? <span onClick={() => this.setState({ selected: 0 })} >log in!</span></p>
         </div>

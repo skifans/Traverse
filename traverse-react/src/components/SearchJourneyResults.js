@@ -28,10 +28,17 @@ export default class SearchJourneyResults extends Component{
         this.error = false;
         for (let i = 0; i < this.dataReceived.length; i++) {
             if (this.dataReceived[i].error || 
-                this.dataReceived[i].routes.routes.length === 0 ||
-                this.dataReceived[i].routes.routes[0].routeParts.length === 0
-                ) { this.error = true; }
+                this.dataReceived[i].routes.routes.length === 0) { 
+                    this.error = true; 
+                }
+            
+            for (let j = 0; j < this.dataReceived[i].routes.routes.length; j++) {
+                if (this.dataReceived[i].routes.routes[j].routeParts.length === 0) {
+                    this.error = true;
+                }
+            }
         }
+
 
         this.passengerCount = parseInt(this.inputData.adults) + parseInt(this.inputData.children);
 
@@ -217,7 +224,11 @@ export default class SearchJourneyResults extends Component{
                                     Average adult price: £{
                                         Math.round(
                                             this.dataReceived[currentLeg].fares.fares.reduce((sum, fare) => {
-                                                return sum + fare.adultPrice;
+                                                if (fare.isAdult) {
+                                                    return sum + fare.adultPrice;
+                                                } else {
+                                                    return sum;
+                                                }
                                             }, 0) / 100 / this.dataReceived[currentLeg].fares.fares.length
                                             * 100) / 100
                                     }
@@ -241,8 +252,8 @@ export default class SearchJourneyResults extends Component{
                                                     <tr key={index}>
                                                         <td>{fare.code}</td>
                                                         <td>{fare.restrictionCode}</td>
-                                                        <td>{"£" + (fare.adultPrice/100)}</td>
-                                                        <td>{"£" + (fare.childPrice/100)}</td>
+                                                        {fare.isAdult ? <td>{"£" + (fare.adultPrice/100)}</td> : <td></td> }
+                                                        {fare.isChild ?< td>{"£" + (fare.childPrice/100)}</td> : <td></td> }
                                                     </tr>
                                                 );
                                             })}

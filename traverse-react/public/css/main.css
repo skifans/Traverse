@@ -1419,6 +1419,19 @@ header #logged-in img {
   cursor: pointer;
 }
 
+.error > h1, .error h2 {
+  padding: 10px 20px 10px 50px;
+}
+
+.error h1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.error h2 {
+  font-size: 18px;
+}
+
 #profile-container {
   height: 80%;
   border-radius: 15px;

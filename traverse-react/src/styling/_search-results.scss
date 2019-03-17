@@ -401,4 +401,22 @@
 
     }
 
+    
+
+}
+
+.error {
+    & > h1, h2 {
+        padding: 10px 20px 10px 50px;
+    }
+
+    h1 {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    h2  {
+        font-size: 18px;
+    }
+
 }

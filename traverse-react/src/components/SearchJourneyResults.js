@@ -19,17 +19,27 @@ const railcards = {
 export default class SearchJourneyResults extends Component{
     constructor(props){
         super(props)
+        
         this.inputData = props.location.state.data;
         this.dataReceived = props.location.state.dataReceived;
 
+        this.error = false;
+        for (let i = 0; i < this.dataReceived.length; i++) {
+            if (this.dataReceived[i].routes.routes.length === 0 || this.dataReceived[i].error)
+                this.error = true;
+        }
+
         this.passengerCount = parseInt(this.inputData.adults) + parseInt(this.inputData.children);
 
+        if (!this.error) {
         let origin = this.dataReceived[0].routes.routes[0].routeParts[0].origin;
         let length = this.dataReceived[0].routes.routes[0].routeParts.length-1;
         let destination = this.dataReceived[0].routes.routes[0].routeParts[length].destination;
 
         let date = this.inputData.legs[0].datetime;
         let stringDate = "";
+
+        
 
         this.state = {
             currentLeg: 0,
@@ -38,6 +48,8 @@ export default class SearchJourneyResults extends Component{
             date: date,
             selectedRoutes: []
         };
+
+        }
 
         console.log(this.dataReceived);
 
@@ -89,6 +101,24 @@ export default class SearchJourneyResults extends Component{
     }
   
     render(){
+
+        let results = "";
+        console.log("Error? --> " + this.error);
+        if (this.error) {
+            results = (
+                <main>
+                    <div className="error" id="search-results">
+                        <h1>Your request could not be fuffiled.</h1>
+                        <h2>No results are available for your journey</h2>
+                        <input id="search-again-button" type="button" value="Search again" onClick={() => this.props.history.push(`/search-journey`)} />
+                    </div>
+                </main>
+            );
+
+            return results;
+        }
+
+
         const { date, origin, destination, currentLeg} = this.state;
         this.stringDate =  daysOfWeek[date.getDay()] + ", " + date.getDate() + " " + monthsOfYear[date.getMonth()];
         const {passengerCount} = this;
@@ -116,9 +146,7 @@ export default class SearchJourneyResults extends Component{
         );
 
 
-        let results = "";
-
-
+       
         if (this.state.currentLeg === this.inputData.legs.length) {
             let entries = [];
             let routeAmount = this.state.selectedRoutes.length;
@@ -239,16 +267,16 @@ export default class SearchJourneyResults extends Component{
         return (
             <main>
                 <div id="search-results">
-                <div id="settings">
-                    <ul>
-                        <li>{ journeyTypes[this.inputData.journeyType]}</li>
-                        <li>{ passengers }</li>
-                        <li>{ railcards[this.inputData.railcards] || 'No' } Railcard</li>
-                    </ul>
-                    {this.inputData.options.stepFree || this.inputData.options.deptAssistance ? optionsContainer : ""}
+                    <div id="settings">
+                        <ul>
+                            <li>{ journeyTypes[this.inputData.journeyType]}</li>
+                            <li>{ passengers }</li>
+                            <li>{ railcards[this.inputData.railcards] || 'No' } Railcard</li>
+                        </ul>
+                        {this.inputData.options.stepFree || this.inputData.options.deptAssistance ? optionsContainer : ""}
+                    </div>
+                    {results}
                 </div>
-                {results}
-            </div>
             </main>
         );
     }

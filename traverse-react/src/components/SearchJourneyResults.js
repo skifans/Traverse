@@ -38,9 +38,6 @@ export default class SearchJourneyResults extends Component{
             }
         }
 
-        console.log(this.dataReceived);
-
-
         this.passengerCount = parseInt(this.inputData.adults) + parseInt(this.inputData.children);
 
         if (!this.error) {
@@ -49,8 +46,6 @@ export default class SearchJourneyResults extends Component{
         let destination = this.dataReceived[0].routes.routes[0].routeParts[length].destination;
 
         let date = this.inputData.legs[0].datetime;
-
-        
 
         this.state = {
             currentLeg: 0,
@@ -62,10 +57,7 @@ export default class SearchJourneyResults extends Component{
 
         }
 
-        
-
         this.handleEntrySelection = this.handleEntrySelection.bind(this)
-
     }
 
     
@@ -74,7 +66,7 @@ export default class SearchJourneyResults extends Component{
         const {inputData, dataReceived} = this;
         let leg = this.state.currentLeg;
 
-        let currentRoutes = this.state.selectedRoutes;
+        let currentRoutes = [...this.state.selectedRoutes];
         currentRoutes.push(
             {
                 key: leg,
@@ -90,10 +82,6 @@ export default class SearchJourneyResults extends Component{
 
         leg++;
 
-        this.setState({selectedRoutes: currentRoutes});
-
-        console.log(this.dataReceived, leg);
-
         if (this.state.currentLeg < inputData.legs.length - 1) {
 
 
@@ -103,9 +91,9 @@ export default class SearchJourneyResults extends Component{
             
             let date = inputData.legs[leg].datetime
 
-            this.setState({ currentLeg: leg, origin, destination, date});
+            this.setState({ currentLeg: leg, origin, destination, date, selectedRoutes: currentRoutes});
         } else {
-            this.setState({ currentLeg: leg});
+            this.setState({ currentLeg: leg, selectedRoutes: currentRoutes});
         }
 
 
@@ -114,7 +102,6 @@ export default class SearchJourneyResults extends Component{
     render(){
 
         let results = "";
-        console.log("Error? --> " + this.error);
         if (this.error) {
             results = (
                 <main>
@@ -194,8 +181,6 @@ export default class SearchJourneyResults extends Component{
                     <input id="search-again-button" type="button" value="Search again" onClick={() => this.props.history.push(`/search-journey`)} />
                 </div>
             );
-
-
         } else {
 
             let stepFreeStatus = this.dataReceived[currentLeg].isStepFree;

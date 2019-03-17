@@ -3,7 +3,6 @@ import Leg from './SearchJourneyResultsLeg.js';
 
 const SearchJourneyResultsLegContainer = function(props){
     const {leg, dataReceived, selectedRoutes} = props;
-    console.log("Hello", selectedRoutes)
     let legs = [];
     const legAmount = dataReceived.length;
     for (let i = 0; i < legAmount; i++) {

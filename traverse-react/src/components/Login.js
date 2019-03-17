@@ -13,7 +13,6 @@ export default class Login extends Component{
         signupPassword: "",
         forgotEmail: "",
         error: null,
-        errorVisable: { display: "none" },
       }
 
       this.handleLogin = this.handleLogin.bind(this);
@@ -87,11 +86,13 @@ export default class Login extends Component{
   }
 
   render(){
-    const { error, errorVisable } = this.state
-    console.log("The error is --> "+ error)
-    if (error && errorVisable.display === "none" ) {
-      this.setState({errorVisable: {display: "block"}});
+    const { error} = this.state
+
+    const errDiv = () =>{
+        let visible = error ? "block": "none"
+        return (<div style={{"display": visible}} id="error-modal" >{ error }</div>)
     }
+
     if (this.state.selected === 0) {
         let disable = this.isInvalid("login")
         return (
@@ -100,7 +101,7 @@ export default class Login extends Component{
           <input type="image" src="/images/login.png" alt="Login button" disabled={disable}/>
           <div id="email">
             <input onChange={this.handleChange} value={this.state.loginEmail} type="text" placeholder="email" name="loginEmail"/>
-            <div id="error-modal" style={errorVisable} >{ error }</div>
+            {errDiv()}
           </div>
           <input onChange={this.handleChange} type="password" name="loginPassword" placeholder="password" />
         </form>
@@ -115,7 +116,8 @@ export default class Login extends Component{
         <form onSubmit={this.handleSignup}>
             <input onChange={this.handleChange} name="signupUsername" type="text" placeholder="email" />
             <input onChange={this.handleChange} name="signupPassword" type="password" placeholder="password" />
-          <div className="cell">
+            {errDiv()}
+            <div className="cell">
             <input type="submit" value="Sign up!" disabled={disable}/>
             <p>registered? <span onClick={() => this.setState({ selected: 0, error: null })} >log in!</span></p>
           </div>
@@ -129,6 +131,7 @@ export default class Login extends Component{
           <form onSubmit={this.handleReset}>
             <input onChange={this.handleChange} name="forgotEmail" type="text" placeholder="email" />
             <input type="submit" value="Send email!" disabled={disable}/>
+            {errDiv()}
           </form>
           <p>registered? <span onClick={() => this.setState({ selected: 0, error: null })} >log in!</span></p>
         </div>

@@ -1,24 +1,25 @@
 #search-results {
 
+    height: fit-content;
+
     width: 80%;
-    margin-top: 40px;
-    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.13);
     border-radius: 15px;
 
     #settings {
 
-        overflow: auto;
+        display: flex;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 
         ul {
-
-            float: left;
 
             li {
                 display: inline-block;
                 width: 100px;
                 margin: 20px 30px;
                 padding: 5px;
-                font-size: 15px;
+                font-size: 17px;
                 border-bottom: 3px solid white;
             }
 
@@ -26,15 +27,14 @@
 
         #options-container {
 
-            float: right;
             display: flex;
             align-items: center;
             justify-content: center;       
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: #105BA0;
             height: 40px;
-            width: 260px;
             border-radius: 15px;
-            margin: 15px 50px 0 0;
+            padding: 0px 5px;
+            margin: 15px 50px 0 auto;
 
 
             .option {
@@ -49,7 +49,7 @@
 
                 width: 24px;
                 padding: 10px;
-                color: #6F88F4;
+                color: #fff;
 
             }
 
@@ -60,23 +60,108 @@
 
     #details {
 
-        border-top: 3px solid rgba(255, 255, 255, 0.5);
         border-bottom: 3px solid rgba(255, 255, 255, 0.5);
-        padding: 20px 40px;
+        padding: 10px 40px 20px 40px;
         font-size: 18px;
 
-        svg {
+        #container {
 
-            width: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 15px;
+
+            .leg {
+                width: 144px;
+                height: 112px;
+                margin: 10px;
+                border-radius: 15px;
+                background-color: #105BA0;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+    
+            .active {
+                align-items: initial;
+                width: 250px;
+            }
+    
+            .triangle {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 20px 0 20px 20px;
+                border-color: transparent transparent transparent #fff;
+    
+            }
+    
+            .circle {
+                margin: 5px;
+                width: 25px;
+                height: 25px;
+                border-radius: 100%;
+                text-align: center;
+                font-size: 20px;
+                border: 3px solid #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            .active div {
+                display: flex;
+                align-items: center;
+                
+            }
+    
+            .leg-header{
+                font-size: 18px;
+                font-weight: bold;
+
+                p {
+                    margin-left: 10px;
+                }
+
+            }
+    
+            .small {
+                height: 5px;
+                width: 5px;
+                border: 2px solid #fff;
+                margin: 5px 15px 5px 40px;
+            }
 
         }
 
-        span {
+        #main {
 
-            margin-left: 40px;
-            font-size: 15px;
+            display: flex;
+            align-items: center;
+
+            p {
+                font-weight: bold;
+                font-size: 22px;
+            }
+
+            svg {
+
+                width: 12px;
+    
+            }
+    
+            span {
+    
+
+                margin-left: 40px;
+                font-size: 15px;
+    
+            }
+
 
         }
+
+        
 
     }
 
@@ -91,15 +176,31 @@
             display: flex;
             margin: auto;
             flex-direction: column;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 15px;
             width: 90%;
             margin-bottom: 20px;
+
+            .summary-text {
+
+                display: flex;
+                background-color: rgba(255, 255, 255, 0.13);
+                font-size: 20px;
+                border-radius: 15px;
+                margin-top: 5px;
+                padding: 15px;
+
+
+                span {
+                    margin-left: auto;
+                }
+
+            }
 
             .entry {
 
                 display: flex;
                 flex-direction: column;
+                background-color: #105BA0;
+                border-radius: 15px;
                 border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 
                 .main {
@@ -116,9 +217,9 @@
 
                     .cell {
 
-                        p:last-child {
+                        p:nth-child(2) {
                             padding-top: 10px;
-                            color: rgba(111,136,244, 0.7);
+                            color: #EEE;
                             font-size: 14px;
                         }
 
@@ -129,7 +230,8 @@
                     }
 
                     img {
-                        margin: 0px;
+                        margin-right: 25px;
+                        margin-left: auto;
                     }
 
                 }
@@ -137,11 +239,12 @@
                 .details {
 
                     display: none;
+                    border-radius: 15px;
                     background-color: rgba(255, 255, 255, 0.25);
 
                     .hop {
 
-                        color: rgba(111, 136, 244, 0.7);
+                        color: #EEE;
                         
 
                         .travel {
@@ -159,7 +262,7 @@
                             }
 
                             div {
-                                border-left: dashed 5px rgba(255, 255, 255, 0.5);
+                                border-left: dashed 4px rgba(255, 255, 255, 0.5);
 
                                 p {
                                     padding: 10px 0px 10px 20px;
@@ -203,8 +306,6 @@
                 
                             }
 
-                            
-
                         }
                     
                     }
@@ -213,11 +314,29 @@
 
             }
 
-            .entry:last-child {
-                border: none;
+            .entry:last-child  {
+                .hop:last-child, .details:last-child {
+                    border-bottom-left-radius: 15px;
+                    border-bottom-right-radius: 15px;
+                }
             }
 
         }
+
+    }
+
+    #search-again-button[type="button"] {
+
+        margin: 10px 45px 10px 0px;
+        float: right;
+        width: 150px;
+        height: 40px;
+        background-color: #68D15A;
+        border-radius: 15px;
+        font-size: 17px;
+        color: white;
+        border: solid 1px #707070;
+        cursor: pointer;
 
     }
 

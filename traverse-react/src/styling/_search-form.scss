@@ -21,10 +21,29 @@
 
     #card {
 
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.13);
         width: 1000px;
         transition: width 2s;
         border-radius: 15px;
+
+        #errors {
+
+            display: flex;
+            justify-content: center;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            background-color: #105BA0;
+
+            li {
+
+                display: inline-block;
+                padding: 3px;
+                margin: 20px;
+                
+
+            }
+
+        }
 
         #settings {
 
@@ -62,8 +81,9 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;       
-                background-color: rgba(255, 255, 255, 0.5);
+                background-color: #105BA0;
                 border-radius: 15px;
+                padding: 0px 10px;
                 margin: 0px 20px 0px auto;
 
                 .option {
@@ -78,7 +98,7 @@
 
                     width: 24px;
                     padding: 10px;
-                    color: #6F88F4;
+                    color: #fff;
 
                 }
 
@@ -97,6 +117,9 @@
 
                 display: flex;
                 align-items: center;
+                padding-top: 10px;
+                justify-content: space-evenly;
+                width: 100%;
 
                 input {
 
@@ -113,7 +136,6 @@
 
                     display: flex;
                     align-items: center;
-                    margin: 5px;
                 }
 
 
@@ -139,9 +161,8 @@
 
             .search-form-buttons {
 
-                margin-right: auto;
-                margin-left: 40px;
-                background-color: lightgreen;
+                margin: 10px auto 0px 40px;
+                background-color: #68D15A;
                 border: none;
                 border-radius: 8px;
                 color: inherit;

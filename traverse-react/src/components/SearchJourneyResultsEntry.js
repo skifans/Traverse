@@ -9,9 +9,14 @@ export default class SearchJourneyResultsEntry extends Component {
             routes: this.props.routes,
             crsOrigin: this.props.crsOrigin,
             crsDestination: this.props.crsDestination,
+            entryNumber: this.props.entryNumber,
             handleClick: this.props.handleClick,
+            isStepFree: this.props.isStepFree,
+            hasDeptAssistance: this.props.hasDeptAssistance,
             expanded: false
         }
+
+        console.log(this.state);
 
         this.handleClick = this.handleClick.bind(this)
         this.extractTime = this.extractTime.bind(this)
@@ -24,6 +29,8 @@ export default class SearchJourneyResultsEntry extends Component {
             routes: nextProps.routes, 
             crsOrigin: nextProps.crsOrigin,
             crsDestination: nextProps.crsDestination,
+            isStepFree: nextProps.isStepFree,
+            hasDeptAssistance: nextProps.hasDeptAssistance,
             expanded: false
         });  
     }
@@ -68,11 +75,13 @@ export default class SearchJourneyResultsEntry extends Component {
             }
         }
 
+        let parts = this.state.routes.routeParts.length;
         let hopEntries = [];
-        for (let i = 0; i < this.state.routes.routeParts.length; i++) {
+        for (let i = 0; i < parts; i++) {
             hopEntries.push(
                 <Hop 
                     key={i}
+                    entryNumber={this.state.entryNumber}
                     hopNumber={i}
                     routeParts={this.state.routes.routeParts}
                     handleClick = {this.state.handleClick}
@@ -81,27 +90,45 @@ export default class SearchJourneyResultsEntry extends Component {
         }
 
 
+        let stepFree = "Step free access unknown";
+        if (this.state.isStepFree) {
+            stepFree = (parts === 1) ? "Step free access available" : "Partial step free access";
+        } else if (this.state.isStepFree === undefined) {
+            stepFree = "";
+        } else {
+            stepFree = "Step free access not available";
+        }
+
+
+        let support = "Support unknown";
+        if (this.state.hasDeptAssistance) {
+            support = (parts === 1) ? "Support available" : "Partial support available";
+        } else if (this.state.hasDeptAssistance === undefined) {
+            support = "";
+        } else {
+            support = "Support not available";
+        }
+
+
+
         return (
         <div className="entry">
             <div className="main" onClick={ this.handleClick }>
-                <div className="cell" style={{ width: "150px" }} >
+                <div className="cell" style={{ width: "110px" }} >
                     <p>{ this.state.routes.routeParts[0].departureTime } - { this.state.routes.routeParts[this.state.routes.routeParts.length-1].arrivalTime }</p>
-                    <p>TOC unknown</p>
+                    <p>{this.state.crsOrigin}-{this.state.crsDestination}</p>
                 </div>
                 <div className="cell" style={{ width: "70px" }} >
                     <p>{time}</p>
-                    <p>{this.state.crsOrigin}-{this.state.crsDestination}</p>
                 </div>
-                <div className="cell" style={{ width: "85px" }}>
-                    <p>Category unknown</p>
+                <div className="cell" style={{ width: "100px" }}>
                     <p>{changes}</p>
                 </div>
-                <div className="cell" style={{ width: "150px" }} >
-                    <p>Wheelchair access unknown</p>
-                    <p>Support unknown</p>
+                <div className="cell" style={{ width: "140px" }} >
+                    <p>{stepFree}</p>
                 </div>
-                <div className="price">
-                    <p>£ XX.XX</p>
+                <div className="cell" style={{ width: "130px" }} >
+                    <p>{support}</p>
                 </div>
                 <img src="/images/open.png" alt="Expand button"/>
             </div>

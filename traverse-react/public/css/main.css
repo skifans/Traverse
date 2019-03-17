@@ -97,10 +97,6 @@ input:focus, textarea:focus {
   text-transform: none;
 }
 
-#search{
-  padding-top: 10px;
-}
-
 /* Search journey page */
 #search-journey-options {
   border: 1px solid black;
@@ -451,8 +447,8 @@ input[name=day] {
 
 body {
   background: #681e9a;
-  background: linear-gradient(45deg, #681e9a 0%, #67bc6c 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#681e9a', endColorstr='#67bc6c',GradientType=1 );
+  background: linear-gradient(45deg, #681e9a 0%, #5aa35f 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#681e9a', endColorstr='#5aa35f',GradientType=1 );
 }
 
 .App {
@@ -486,6 +482,17 @@ main {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.loading-journey {
+  display: none;
+  position: absolute;
+  background: rgba(100, 100, 100, 0.7);
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 header {
@@ -726,11 +733,29 @@ header #signup form div * {
 }
 
 #search-journey #card {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.13);
   width: 1000px;
   -webkit-transition: width 2s;
   transition: width 2s;
   border-radius: 15px;
+}
+
+#search-journey #card #errors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: #105BA0;
+}
+
+#search-journey #card #errors li {
+  display: inline-block;
+  padding: 3px;
+  margin: 20px;
 }
 
 #search-journey #card #settings {
@@ -776,8 +801,9 @@ header #signup form div * {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #105BA0;
   border-radius: 15px;
+  padding: 0px 10px;
   margin: 0px 20px 0px auto;
 }
 
@@ -794,7 +820,7 @@ header #signup form div * {
 #search-journey #card #settings #option-container svg {
   width: 24px;
   padding: 10px;
-  color: #6F88F4;
+  color: #fff;
 }
 
 #search-journey #card #search {
@@ -817,13 +843,14 @@ header #signup form div * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: space-evenly;
-  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding-top: 10px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
 }
 
 #search-journey #card #search #one-leg input {
@@ -860,9 +887,8 @@ header #signup form div * {
 }
 
 #search-journey #card #search .search-form-buttons {
-  margin-right: auto;
-  margin-left: 40px;
-  background-color: lightgreen;
+  margin: 10px auto 0px 40px;
+  background-color: #68D15A;
   border: none;
   border-radius: 8px;
   color: inherit;
@@ -938,18 +964,20 @@ header #signup form div * {
 }
 
 #search-results {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 80%;
-  margin-top: 40px;
-  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.13);
   border-radius: 15px;
 }
 
 #search-results #settings {
-  overflow: auto;
-}
-
-#search-results #settings ul {
-  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 }
 
 #search-results #settings ul li {
@@ -957,12 +985,11 @@ header #signup form div * {
   width: 100px;
   margin: 20px 30px;
   padding: 5px;
-  font-size: 15px;
+  font-size: 17px;
   border-bottom: 3px solid white;
 }
 
 #search-results #settings #options-container {
-  float: right;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -972,11 +999,11 @@ header #signup form div * {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #105BA0;
   height: 40px;
-  width: 260px;
   border-radius: 15px;
-  margin: 15px 50px 0 0;
+  padding: 0px 5px;
+  margin: 15px 50px 0 auto;
 }
 
 #search-results #settings #options-container .option {
@@ -992,25 +1019,124 @@ header #signup form div * {
 #search-results #settings #options-container svg {
   width: 24px;
   padding: 10px;
-  color: #6F88F4;
+  color: #fff;
 }
 
 #search-results #details {
-  border-top: 3px solid rgba(255, 255, 255, 0.5);
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
-  padding: 20px 40px;
+  padding: 10px 40px 20px 40px;
   font-size: 18px;
 }
 
-#search-results #details svg {
+#search-results #details #container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+#search-results #details #container .leg {
+  width: 144px;
+  height: 112px;
+  margin: 10px;
+  border-radius: 15px;
+  background-color: #105BA0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#search-results #details #container .active {
+  -webkit-box-align: initial;
+      -ms-flex-align: initial;
+          align-items: initial;
+  width: 250px;
+}
+
+#search-results #details #container .triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 0 20px 20px;
+  border-color: transparent transparent transparent #fff;
+}
+
+#search-results #details #container .circle {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 20px;
+  border: 3px solid #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#search-results #details #container .active div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#search-results #details #container .leg-header {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#search-results #details #container .leg-header p {
+  margin-left: 10px;
+}
+
+#search-results #details #container .small {
+  height: 5px;
+  width: 5px;
+  border: 2px solid #fff;
+  margin: 5px 15px 5px 40px;
+}
+
+#search-results #details #main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#search-results #details #main p {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+#search-results #details #main svg {
   width: 12px;
 }
 
-#search-results #details span {
-  margin: 0 20px;
-}
-#search-results #details span:first-child {
-  margin-left: 0;
+#search-results #details #main span {
+  margin-left: 40px;
+  font-size: 15px;
 }
 
 #search-results #results h3 {
@@ -1026,10 +1152,23 @@ header #signup form div * {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 15px;
   width: 90%;
   margin-bottom: 20px;
+}
+
+#search-results #results .entries .summary-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.13);
+  font-size: 20px;
+  border-radius: 15px;
+  margin-top: 5px;
+  padding: 15px;
+}
+
+#search-results #results .entries .summary-text span {
+  margin-left: auto;
 }
 
 #search-results #results .entries .entry {
@@ -1040,6 +1179,8 @@ header #signup form div * {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #105BA0;
+  border-radius: 15px;
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -1057,9 +1198,9 @@ header #signup form div * {
   padding: 5px 27px;
 }
 
-#search-results #results .entries .entry .main .cell p:last-child {
+#search-results #results .entries .entry .main .cell p:nth-child(2) {
   padding-top: 10px;
-  color: rgba(111, 136, 244, 0.7);
+  color: #EEE;
   font-size: 14px;
 }
 
@@ -1068,16 +1209,18 @@ header #signup form div * {
 }
 
 #search-results #results .entries .entry .main img {
-  margin: 0px;
+  margin-right: 25px;
+  margin-left: auto;
 }
 
 #search-results #results .entries .entry .details {
   display: none;
+  border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.25);
 }
 
 #search-results #results .entries .entry .details .hop {
-  color: rgba(111, 136, 244, 0.7);
+  color: #EEE;
 }
 
 #search-results #results .entries .entry .details .hop .travel {
@@ -1095,7 +1238,7 @@ header #signup form div * {
 }
 
 #search-results #results .entries .entry .details .hop .travel div {
-  border-left: dashed 5px rgba(255, 255, 255, 0.5);
+  border-left: dashed 4px rgba(255, 255, 255, 0.5);
 }
 
 #search-results #results .entries .entry .details .hop .travel div p {
@@ -1134,8 +1277,22 @@ header #signup form div * {
   background-color: #41b332;
 }
 
-#search-results #results .entries .entry:last-child {
-  border: none;
+#search-results #results .entries .entry:last-child .hop:last-child, #search-results #results .entries .entry:last-child .details:last-child {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+#search-results #search-again-button[type="button"] {
+  margin: 10px 45px 10px 0px;
+  float: right;
+  width: 150px;
+  height: 40px;
+  background-color: #68D15A;
+  border-radius: 15px;
+  font-size: 17px;
+  color: white;
+  border: solid 1px #707070;
+  cursor: pointer;
 }
 
 #profile-container {
@@ -1283,15 +1440,4 @@ footer li:last-child {
 
 footer svg {
   fill: white;
-}
-
-.loading-journey {
-  display: none;
-  position: absolute;
-  background: rgba(100, 100, 100, 0.7);
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
 }

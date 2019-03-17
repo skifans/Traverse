@@ -28,16 +28,19 @@ export default class SearchJourneyResultsEntryHops extends Component {
             </div>
         );
 
-        let bottom = (
-            <div className="hopBottom">
-                <input type="button" value="Select" onClick={this.props.handleClick} />
-            </div>
-        );
+        let bottom = "";
+        if (this.props.handleClick !== undefined) {
+            bottom = (
+                <div className="hopBottom">
+                    <input type="button" value="Select" name={this.props.entryNumber} onClick={this.props.handleClick} />
+                </div>
+            );
+        }
 
         return (
             <div className="hop">
                 <div className="travel">
-                    <img src="../images/train-solid.svg" alt="Train"/>
+                    <img src="/images/train-solid.svg" alt="Train"/>
                     <div>
                         <p>Departure at {this.props.routeParts[this.props.hopNumber].departureTime} from {this.props.routeParts[this.props.hopNumber].origin}</p>
                         <p>Travel time: {this.extractTime(this.props.routeParts[this.props.hopNumber].duration)}</p>

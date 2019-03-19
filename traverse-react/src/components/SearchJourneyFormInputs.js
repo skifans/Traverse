@@ -34,10 +34,10 @@ const SearchJourneyFormInputs = (props) => {
                 <Autosuggestion onChange={destChange} value={props.destination || ""} placeholder="Destination Station"/>
             </div>
             <div className="calendar">
-                <Flatpickr placeholder="Select Date..." onClose={dateChange} value={props.dateValue} options={{defaultDate: props.dateValue, minDate: today, altInput: true}}/>
+                <Flatpickr placeholder="Select Date..." onClose={dateChange} value={props.dateValue} options={{defaultDate: props.dateValue, minDate: props.minDate, maxDate: today.fp_incr(90), altInput: true}}/>
             </div>
             <div className="calendar">
-                <Flatpickr placeholder="Depart After..." onClose={timeChange} value={props.timeValue} options={{enableTime: true, noCalendar: true, dateFormat:"H:i", time_24hr:true}}/>
+                <Flatpickr placeholder="Depart After..." onClose={timeChange}  options={{enableTime: true, minTime:props.minTime, noCalendar: true, dateFormat:"H:i", time_24hr:true}}/>
             </div>
             {deleteButton}
           </div>

@@ -247,13 +247,34 @@ export default class SearchJourneyForm extends Component{
     const { origin, destination, legs, journeyType } = this.state;
     const deleteOpt = legs > 1;
     let inputLegs = [];
+    const today = new Date()
     for(let i = 0; i < legs; i++) {
+      let minDate = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+      let minTime = null
+      if(this.state.selectedTime[i] instanceof Date && this.state.selectedDate[i] instanceof Date && this.state.selectedDate[i].getTime() < today){
+        minTime = today.getHours() + ":" + today.getMinutes()
+      }
+      if(i > 0){
+        for(let j = i - 1; j >= 0; j--){
+          if(this.state.selectedDate[j] instanceof Date && this.state.selectedDate[j].getTime() > minDate.getTime()){
+            minDate = this.state.selectedDate[j]
+          }
+          if(this.state.selectedDate[j] instanceof Date && this.state.selectedDate[i] instanceof Date && this.state.selectedDate[j].getTime() === this.state.selectedDate[i].getTime()){
+            minTime = this.state.selectedTime[j].getHours() + ":" + ("0" + this.state.selectedTime[j].getMinutes()).slice(-2)
+          }
+        }
+      }
+
+
+
       inputLegs.push(
         <Inputs
           key={i}
           id={i}
           dateValue={this.state.selectedDate[i]}
           timeValue={this.state.selectedTime[i]}
+          minDate = {minDate}
+          minTime={minTime}
           destination={destination[i]}
           origin={origin[i]}
           onClickDate={this.handleDateSelect}

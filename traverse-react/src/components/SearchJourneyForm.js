@@ -78,7 +78,7 @@ export default class SearchJourneyForm extends Component{
         journeyType: this.state.journeyType,
         adults: this.adults.current.value,
         children: this.children.current.value,
-        railcards: this.railcards.current.value,
+        railcards: this.railcards.current.value === "Railcard" ? undefined : this.railcards.current.value,
         options: {
           stepFree: this.stepFree.current.checked,
           deptAssistance: this.deptAssistance.current.checked,

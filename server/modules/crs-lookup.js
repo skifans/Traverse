@@ -10,9 +10,9 @@ module.exports = input => {
 
   let results = stationNames
     // Filter for names starting with input or CRS == input
-    .filter(name => 
-      name.toLowerCase().split(' ').some(word => word.startsWith(input)) ||
-      codeMap[name].toLowerCase() === input)
+    .filter(name =>
+      codeMap[name].toLowerCase() === input ||
+      name.toLowerCase().includes(input))
 
     // Sort like so...
     .sort((n1, n2) => {
@@ -39,7 +39,7 @@ module.exports = input => {
     // Only include first LIMIT stations
     .slice(0, LIMIT)
 
-    // Map to simple output string
+    // Map to simple object
     .map(stationName => ({
       stationName,
       crs: codeMap[stationName]

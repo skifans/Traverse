@@ -10,10 +10,10 @@ const DEFAULT_OPTS = {
 module.exports = async formData => {
   const response = [];
 
+  formData.journeyType = formData.journeyType ? parseInt(formData.journeyType) : 0;
   formData.adults = formData.adults ? parseInt(formData.adults) : 1;
   formData.children = formData.children ? parseInt(formData.children) : 0;
   formData.options = formData.options ? formData.options : DEFAULT_OPTS;
-  formData.railcards = formData.railcards ? formData.railcards : false;
 
   if (formData.legs && Array.isArray(formData.legs)) {
 
@@ -53,6 +53,9 @@ module.exports = async formData => {
 
           // Push responses to returned array
           const fareData = data[1];
+          if (formData.journeyType === 2) {
+            fareData.fares = fareData.fares.filter(fare => !fare.isSingle);
+          }
           response[i].fares = fareData;
           response[i].routes = routeSet;
         } catch (err) {

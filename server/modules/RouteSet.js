@@ -25,8 +25,8 @@ class RouteSet {
     return fetch(url)
       .then(res => res.json())
       .then(res => {
-        if (res.routes) {
-          this.routes = res.routes.map(route => routing.Route(route))
+        if (res.routes && res.request_time) {
+          this.routes = res.routes.map(route => routing.Route(route, res.request_time))
         }
       });
   }

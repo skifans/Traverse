@@ -154,24 +154,33 @@ export default class SearchJourneyForm extends Component{
     })
   }
   handleSwap(id){
-    this.setState((prevState) => {
-      return{
-        origin: prevState.origin.map((d, i) => {
-          if(i !== id){
-            return d;
-          } else{
-            return prevState.destination[id];
-          }
-        }),
-        destination: prevState.destination.map((d, i) => {
-          if(i !== id){
-            return d;
-          } else{
-            return prevState.origin[id];
-          }
-        })
-      }
-    })
+    if(this.state.journeyType === 1){
+      this.setState((prevState) =>{
+        return {
+          origin: [...prevState.destination],
+          destination:  [...prevState.origin]
+        }
+      })
+    } else {
+      this.setState((prevState) => {
+        return {
+          origin: prevState.origin.map((d, i) => {
+            if (i !== id) {
+              return d;
+            } else {
+              return prevState.destination[id];
+            }
+          }),
+          destination: prevState.destination.map((d, i) => {
+            if (i !== id) {
+              return d;
+            } else {
+              return prevState.origin[id];
+            }
+          })
+        }
+      })
+    }
   }
   addLeg(){
     if(this.state.legs < 3) {
@@ -209,26 +218,8 @@ export default class SearchJourneyForm extends Component{
   }
   handleJourneyTypeChange(e){
     let val = +e.target.value;
-    if(this.state.legs === 1){
-      if(val === 2){
-        this.setState((prevState) => {
-          return {
-            journeyType: val,
-            legs: prevState.legs + 1,
-            selectedDate: prevState.selectedDate.concat([""]),
-            selectedTime: prevState.selectedTime.concat([""]),
-            destination: prevState.destination.concat([""]),
-            origin: prevState.origin.concat(prevState.destination[prevState.legs - 1])
-          }
-        })
-      } else {
-        this.setState({
-            journeyType: val
-          }
-        )
-      }
-    } else{
-      this.setState((prevState) =>{
+    if(val === 0){
+      this.setState((prevState) => {
         return {
           selectedDate: [...prevState.selectedDate].splice(0, 1),
           origin: [...prevState.origin].splice(0, 1),
@@ -238,6 +229,41 @@ export default class SearchJourneyForm extends Component{
           journeyType: val
         }
       })
+    } else if(val === 1){
+      if(this.state.legs === 1){
+        this.setState((prevState) =>{
+          return {
+            journeyType: val,
+            legs: 2,
+            selectedDate: prevState.selectedDate.concat([""]),
+            selectedTime: prevState.selectedTime.concat([""]),
+            origin: [...prevState.origin, ...prevState.destination],
+            destination: [...prevState.destination, ...prevState.origin]
+          }
+        })
+      } else{
+        this.setState((prevState) =>{
+          return {
+            journeyType: val,
+            legs: 2,
+            selectedDate: [...prevState.selectedDate].splice(0, 2),
+            selectedTime: [...prevState.selectedTime.splice(0,2)],
+            origin: [...prevState.origin].splice(0,1).concat( [...prevState.destination].splice(0,1)),
+            destination: [...prevState.destination].splice(0,1).concat( [...prevState.origin].splice(0,1))
+          }
+        })
+      }
+    } else{
+      this.setState((prevState) => {
+        return {
+          journeyType: val,
+          legs: prevState.legs + 1,
+          selectedDate: prevState.selectedDate.concat([""]),
+          selectedTime: prevState.selectedTime.concat([""]),
+          destination: prevState.destination.concat([""]),
+          origin: prevState.origin.concat(prevState.destination[prevState.legs - 1])
+        }
+      })
     }
   }
 
@@ -245,7 +271,7 @@ export default class SearchJourneyForm extends Component{
   render() {
     console.log(this.state)
     const { origin, destination, legs, journeyType } = this.state;
-    const deleteOpt = legs > 1;
+    const deleteOpt = legs > 1 && journeyType === 2;
     let inputLegs = [];
     const today = new Date()
     for(let i = 0; i < legs; i++) {

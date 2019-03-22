@@ -45,13 +45,7 @@ const Route = (routeData, reqDatetime) => {
   
   const dataPartsLen = routeData.route_parts.length;
   const routeParts = routeData.route_parts
-    .filter((part, i) => {
-      const durationMins = parseInt(part.duration.split(':')[1]);
-      const isMiddle = i > 0 && i < dataPartsLen - 1;
-
-      return part.mode === 'train' ||
-        (part.mode === 'foot' && (isMiddle || durationMins >= 10));
-    })
+    .filter(part => part.mode === 'train')
     .map(part => RoutePart(part));
   
   routeParts.forEach((part, i) => {

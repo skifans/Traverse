@@ -80,8 +80,11 @@ export default class SearchJourneyForm extends Component{
         children: this.children.current.value,
         railcards: this.railcards.current.value === "Railcard" ? undefined : this.railcards.current.value,
         options: {
-          stepFree: this.stepFree.current.checked,
-          deptAssistance: this.deptAssistance.current.checked,
+          // Forcing the results to show options
+          //stepFree: this.stepFree.current.checked,
+          //deptAssistance: this.deptAssistance.current.checked,
+          stepFree: true,
+          deptAssistance: true,
         }
       };
       console.log(data);

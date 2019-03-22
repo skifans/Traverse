@@ -131,30 +131,72 @@ export default class SearchJourneyForm extends Component{
     })
   }
   handleOriginInput(val, id){
-    this.setState((prevState) => {
-      return {
-        origin: prevState.origin.map((d, i) => {
-          if(i !== id){
-            return d;
-          } else{
-            return val;
-          }
+    if(this.state.journeyType !== 1) {
+        this.setState((prevState) => {
+            return {
+                origin: prevState.origin.map((d, i) => {
+                    if (i !== id) {
+                        return d;
+                    } else {
+                        return val;
+                    }
+                })
+            }
         })
-      }
-    })
+    } else{
+        this.setState((prevState) => {
+            return {
+                origin: prevState.origin.map((d, i) => {
+                    if (i !== id) {
+                        return d;
+                    } else {
+                        return val;
+                    }
+                }),
+                destination:  prevState.destination.map((d, i) => {
+                    if (i === id) {
+                        return d;
+                    } else {
+                        return val;
+                    }
+                })
+            }
+        })
+    }
   }
   handleDestinationInput(val, id){
-    this.setState((prevState) => {
-      return {
-        destination: prevState.destination.map((d, i) => {
-          if(i !== id){
-            return d;
-          } else{
-            return val;
-          }
+    if(this.state.journeyType !== 1) {
+        this.setState((prevState) => {
+            return {
+                destination: prevState.destination.map((d, i) => {
+                    if (i !== id) {
+                        return d;
+                    } else {
+                        return val;
+                    }
+                })
+            }
         })
-      }
-    })
+    } else{
+        this.setState((prevState) => {
+            return {
+                origin: prevState.origin.map((d, i) => {
+                    if (i === id) {
+                        return d;
+                    } else {
+                        return val;
+                    }
+                }),
+                destination:  prevState.destination.map((d, i) => {
+                    if (i !== id) {
+                        return d;
+                    } else {
+                        return val;
+                    }
+                })
+            }
+        })
+    }
   }
   handleSwap(id){
     if(this.state.journeyType === 1){
@@ -272,7 +314,6 @@ export default class SearchJourneyForm extends Component{
 
 
   render() {
-    console.log(this.state)
     const { origin, destination, legs, journeyType } = this.state;
     const deleteOpt = legs > 1 && journeyType === 2;
     let inputLegs = [];
@@ -316,7 +357,6 @@ export default class SearchJourneyForm extends Component{
         />
       );
     }
-
     return (
       <main>
         <div id="search-journey">

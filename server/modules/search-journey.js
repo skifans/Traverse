@@ -27,7 +27,8 @@ module.exports = async formData => {
       });
 
       // Only continue if input for this leg is valid
-      if (Fare.isValidCrs(leg.origin, leg.destination) && leg.datetime) {
+      if (leg.origin && leg.destination && Fare.isValidCrs(leg.origin, leg.destination)) {
+        const warnNoData = type => console.warn(`No ${type} found for ${leg.origin} - ${leg.destination}`);
 
         // Reformat input
         const leg = formData.legs[i];
@@ -58,6 +59,9 @@ module.exports = async formData => {
           }
           response[i].fares = fareData;
           response[i].routes = routeSet;
+
+          if (fareData.length === 0) warnNoData('fares');
+          if (routeSet.routes.length === 0) warnNoData('routes');
         } catch (err) {
           console.log(err);
           response[i].error = true;

@@ -184,17 +184,15 @@ export default class SearchJourneyResults extends Component{
             );
         } else {
 
+            // Checks if the option is requested
             let stepFreeStatus = this.dataReceived[currentLeg].isStepFree;
-            //console.log(this.inputData.options.isStepFree);
             if (this.inputData.options.isStepFree) {
-                
                 stepFreeStatus = undefined;
             }
-
+            
+            // Checks if the option is requested
             let deptAssistanceStatus = this.dataReceived[currentLeg].hasDeptAssistance;
-            //console.log(this.inputData.options.deptAssistance);
             if (!this.inputData.options.deptAssistance) {
-                
                 deptAssistanceStatus = undefined;
             }
 

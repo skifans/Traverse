@@ -50,7 +50,7 @@ const Route = (routeData, reqDatetime) => {
       const isMiddle = i > 0 && i < dataPartsLen - 1;
 
       return part.mode === 'train' ||
-        ((part.mode === 'foot' && isMiddle) || (durationMins >= 10));
+        (part.mode === 'foot' && (isMiddle || durationMins >= 10));
     })
     .map(part => RoutePart(part));
   
@@ -61,7 +61,7 @@ const Route = (routeData, reqDatetime) => {
       const start = toDatetime('0-0-0', part.arrivalTime);
       const end = toDatetime('0-0-0', nextPart.departureTime);
       const waitTimeMins = (end - start) / 1000 / 60;
-      const duration = `${addZero(Math.floor((waitTimeMins / 60) % 24))}:${addZero(Math.floor(waitTimeMins % 60))}`;
+      const duration = `${addZero(Math.floor((waitTimeMins / 60) % 24))}:${addZero(Math.floor(waitTimeMins % 60))}:00`;
 
       routeParts[i].waitDuration = duration;
       routeParts[i].waitTime = waitTimeMins;

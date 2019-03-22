@@ -208,15 +208,19 @@ export default class SearchJourneyResults extends Component{
                             <div id="price">
                                 <p>
                                     Average adult price: £{
+                                        this.dataReceived[currentLeg].fares.fares.length !== 0 ? 
                                         Math.round(
+                                            // Used for summing up the fares. May display incorrect
+                                            // Average if adult doesn't have a price to the fare
                                             this.dataReceived[currentLeg].fares.fares.reduce((sum, fare) => {
-                                                if (fare.isAdult) {
-                                                    return sum + fare.adultPrice;
-                                                } else {
-                                                    return sum;
-                                                }
+                                                return fare.isAdult ? sum + fare.adultPrice : sum;
+                                            
+                                            // Divides the returned sum by the amount of fares
                                             }, 0) / 100 / this.dataReceived[currentLeg].fares.fares.length
-                                            * 100) / 100
+                                            // Rounds to two decimal places
+                                            * 100) / 100 
+                                            // Displays not available if no fares are present
+                                            : "Not available"
                                     }
                                 </p>
                                 <div id="modal">

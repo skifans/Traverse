@@ -22,11 +22,14 @@ export default class SearchJourneyResultsEntryHops extends Component {
     
     render() {
 
-        let waiting = (
-            <div className="wait">
-                <p>Time to wait: XX:XX</p>
-            </div>
-        );
+        let waiting = "";
+        if (this.props.routeParts[this.props.hopNumber].waitDuration !== undefined) {
+            waiting = (
+                <div className="wait">
+                    <p>Time to change: {this.extractTime(this.props.routeParts[this.props.hopNumber].waitDuration)}</p>
+                </div>
+            );
+        }
 
         let bottom = "";
         if (this.props.handleClick !== undefined) {
